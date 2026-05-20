@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@layer base {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f4f4f0;
+    --accent: #5b8cff;
+    --accent-muted: #3d5fa8;
+    --muted: #1a1a1a;
+    --muted-foreground: #9c9c96;
+    --border: #262626;
+  }
+
+  html {
+    @apply h-full scroll-smooth;
+  }
+
+  body {
+    @apply min-h-full bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent text-accent-foreground;
+  }
+}
