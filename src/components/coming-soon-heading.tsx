@@ -44,7 +44,7 @@ export function ComingSoonHeading() {
       className="w-full max-w-full px-4 text-center font-semibold uppercase leading-none tracking-tight text-black"
       style={{ fontSize: `${fontSizeRem}rem` }}
     >
-      Coming soon
+      Website coming soon
     </h1>
   );
 }
