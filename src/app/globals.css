@@ -13,11 +13,11 @@
   }
 
   html {
-    @apply h-full scroll-smooth;
+    @apply h-full scroll-smooth bg-background;
   }
 
   body {
-    @apply min-h-full bg-background text-foreground font-sans antialiased;
+    @apply min-h-screen bg-background text-foreground font-sans antialiased;
   }
 
   ::selection {

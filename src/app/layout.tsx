@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+      <body className="flex min-h-screen flex-col bg-background text-foreground font-sans">
         {children}
       </body>
     </html>
