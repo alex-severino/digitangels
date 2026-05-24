@@ -10,11 +10,11 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: "Digitangels | Brand & UX Design Agency",
+    default: "Digitangels",
     template: "%s | Digitangels",
   },
   description:
-    "Digitangels is a premium brand and UX design agency crafting distinctive identities, digital products, and user experiences for ambitious teams.",
+    "Coming Soon",
   keywords: [
     "brand design",
     "UX design",
@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Digitangels",
-    title: "Digitangels | Brand & UX Design Agency",
+    title: "Digitangels",
     description:
-      "Premium brand and UX design for teams building products people love.",
+      "Coming Soon",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digitangels | Brand & UX Design Agency",
+    title: "Digitangels",
     description:
-      "Premium brand and UX design for teams building products people love.",
+      "Coming Soon",
   },
   robots: {
     index: true,
