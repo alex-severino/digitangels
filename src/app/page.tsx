@@ -4,7 +4,7 @@ import { ComingSoonHeading } from "@/components/coming-soon-heading";
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-1 flex-col">
-      <header className="flex w-full shrink-0 justify-start bg-background px-6 pt-8 pb-6">
+      <header className="flex w-full shrink-0 justify-start bg-[#000000] px-6 pt-8 pb-6">
         <Image
           src="/images/digitangels_logo.png"
           alt="Digitangels"
@@ -14,7 +14,7 @@ export default function Home() {
           className="h-12 w-auto invert"
         />
       </header>
-      <div className="flex-1 bg-background" aria-hidden />
+      <div className="flex-1 bg-[#000000]" aria-hidden />
       <div className="w-full shrink-0 leading-[0]">
         <video
           autoPlay
