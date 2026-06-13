@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { ComingSoonHeading } from "@/components/coming-soon-heading";
+import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-1 flex-col">
-      <header className="flex w-full shrink-0 justify-center bg-[#000000] px-6 pt-8 pb-6">
+      <header className="flex w-full shrink-0 justify-start bg-[#000000] px-6 pt-8 pb-6">
         <Image
           src="/images/digitangels_logo.png"
           alt="Digitangels"
@@ -25,9 +26,12 @@ export default function Home() {
           src="/videos/Hands-Halo.mp4"
         />
       </div>
-      <section className="flex w-full flex-1 flex-col items-center bg-white py-12">
-        <ComingSoonHeading />
-      </section>
+      <div className="flex w-full flex-1 flex-col bg-white">
+        <section className="flex flex-1 flex-col items-center justify-center py-12">
+          <ComingSoonHeading />
+        </section>
+        <SiteFooter />
+      </div>
     </main>
   );
 }
