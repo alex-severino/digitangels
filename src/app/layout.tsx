@@ -11,6 +11,8 @@ const geistSans = Geist({
   display: "swap",
 });
 
+const ICON_VERSION = "2";
+
 export const metadata: Metadata = {
   title: {
     default: "Digitangels",
@@ -47,16 +49,29 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  manifest: `/site.webmanifest?v=${ICON_VERSION}`,
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      {
+        url: `/favicon-32x32.png?v=${ICON_VERSION}`,
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: `/favicon-16x16.png?v=${ICON_VERSION}`,
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: `/icon.png?v=${ICON_VERSION}`,
+        sizes: "192x192",
+        type: "image/png",
+      },
+      { url: `/favicon.ico?v=${ICON_VERSION}`, sizes: "any" },
     ],
     apple: [
       {
-        url: "/apple-touch-icon.png",
+        url: `/apple-touch-icon.png?v=${ICON_VERSION}`,
         sizes: "180x180",
         type: "image/png",
       },
