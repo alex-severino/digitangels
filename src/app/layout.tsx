@@ -11,7 +11,7 @@ const geistSans = Geist({
   display: "swap",
 });
 
-const ICON_VERSION = "2";
+const ICON_VERSION = "3";
 
 export const metadata: Metadata = {
   title: {
