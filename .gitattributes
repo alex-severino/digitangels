@@ -1,1 +1,1 @@
-public/videos/** filter= diff= merge= text
+public/videos/** -text
