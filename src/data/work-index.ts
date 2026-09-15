@@ -1,17 +1,8 @@
-export type WorkFilter =
-  | "featured"
-  | "product"
-  | "branding"
-  | "web"
-  | "art"
-  | "advertising";
-
 export type WorkCard = {
   slug: string;
   title: string;
   thumbnail: string;
   tags: string[];
-  filters: Array<"featured" | "product" | "branding" | "web">;
 };
 
 export const WORK_INTRO =
@@ -26,123 +17,56 @@ export const ART_COLLAB =
 export const ADVERTISING_INTRO =
   "Before entering Tech I had a 10+ years design career in advertising as an award-winning Brand and Art Director in such renowned international agencies as TBWA, DDB and Starcom, working with clients like Coca-Cola, Nestle, Finlandia, Yamaha, among others. I led the end-to-end visual strategy from concept to execution, art-directed photo / video shoots and post-production, and managed large global design and production teams.";
 
-export const workFilters: {
-  id: WorkFilter;
-  label: string;
-  href: string;
-}[] = [
-  { id: "featured", label: "FEATURED", href: "/projects" },
-  { id: "product", label: "PRODUCT", href: "/product" },
-  {
-    id: "branding",
-    label: "BRANDING & DESIGN SYSTEMS",
-    href: "/branding-design-systems",
-  },
-  { id: "web", label: "WEB", href: "/web" },
-  { id: "advertising", label: "ADVERTISING", href: "/advertising" },
-];
-
 export const workCards: WorkCard[] = [
   {
     slug: "art-workers-united",
     title: "Arts Workers United",
     thumbnail: "/work/thumbnails/art-workers-united.mp4",
     tags: ["WEB DESIGN", "WEBFLOW / NO CODE", "DESIGN MANAGEMENT"],
-    filters: ["featured", "product", "web"],
   },
   {
     slug: "digitangels",
     title: "Digitangels",
     thumbnail: "/work/thumbnails/digitangels.mp4",
     tags: ["BRANDING", "DIGITAL DESIGN", "VISUAL DESIGN"],
-    filters: ["featured", "branding"],
   },
   {
     slug: "giclee-club-branding",
     title: "Giclée Club: Branding",
     thumbnail: "/work/thumbnails/giclee-club-branding.mp4",
     tags: ["BRANDING", "PRODUCT BRANDING", "BRANDING IN UX"],
-    filters: ["featured", "branding"],
   },
   {
     slug: "giclee-club-ecommerce",
     title: "Giclée Club: E-Comm Platform",
     thumbnail: "/work/thumbnails/giclee-club-ecommerce.mp4",
     tags: ["E-COMMERCE", "WEB DESIGN", "RESPONSIVE DESIGN"],
-    filters: ["featured", "product", "web"],
   },
   {
-    slug: "alex-de-alma",
-    title: "Alex de Alma",
+    slug: "velvet-horizon",
+    title: "Velvet Horizon",
     thumbnail: "/work/thumbnails/alex-de-alma.mp4",
     tags: ["BRANDING", "VISUAL DESIGN", "DIGITAL DESIGN"],
-    filters: ["featured", "branding"],
   },
   {
     slug: "designwise",
     title: "Designwise",
     thumbnail: "/work/thumbnails/designwise.mp4",
     tags: ["WEB DESIGN", "VISUAL DESIGN", "RESPONSIVE DESIGN"],
-    filters: ["featured", "web"],
   },
   {
     slug: "crowdy-house",
     title: "CrowdyHouse",
     thumbnail: "/work/thumbnails/crowdy-house.mp4",
     tags: ["MVP CONCEPT", "STARTUP", "BRANDING"],
-    filters: ["featured", "product", "branding"],
   },
   {
     slug: "hypernode",
     title: "Hypernode",
     thumbnail: "/work/thumbnails/hypernode.mp4",
     tags: ["E-COMMERCE", "WEB PLATFORM", "RESPONSIVE DESIGN"],
-    filters: ["featured", "product", "web"],
   },
 ];
-
-const filterOrder: Record<
-  "featured" | "product" | "branding" | "web",
-  string[]
-> = {
-  featured: [
-    "art-workers-united",
-    "digitangels",
-    "giclee-club-branding",
-    "giclee-club-ecommerce",
-    "alex-de-alma",
-    "designwise",
-    "crowdy-house",
-    "hypernode",
-  ],
-  product: [
-    "art-workers-united",
-    "giclee-club-ecommerce",
-    "crowdy-house",
-    "hypernode",
-  ],
-  branding: [
-    "giclee-club-branding",
-    "alex-de-alma",
-    "digitangels",
-    "crowdy-house",
-  ],
-  web: [
-    "art-workers-united",
-    "giclee-club-ecommerce",
-    "hypernode",
-    "designwise",
-  ],
-};
-
-export function getWorkCards(
-  filter: "featured" | "product" | "branding" | "web",
-) {
-  const bySlug = new Map(workCards.map((card) => [card.slug, card]));
-  return filterOrder[filter]
-    .map((slug) => bySlug.get(slug))
-    .filter((card): card is WorkCard => Boolean(card));
-}
 
 export const artTags = [
   "DIGITAL ART",

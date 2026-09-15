@@ -24,16 +24,6 @@ export function WorkGrid({ cards }: { cards: WorkCard[] }) {
                 }`}
               />
             </div>
-            <div className="mt-2.5 flex flex-wrap gap-[7px] sm:gap-[12px]">
-              {card.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center justify-center rounded-full border border-[#979797] px-3.5 py-1.5 text-[13px] font-medium text-[#979797] sm:text-[15px]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </Link>
         </li>
       ))}

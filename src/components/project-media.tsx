@@ -61,9 +61,11 @@ export function Media({
 function DualRow({
   items,
   priority = false,
+  flush = false,
 }: {
   items: MediaItem[];
   priority?: boolean;
+  flush?: boolean;
 }) {
   const [ratios, setRatios] = useState<(number | null)[]>(() =>
     items.map(() => null),
@@ -76,7 +78,9 @@ function DualRow({
       {items.map((item, index) => (
         <div
           key={item.src}
-          className="min-w-0 w-full"
+          className={`min-w-0 w-full ${
+            !flush && index < items.length - 1 ? "mb-[1%] md:mb-0" : ""
+          }`}
           style={
             ready
               ? {
@@ -229,7 +233,7 @@ export function ProjectBlocks({
               style={spacing}
             >
               {block.items.length > 1 ? (
-                <DualRow items={block.items} priority={i === 0} />
+                <DualRow items={block.items} priority={i === 0} flush={flush} />
               ) : (
                 <Media
                   item={block.items[0]}

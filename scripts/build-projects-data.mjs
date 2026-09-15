@@ -137,7 +137,7 @@ const projects = [ecommerce];
 for (const slug of slugs) {
   const data = loadHarvest(slug);
   const title =
-    slug === "alex-de-alma" ? "Alex de Alma / Velvet Horizon" : data.title;
+    slug === "alex-de-alma" ? "Velvet Horizon" : data.title;
   projects.push({
     slug: data.slug,
     folder: data.folder,

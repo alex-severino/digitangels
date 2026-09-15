@@ -1,10 +1,17 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { ProjectPageView } from "@/components/project-page";
 import { getProject, projects } from "@/data/projects";
 
+const SLUG_ALIASES: Record<string, string> = {
+  "alex-de-alma": "velvet-horizon",
+};
+
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return [
+    ...projects.map((project) => ({ slug: project.slug })),
+    ...Object.keys(SLUG_ALIASES).map((slug) => ({ slug })),
+  ];
 }
 
 export async function generateMetadata({
@@ -13,6 +20,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const canonical = SLUG_ALIASES[slug];
+  if (canonical) return {};
   const project = getProject(slug);
   if (!project) return { title: "Project" };
   return {
@@ -27,6 +36,8 @@ export default async function WorkProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const canonical = SLUG_ALIASES[slug];
+  if (canonical) permanentRedirect(`/projects/${canonical}`);
   const project = getProject(slug);
   if (!project) notFound();
   return <ProjectPageView project={project} />;
