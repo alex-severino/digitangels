@@ -15,7 +15,7 @@ export function ProjectPageView({ project }: { project: Project }) {
 
           <section className="grid gap-10 px-5 py-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)] md:gap-16 md:px-10 md:py-16">
             <div>
-              <h1 className="mb-6 text-[28px] font-semibold tracking-tight md:text-[36px]">
+              <h1 className="mb-6 text-[22px] font-semibold tracking-tight md:text-[36px]">
                 {project.title}
               </h1>
               <p className="max-w-3xl text-[15px] leading-7 text-black/80 md:text-[16px] md:leading-8">
@@ -92,7 +92,7 @@ export function ProjectPageView({ project }: { project: Project }) {
         </>
       ) : (
         <section className="px-5 py-24 md:px-10">
-          <h1 className="mb-6 text-[28px] font-semibold tracking-tight md:text-[36px]">
+          <h1 className="mb-6 text-[22px] font-semibold tracking-tight md:text-[36px]">
             {project.title}
           </h1>
           <p className="max-w-2xl text-[15px] leading-7 text-black/70">

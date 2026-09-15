@@ -17,12 +17,15 @@ const SLUG_ALIASES: Record<string, string> = {
 };
 
 function toTitleCase(value: string) {
-  return value.replace(/[^\s:]+/g, (word) =>
-    word.replace(
-      /([A-Za-zÀ-ÿ])([A-Za-zÀ-ÿ']*)/g,
-      (_, first: string, rest: string) => first.toUpperCase() + rest.toLowerCase(),
-    ),
-  );
+  return value.replace(/[^\s:]+/g, (word) => {
+    const i = word.search(/[A-Za-zÀ-ÿ]/);
+    if (i < 0) return word;
+    return (
+      word.slice(0, i) +
+      word.charAt(i).toUpperCase() +
+      word.slice(i + 1).toLowerCase()
+    );
+  });
 }
 
 function pageLabelFromPath(pathname: string) {
@@ -104,7 +107,7 @@ export function SiteHeader() {
               width={240}
               height={80}
               priority
-              className="h-14 w-auto invert md:h-[72px]"
+              className="h-[24px] w-auto invert md:h-[72px]"
             />
           </Link>
 
@@ -116,8 +119,10 @@ export function SiteHeader() {
                 setHidden(false);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`absolute inset-x-24 truncate text-center text-[16px] font-bold tracking-tight text-white sm:inset-x-32 sm:text-[19px] md:inset-x-44 md:text-[24px] ${
-                pageLabel.uppercase ? "uppercase" : ""
+              className={`absolute inset-x-16 truncate text-center font-bold tracking-tight text-white sm:inset-x-32 md:inset-x-44 ${
+                pageLabel.uppercase
+                  ? "text-[16px] uppercase sm:text-[19px] md:text-[24px]"
+                  : "text-[13px] sm:text-[15px] md:text-[24px]"
               }`}
             >
               {pageLabel.label}

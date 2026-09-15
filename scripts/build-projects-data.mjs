@@ -76,7 +76,7 @@ function loadHarvest(slug) {
 const ecommerce = {
   slug: "giclee-club-ecommerce",
   folder: "giclee_club_ecommerce",
-  title: "Giclée Club: E-Commerce Platform",
+  title: "Giclée Club: E-comm",
   description:
     "As the Design Director and Product Designer for Giclée Club, I shaped the platform into a leading e-commerce destination for visual artists. My role was to ensure that every aspect of the platform was aligned with the brand strategy, and worked seamlessly making it easy for artists to print and sell their work as Fine Art prints. I led the design efforts from start to finish, creating a user experience that reflected the high standards of Giclée printing. My goal was to make the platform intuitive and visually appealing, ensuring it met the needs of artists who care about quality and presentation. The main challenge was balancing aesthetics with functionality, creating a space where art and technology come together effortlessly. The result is an e-commerce platform that artists can trust to print and sell their work, all while maintaining the highest level of quality.",
   link: { label: "GICLEECLUB.COM", href: "https://gicleeclub.com" },

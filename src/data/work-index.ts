@@ -38,7 +38,7 @@ export const workCards: WorkCard[] = [
   },
   {
     slug: "giclee-club-ecommerce",
-    title: "Giclée Club: E-Comm Platform",
+    title: "Giclée Club: E-comm",
     thumbnail: "/work/thumbnails/giclee-club-ecommerce.mp4",
     tags: ["E-COMMERCE", "WEB DESIGN", "RESPONSIVE DESIGN"],
   },
