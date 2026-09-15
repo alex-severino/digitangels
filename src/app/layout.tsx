@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import Script from "next/script";
+import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-EM0PRR5HBE";
@@ -102,6 +103,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+        <SiteHeader />
         {children}
       </body>
     </html>
