@@ -1,60 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { LazyVideo } from "@/components/lazy-video";
 import type { MediaItem, MediaRow, ProjectBlock } from "@/data/projects";
-
-function AutoVideo({
-  src,
-  className,
-  onAspect,
-}: {
-  src: string;
-  className?: string;
-  onAspect?: (ratio: number) => void;
-}) {
-  const ref = useRef<HTMLVideoElement>(null);
-  const onAspectRef = useRef(onAspect);
-  onAspectRef.current = onAspect;
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    el.muted = true;
-    el.play().catch(() => {});
-
-    const report = () => {
-      if (el.videoWidth > 0 && el.videoHeight > 0) {
-        onAspectRef.current?.(el.videoWidth / el.videoHeight);
-      }
-    };
-    report();
-    el.addEventListener("loadedmetadata", report);
-    return () => el.removeEventListener("loadedmetadata", report);
-  }, [src]);
-
-  return (
-    <video
-      ref={ref}
-      className={className ?? "block h-auto w-full"}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-    >
-      <source src={src} type="video/mp4" />
-    </video>
-  );
-}
 
 export function Media({
   item,
   className,
   onAspect,
+  priority = false,
 }: {
   item: MediaItem;
   className?: string;
   onAspect?: (ratio: number) => void;
+  priority?: boolean;
 }) {
   const imgRef = useRef<HTMLImageElement>(null);
   const onAspectRef = useRef(onAspect);
@@ -75,7 +34,14 @@ export function Media({
   }, [item.src, item.type]);
 
   if (item.type === "video") {
-    return <AutoVideo src={item.src} className={className} onAspect={onAspect} />;
+    return (
+      <LazyVideo
+        src={item.src}
+        className={className}
+        onAspect={onAspect}
+        eager={priority}
+      />
+    );
   }
 
   return (
@@ -85,12 +51,20 @@ export function Media({
       src={item.src}
       alt=""
       className={className ?? "block h-auto w-full"}
-      loading="eager"
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      fetchPriority={priority ? "high" : "auto"}
     />
   );
 }
 
-function DualRow({ items }: { items: MediaItem[] }) {
+function DualRow({
+  items,
+  priority = false,
+}: {
+  items: MediaItem[];
+  priority?: boolean;
+}) {
   const [ratios, setRatios] = useState<(number | null)[]>(() =>
     items.map(() => null),
   );
@@ -116,6 +90,7 @@ function DualRow({ items }: { items: MediaItem[] }) {
           <Media
             item={item}
             className="block h-auto w-full"
+            priority={priority}
             onAspect={(ratio) => {
               setRatios((prev) => {
                 if (prev[index] === ratio) return prev;
@@ -149,7 +124,7 @@ export function ProjectGallery({
         if (row.length > 1) {
           return (
             <div key={i} style={spacing}>
-              <DualRow items={row} />
+              <DualRow items={row} priority={i === 0} />
             </div>
           );
         }
@@ -157,7 +132,7 @@ export function ProjectGallery({
         return (
           <div key={i} className="flex w-full" style={spacing}>
             <div className="w-full">
-              <Media item={row[0]} />
+              <Media item={row[0]} priority={i === 0} />
             </div>
           </div>
         );
@@ -228,7 +203,11 @@ export function ProjectBlocks({
                   block.inset ? "w-[min(100%,1040px)] px-5" : "w-full"
                 }`}
               >
-                <Media item={block.media} className="block h-auto w-full" />
+                <Media
+                  item={block.media}
+                  className="block h-auto w-full"
+                  priority={i === 0}
+                />
                 {block.caption ? (
                   <p
                     className="mx-auto mt-6 max-w-[940px] text-center text-[15px] leading-7 md:text-[17px] md:leading-8"
@@ -250,9 +229,13 @@ export function ProjectBlocks({
               style={spacing}
             >
               {block.items.length > 1 ? (
-                <DualRow items={block.items} />
+                <DualRow items={block.items} priority={i === 0} />
               ) : (
-                <Media item={block.items[0]} className="block h-auto w-full" />
+                <Media
+                  item={block.items[0]}
+                  className="block h-auto w-full"
+                  priority={i === 0}
+                />
               )}
             </div>
           );
@@ -271,7 +254,11 @@ export function ProjectBlocks({
             >
               <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-12 md:grid-cols-2 md:gap-12 md:px-10 md:py-16">
                 <div className={mediaFirst ? "order-1" : "order-1 md:order-2"}>
-                  <Media item={block.media} className="block h-auto w-full" />
+                  <Media
+                    item={block.media}
+                    className="block h-auto w-full"
+                    priority={i === 0}
+                  />
                 </div>
                 <div className={mediaFirst ? "order-2" : "order-2 md:order-1"}>
                   <SectionCopy
@@ -297,7 +284,11 @@ export function ProjectBlocks({
           >
             <div className="mx-auto grid max-w-[1200px] items-start gap-8 px-6 py-12 md:grid-cols-2 md:gap-10 md:px-10 md:py-16">
               <div className={mediaFirst ? "order-1" : "order-1 md:order-2"}>
-                <Media item={block.primary} className="block h-auto w-full" />
+                <Media
+                  item={block.primary}
+                  className="block h-auto w-full"
+                  priority={i === 0}
+                />
               </div>
               <div
                 className={`flex flex-col gap-6 ${
