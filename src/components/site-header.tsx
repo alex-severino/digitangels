@@ -72,12 +72,10 @@ export function SiteHeader() {
 
           <button
             type="button"
-            tabIndex={-1}
-            aria-hidden="true"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="invisible pointer-events-none absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8"
+            className="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8"
           >
             <span className="relative block h-[18px] w-[26px]">
               <span
