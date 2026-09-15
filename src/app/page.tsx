@@ -24,7 +24,7 @@ export default function Home() {
           muted
           playsInline
           className="block h-auto w-full"
-          src="/videos/Hands-Halo.mp4"
+          src="/videos/Hands-Halo.mp4?v=2"
         />
       </div>
 
