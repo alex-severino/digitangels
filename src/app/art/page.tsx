@@ -43,7 +43,6 @@ function PosterRow({
 export default function ArtPage() {
   return (
     <WorkShell
-      active="art"
       sectionIntro={ART_INTRO}
       links={artLinks}
       tags={artTags}

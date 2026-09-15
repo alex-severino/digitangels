@@ -1,51 +1,9 @@
-"use client";
-
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { workFilters, type WorkFilter } from "@/data/work-index";
-
-export function WorkFilterNav({ active }: { active: WorkFilter }) {
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setReady(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  return (
-    <nav className="mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-5 md:gap-x-8">
-      {workFilters.map((filter) => {
-        const isActive = filter.id === active;
-        return (
-          <Link
-            key={filter.id}
-            href={filter.href}
-            className="group relative pb-1 text-[16px] tracking-[0.02em] text-black md:text-[20px]"
-          >
-            {filter.label}
-            <span
-              aria-hidden
-              className={`absolute bottom-0 left-0 h-[1.5px] w-full origin-left bg-black transition-transform duration-500 ease-out ${
-                isActive && ready
-                  ? "scale-x-100"
-                  : "scale-x-0 group-hover:scale-x-100"
-              }`}
-            />
-          </Link>
-        );
-      })}
-    </nav>
-  );
-}
-
 export function WorkShell({
-  active,
   children,
   sectionIntro,
   tags,
   links,
 }: {
-  active: WorkFilter;
   children: React.ReactNode;
   sectionIntro?: string;
   tags?: string[];
@@ -53,12 +11,8 @@ export function WorkShell({
 }) {
   return (
     <main className="min-h-screen bg-white text-black">
-      <section className="mx-auto max-w-[1440px] px-5 pb-20 pt-12 md:px-[75px] md:pt-16">
-        <h1 className="mb-10 text-center text-[40px] font-normal leading-none tracking-tight text-black md:mb-12 md:text-[64px]">
-          Projects
-        </h1>
-
-        <WorkFilterNav active={active} />
+      <section className="mx-auto max-w-[1440px] px-5 pb-20 pt-8 md:px-[75px] md:pt-10">
+        <h1 className="sr-only">Projects</h1>
 
         {sectionIntro ? (
           <p className="mx-auto mb-6 max-w-[1310px] text-[15px] leading-[1.35] text-black/75 md:text-[16px]">

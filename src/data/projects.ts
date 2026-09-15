@@ -305,9 +305,9 @@ export const projects: Project[] = [
     ]
   },
   {
-    "slug": "alex-de-alma",
+    "slug": "velvet-horizon",
     "folder": "alexdealma",
-    "title": "Alex de Alma",
+    "title": "Velvet Horizon",
     "description": "For the debut album \"Velvet Horizon\" by a one-man band, I crafted a brand identity that reflects the album's exploration of love, fears, dreams, and societal expectations. The visual motif centres on the contrast between the clear and blurred horizon, symbolising the album's thematic ambiguity. To amplify the disruptive nature of the music artist, I used bold, explosive colours traditionally associated with femininity. This design approach captures the album’s essence, blending clarity with obscurity to mirror the complex emotions and societal boundaries the artist explores.",
     "roles": [
       "CREATIVE STRATEGY",

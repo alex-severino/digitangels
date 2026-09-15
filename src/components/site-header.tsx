@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { workCards } from "@/data/work-index";
 
 const NAV_LINKS = [
   { href: "/projects", label: "Projects" },
@@ -11,9 +12,35 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+const SLUG_ALIASES: Record<string, string> = {
+  "alex-de-alma": "velvet-horizon",
+};
+
+function toTitleCase(value: string) {
+  return value.replace(/[^\s:]+/g, (word) =>
+    word.replace(
+      /([A-Za-zÀ-ÿ])([A-Za-zÀ-ÿ']*)/g,
+      (_, first: string, rest: string) => first.toUpperCase() + rest.toLowerCase(),
+    ),
+  );
+}
+
+function pageLabelFromPath(pathname: string) {
+  const exact = NAV_LINKS.find((link) => link.href === pathname);
+  if (exact) return { label: exact.label, uppercase: true };
+
+  const match = pathname.match(/^\/projects\/([^/]+)\/?$/);
+  if (!match) return null;
+  const slug = SLUG_ALIASES[match[1]] ?? match[1];
+  const title = workCards.find((card) => card.slug === slug)?.title;
+  if (!title) return null;
+  return { label: toTitleCase(title), uppercase: false };
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const hideMenu = pathname === "/";
+  const pageLabel = pageLabelFromPath(pathname);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
@@ -65,17 +92,37 @@ export function SiteHeader() {
           hidden && !open ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <div className="relative flex h-16 items-center justify-center px-5 md:h-[72px] md:px-8">
-          <Link href="/" className="relative z-10" onClick={() => setOpen(false)}>
+        <div className="relative flex h-20 items-center justify-start px-5 md:h-[108px] md:px-8">
+          <Link
+            href="/"
+            className="relative z-10 shrink-0"
+            onClick={() => setOpen(false)}
+          >
             <Image
               src="/images/digitangels_logo.png"
               alt="Digitangels"
               width={240}
               height={80}
               priority
-              className="h-8 w-auto invert md:h-10"
+              className="h-14 w-auto invert md:h-[72px]"
             />
           </Link>
+
+          {pageLabel ? (
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                setHidden(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className={`absolute inset-x-24 truncate text-center text-[16px] font-bold tracking-tight text-white sm:inset-x-32 sm:text-[19px] md:inset-x-44 md:text-[24px] ${
+                pageLabel.uppercase ? "uppercase" : ""
+              }`}
+            >
+              {pageLabel.label}
+            </button>
+          ) : null}
 
           <button
             type="button"
@@ -112,7 +159,7 @@ export function SiteHeader() {
         </div>
       </header>
 
-      <div className="h-16 shrink-0 md:h-[72px]" aria-hidden />
+      <div className="h-20 shrink-0 md:h-[108px]" aria-hidden />
 
       <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 ${
@@ -141,7 +188,7 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-[24px] font-medium tracking-tight text-white transition-opacity hover:opacity-70 md:text-[32px]"
+                className="text-[24px] font-medium uppercase tracking-tight text-white transition-opacity hover:opacity-70 md:text-[32px]"
               >
                 {link.label}
               </Link>

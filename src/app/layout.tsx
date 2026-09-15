@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Digitangels",
   },
   description:
-    "Coming Soon",
+    "Design Transformation Advisory",
   keywords: [
     "brand design",
     "UX design",
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     siteName: "Digitangels",
     title: "Digitangels",
     description:
-      "Coming Soon",
+      "Design Transformation Advisory",
   },
   twitter: {
     card: "summary_large_image",
     title: "Digitangels",
     description:
-      "Coming Soon",
+      "Design Transformation Advisory",
   },
   robots: {
     index: true,
