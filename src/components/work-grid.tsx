@@ -8,7 +8,7 @@ export function WorkGrid({ cards }: { cards: WorkCard[] }) {
       {cards.map((card, index) => (
         <li key={card.slug}>
           <Link href={`/projects/${card.slug}`} className="group block">
-            <h2 className="mb-3 text-[36px] font-medium tracking-tight text-black md:text-[40px]">
+            <h2 className="mb-3 text-[29px] font-medium tracking-tight text-black md:text-[40px]">
               {card.title}
             </h2>
             <div
