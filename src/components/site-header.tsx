@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
@@ -11,8 +12,14 @@ const NAV_LINKS = [
 ] as const;
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const hideMenu = pathname === "/";
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    if (hideMenu) setOpen(false);
+  }, [hideMenu]);
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -72,12 +79,17 @@ export function SiteHeader() {
 
           <button
             type="button"
-            tabIndex={-1}
-            aria-hidden="true"
+            tabIndex={hideMenu ? -1 : undefined}
+            aria-hidden={hideMenu}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="invisible pointer-events-none absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8"
+            onClick={() => {
+              if (hideMenu) return;
+              setOpen((v) => !v);
+            }}
+            className={`absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8 ${
+              hideMenu ? "invisible pointer-events-none" : ""
+            }`}
           >
             <span className="relative block h-[18px] w-[26px]">
               <span
