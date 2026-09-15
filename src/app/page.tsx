@@ -18,14 +18,15 @@ export default function Home() {
   return (
     <main className="flex w-full flex-1 flex-col overflow-x-hidden bg-white md:min-h-screen">
       <div className="w-full shrink-0 leading-[0]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="block h-auto w-full"
-          src="/videos/Hands-Halo.mp4?v=2"
-        />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="block h-auto w-full"
+            src="/videos/Hands-Halo.mp4?v=2"
+          />
       </div>
 
       <section className="flex flex-col items-center px-4 py-8 text-center sm:py-10 md:flex-1 md:justify-center md:px-8 md:py-14">

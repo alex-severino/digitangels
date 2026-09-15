@@ -14,16 +14,24 @@ export const metadata: Metadata = {
   description: "POSTERESS — graphic design and typography by Digitangels.",
 };
 
-function PosterRow({ images }: { images: string[] }) {
+function PosterRow({
+  images,
+  preloadFirst = false,
+}: {
+  images: string[];
+  preloadFirst?: boolean;
+}) {
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-      {images.map((src) => (
+      {images.map((src, index) => (
         <div key={src} className="overflow-hidden bg-black/5">
           <Image
             src={src}
             alt=""
             width={714}
             height={1020}
+            sizes="(max-width: 768px) 50vw, 25vw"
+            preload={preloadFirst && index === 0}
             className="h-auto w-full object-cover"
           />
         </div>
@@ -41,7 +49,7 @@ export default function ArtPage() {
       tags={artTags}
     >
       <div className="space-y-10 md:space-y-14">
-        <PosterRow images={artImages.row1} />
+        <PosterRow images={artImages.row1} preloadFirst />
 
         <div className="mx-auto max-w-[941px] overflow-hidden">
           <Image
@@ -49,6 +57,7 @@ export default function ArtPage() {
             alt=""
             width={2048}
             height={1461}
+            sizes="(max-width: 941px) 100vw, 941px"
             className="h-auto w-full object-cover"
           />
         </div>
