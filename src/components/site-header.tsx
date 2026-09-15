@@ -107,7 +107,9 @@ export function SiteHeader() {
               width={240}
               height={80}
               priority
-              className="h-[24px] w-auto invert md:h-[72px]"
+              className={`w-auto invert md:h-[72px] ${
+                hideMenu ? "h-[30px]" : "h-[24px]"
+              }`}
             />
           </Link>
 
