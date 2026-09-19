@@ -41,7 +41,7 @@ function FitLine({ text }: { text: string }) {
 
 export function HomeSlogan() {
   return (
-    <h1 className="w-full px-8 text-center md:px-16 lg:px-24">
+    <h1 className="w-full min-w-0 px-8 text-center md:px-16 lg:px-24">
       <span className="block md:hidden">
         <FitLine text="Design" />
         <FitLine text="Transformation" />
