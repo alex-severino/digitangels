@@ -1,0 +1,23 @@
+---
+description: When the user says "push", commit and push main only
+alwaysApply: true
+---
+
+# Push Workflow
+
+Always work on `main`. There is no `staging` branch.
+
+## Default: "push"
+
+When the user says **push** (or "push all branches"), run this exact workflow — not a bare `git push`:
+
+1. **Commit** all local changes on `main` (stage everything relevant, write a clear commit message)
+2. **Push** `main` to origin (`git push -u origin main`)
+
+Do not skip the commit step. There is no staging merge — work and deploy from `main` only.
+
+## Variants
+
+- Any other phrasing (e.g. "just commit", "merge only") — follow exactly what they specify
+
+When in doubt, bare **push** means commit on `main` and push `main`.
