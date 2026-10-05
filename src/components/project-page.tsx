@@ -13,7 +13,9 @@ function ProjectIntroCopy({ project }: { project: Project }) {
             href={project.link.href}
             target="_blank"
             rel="noreferrer"
-            className="text-[26px] font-bold tracking-[0.08em] text-[#6B21A8] underline-offset-4 hover:underline"
+            className={`text-[26px] font-bold tracking-[0.08em] underline-offset-4 hover:underline ${
+              project.slug === "hypernode" ? "text-[#004179]" : "text-[#6B21A8]"
+            }`}
           >
             {project.link.label}
           </a>
