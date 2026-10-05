@@ -4,7 +4,7 @@ import { ProjectBlocks, ProjectGallery } from "@/components/project-media";
 function ProjectIntroCopy({ project }: { project: Project }) {
   return (
     <div>
-      <p className="text-[15px] leading-[1.35] text-black/80 md:text-[16px]">
+      <p className="text-[19.95px] leading-[1.35] text-black md:text-[21.28px]">
         {project.description}
       </p>
       {project.link ? (
@@ -31,7 +31,7 @@ function ProjectDisciplines({ roles }: { roles: string[] }) {
       {roles.map((role) => (
         <li
           key={role}
-          className="text-[12px] font-medium leading-[1.35] tracking-[0.06em] text-black/70"
+          className="text-[15.96px] font-medium leading-[1.35] tracking-[0.06em] text-black"
         >
           {role}
         </li>
@@ -43,7 +43,7 @@ function ProjectDisciplines({ roles }: { roles: string[] }) {
 function ProjectIntroRow({ project }: { project: Project }) {
   return (
     <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 md:flex-row md:items-start md:justify-center md:gap-20">
-      <div className="w-full min-w-0 md:w-1/2">
+      <div className="w-full min-w-0 md:w-[57.5%]">
         <ProjectIntroCopy project={project} />
       </div>
       <ProjectDisciplines roles={project.roles} />
