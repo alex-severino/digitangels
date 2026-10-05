@@ -759,7 +759,7 @@ export const projects: Project[] = [
     "slug": "digitangels",
     "folder": "digitangels",
     "title": "Digitangels",
-    "description": "Digitangels is a Design Transformation advisory that integrates creativity and technology across digital innovation. We developed a branding strategy and visual identity that reflects the mission to guide businesses, start-ups, and entrepreneurs through the complexities of digital and product design, management, and marketing. The name \"Digitangels\" inspired a theme of angelic digital assistance, brought to life with a halo as the central branding element. The design features monochromatic, futuristic patterns and floating abstract shapes, symbolising the challenging, ever-evolving digital landscape that Digitangels helps clients navigate and conquer.",
+    "description": "Digitangels is a Design Transformation advisory that integrates creativity and technology across digital innovation. We developed a branding strategy and visual identity that reflects our mission to guide businesses, start-ups, and entrepreneurs through the complexities of digital and product design, management, and marketing. The name \"Digitangels\" inspired a theme of angelic digital assistance, brought to life with a halo as the central branding element. Our design features monochromatic, futuristic patterns and floating abstract shapes, symbolising the challenging, ever-evolving digital landscape that Digitangels helps clients navigate and conquer.",
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
