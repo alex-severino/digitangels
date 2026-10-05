@@ -13,7 +13,7 @@ function ProjectIntroCopy({ project }: { project: Project }) {
             href={project.link.href}
             target="_blank"
             rel="noreferrer"
-            className="text-[13px] font-semibold tracking-[0.08em] text-[#6B21A8] underline-offset-4 hover:underline"
+            className="text-[26px] font-bold tracking-[0.08em] text-[#6B21A8] underline-offset-4 hover:underline"
           >
             {project.link.label}
           </a>
@@ -66,7 +66,7 @@ export function ProjectPageView({ project }: { project: Project }) {
         <>
           <ProjectGallery rows={[introRow]} isLastSection={false} />
 
-          <section className="px-5 py-8 md:px-[75px] md:py-10">
+          <section className="bg-white px-5 py-8 md:px-[75px] md:py-10">
             <ProjectIntroRow project={project} />
           </section>
 
@@ -83,7 +83,7 @@ export function ProjectPageView({ project }: { project: Project }) {
           )}
         </>
       ) : (
-        <section className="px-5 py-24 md:px-[75px]">
+        <section className="bg-white px-5 py-24 md:px-[75px]">
           <ProjectIntroRow project={project} />
         </section>
       )}

@@ -46,9 +46,9 @@ function PillRow({ labels }: { labels: readonly string[] }) {
 
 export default function Home() {
   return (
-    <main className="w-full bg-white">
-      <section className="relative flex min-h-[calc(100svh-5rem)] w-full flex-col md:min-h-[calc(100svh-108px)]">
-        <div className="flex w-full shrink-0 items-center justify-center leading-[0]">
+    <main className="w-full bg-black">
+      <section className="relative flex min-h-[calc(100svh-5rem)] w-full flex-col bg-white md:min-h-[calc(100svh-108px)]">
+        <div className="flex w-full shrink-0 items-center justify-center bg-black leading-[0]">
           <video
             autoPlay
             loop
@@ -60,7 +60,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex flex-1 flex-col items-center px-4 pb-16 pt-2 text-center md:px-5 md:pb-20 md:pt-3">
+        <div className="flex flex-1 flex-col items-center bg-white px-4 pb-16 pt-2 text-center md:px-5 md:pb-20 md:pt-3">
           <Link
             href="/digitangels"
             className="group inline-flex items-center gap-2 self-end pb-1.5 text-[14px] font-semibold tracking-[0.18em] text-black sm:text-[16px] md:text-[18px]"
@@ -236,7 +236,7 @@ export default function Home() {
         <ContactForm />
       </section>
 
-      <section className="w-full leading-[0]">
+      <section className="w-full bg-black leading-[0]">
         <Image
           src="/projects/digitangels/15.png"
           alt="Digitangels wordmark on fabric"

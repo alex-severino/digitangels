@@ -3,7 +3,7 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="w-full bg-black px-5 py-10 text-center text-white">
-      <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[13px] font-medium tracking-[0.06em] md:text-[14px]">
+      <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[13px] font-medium uppercase tracking-[0.06em] md:text-[14px]">
         <Link href="/terms" className="underline-offset-4 hover:underline">
           Terms and Conditions
         </Link>

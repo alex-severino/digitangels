@@ -147,22 +147,22 @@ export function SiteHeader() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="absolute right-5 top-1/2 z-10 flex h-16 w-16 -translate-y-1/2 items-center justify-center md:right-8"
+            className="absolute right-5 top-1/2 z-10 flex h-[51px] w-[51px] -translate-y-1/2 cursor-pointer items-center justify-center md:right-8"
           >
-            <span className="relative block h-[36px] w-[52px]">
+            <span className="relative block h-[28.8px] w-[41.6px]">
               <span
-                className={`absolute left-0 block h-[6px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
-                  open ? "top-[15px] rotate-45" : "top-0 rotate-0"
+                className={`absolute left-0 block h-[4.8px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                  open ? "top-[12px] rotate-45" : "top-0 rotate-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-[15px] block h-[6px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                className={`absolute left-0 top-[12px] block h-[4.8px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
                   open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[6px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
-                  open ? "top-[15px] -rotate-45" : "top-[30px] rotate-0"
+                className={`absolute left-0 block h-[4.8px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                  open ? "top-[12px] -rotate-45" : "top-[24px] rotate-0"
                 }`}
               />
             </span>
@@ -170,7 +170,7 @@ export function SiteHeader() {
         </div>
       </header>
 
-      <div className="h-20 shrink-0 md:h-[108px]" aria-hidden />
+      <div className="h-20 shrink-0 bg-black md:h-[108px]" aria-hidden />
 
       <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 ${
@@ -216,14 +216,14 @@ export function SiteHeader() {
             <Link
               href="/terms"
               onClick={() => setOpen(false)}
-              className="transition-opacity hover:text-white hover:opacity-100"
+              className="uppercase transition-opacity hover:text-white hover:opacity-100"
             >
               Terms and Conditions
             </Link>
             <Link
               href="/privacy"
               onClick={() => setOpen(false)}
-              className="transition-opacity hover:text-white hover:opacity-100"
+              className="uppercase transition-opacity hover:text-white hover:opacity-100"
             >
               Privacy Policy
             </Link>

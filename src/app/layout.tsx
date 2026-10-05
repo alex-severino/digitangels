@@ -103,7 +103,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+      <body className="flex min-h-screen flex-col bg-black text-foreground font-sans">
         <SiteHeader />
         {children}
         <SiteFooter />

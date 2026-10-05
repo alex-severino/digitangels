@@ -3,7 +3,7 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
+    --background: #000000;
     --foreground: #0a0a0a;
     --accent: #5b8cff;
     --accent-muted: #3d5fa8;
@@ -13,11 +13,11 @@
   }
 
   html {
-    @apply h-full scroll-smooth bg-white;
+    @apply h-full scroll-smooth bg-black;
   }
 
   body {
-    @apply min-h-screen bg-white text-black font-sans antialiased;
+    @apply min-h-screen bg-black text-black font-sans antialiased;
   }
 
   ::selection {
