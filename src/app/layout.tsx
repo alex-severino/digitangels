@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import Script from "next/script";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
@@ -105,6 +106,7 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col bg-background text-foreground font-sans">
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

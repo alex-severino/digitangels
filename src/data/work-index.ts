@@ -5,6 +5,10 @@ export type WorkCard = {
   tags: string[];
 };
 
+export function projectHref(slug: string) {
+  return slug === "digitangels" ? "/digitangels" : `/projects/${slug}`;
+}
+
 export const WORK_INTRO =
   "I am a CAPITAL D DESIGN advocate emphasising the power of design as a strategic, holistic, and human-centred approach to solving complex problems, shaping experiences, creating meaningful change, and driving business success. Through the profound understanding of users’ needs, flawless user journeys, thoughtful branding and compelling aesthetics, design transcends utility to build trust, loyalty, and a lasting relationship with users, which consequently leads to revenue boosts and increased market shares for successful products.";
 

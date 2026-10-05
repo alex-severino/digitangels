@@ -20,15 +20,6 @@
     @apply min-h-screen bg-white text-black font-sans antialiased;
   }
 
-  html:has([data-home]),
-  html:has([data-home]) body {
-    height: 100svh;
-    min-height: 100svh;
-    max-height: 100svh;
-    overflow: hidden;
-    overscroll-behavior: none;
-  }
-
   ::selection {
     @apply bg-accent text-accent-foreground;
   }

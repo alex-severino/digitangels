@@ -36,6 +36,7 @@ export default async function WorkProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (slug === "digitangels") permanentRedirect("/digitangels");
   const canonical = SLUG_ALIASES[slug];
   if (canonical) permanentRedirect(`/projects/${canonical}`);
   const project = getProject(slug);

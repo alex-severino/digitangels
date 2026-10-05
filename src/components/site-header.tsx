@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import { workCards } from "@/data/work-index";
 
 const NAV_LINKS = [
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 const SLUG_ALIASES: Record<string, string> = {
@@ -29,8 +29,15 @@ function toTitleCase(value: string) {
 }
 
 function pageLabelFromPath(pathname: string) {
-  const exact = NAV_LINKS.find((link) => link.href === pathname);
-  if (exact) return { label: exact.label, uppercase: true };
+  if (pathname === "/terms") return { label: "Terms", uppercase: true };
+  if (pathname === "/privacy") return { label: "Privacy", uppercase: true };
+
+  if (pathname === "/digitangels") {
+    const title = workCards.find((card) => card.slug === "digitangels")?.title;
+    return title
+      ? { label: toTitleCase(title), uppercase: false }
+      : { label: "Digitangels", uppercase: false };
+  }
 
   const match = pathname.match(/^\/projects\/([^/]+)\/?$/);
   if (!match) return null;
@@ -40,16 +47,18 @@ function pageLabelFromPath(pathname: string) {
   return { label: toTitleCase(title), uppercase: false };
 }
 
+function scrollToHash(href: string) {
+  const id = href.split("#")[1];
+  if (!id) return;
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
-  const hideMenu = pathname === "/";
+  const isHome = pathname === "/";
   const pageLabel = pageLabelFromPath(pathname);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
-
-  useEffect(() => {
-    if (hideMenu) setOpen(false);
-  }, [hideMenu]);
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -108,7 +117,7 @@ export function SiteHeader() {
               height={80}
               priority
               className={`w-auto invert md:h-[72px] ${
-                hideMenu ? "h-[30px]" : "h-[24px]"
+                isHome ? "h-[30px]" : "h-[24px]"
               }`}
             />
           </Link>
@@ -133,17 +142,10 @@ export function SiteHeader() {
 
           <button
             type="button"
-            tabIndex={hideMenu ? -1 : undefined}
-            aria-hidden={hideMenu}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => {
-              if (hideMenu) return;
-              setOpen((v) => !v);
-            }}
-            className={`absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8 ${
-              hideMenu ? "invisible pointer-events-none" : ""
-            }`}
+            onClick={() => setOpen((v) => !v)}
+            className="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8"
           >
             <span className="relative block h-[18px] w-[26px]">
               <span
@@ -194,13 +196,37 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={(event) => {
+                  setOpen(false);
+                  if (isHome) {
+                    event.preventDefault();
+                    scrollToHash(link.href);
+                  }
+                }}
                 className="text-[24px] font-medium uppercase tracking-tight text-white transition-opacity hover:opacity-70 md:text-[32px]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
+
+          <div className="mt-auto flex flex-col gap-2 pt-10 text-[12px] font-medium tracking-[0.04em] text-white/70 md:text-[13px]">
+            <Link
+              href="/terms"
+              onClick={() => setOpen(false)}
+              className="transition-opacity hover:text-white hover:opacity-100"
+            >
+              Terms and Conditions
+            </Link>
+            <Link
+              href="/privacy"
+              onClick={() => setOpen(false)}
+              className="transition-opacity hover:text-white hover:opacity-100"
+            >
+              Privacy Policy
+            </Link>
+            <p className="mt-3 text-white/50">© Digitangels 2026</p>
+          </div>
         </aside>
       </div>
     </>

@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { LazyVideo } from "@/components/lazy-video";
-import type { WorkCard } from "@/data/work-index";
+import { projectHref, type WorkCard } from "@/data/work-index";
 
 export function WorkGrid({ cards }: { cards: WorkCard[] }) {
   return (
     <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2">
       {cards.map((card, index) => (
         <li key={card.slug}>
-          <Link href={`/projects/${card.slug}`} className="group block">
+          <Link href={projectHref(card.slug)} className="group block">
             <h2 className="mb-3 text-[29px] font-medium tracking-tight text-black md:text-[40px]">
               {card.title}
             </h2>

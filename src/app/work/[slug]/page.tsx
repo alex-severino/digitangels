@@ -6,5 +6,6 @@ export default async function WorkSlugRedirect({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (slug === "digitangels") permanentRedirect("/digitangels");
   permanentRedirect(`/projects/${slug}`);
 }
