@@ -176,6 +176,18 @@ export default function Home() {
               Advertising - most recently as Global Design Lead at Lebara,
               Europe&apos;s fastest-growing MVNO.
             </p>
+            <p className="mt-6">
+              Throughout the years Angelina has built a trusted network of
+              senior design practitioners, researchers, creatives, and niche
+              specialists – cultivated through work projects, mentoring, public
+              speaking, events and conferences, and being an active part of
+              design communities across Europe and beyond. This hand-picked
+              team covers Branding, Product and UX/UI Design, Visual Design and
+              Animation, Design Systems, Design Management, Research,
+              Accessibility, and AI Automation, bringing the depth and breadth
+              of expertise to shape the right strategy for every business
+              context.
+            </p>
             <a
               href="https://angelinaseverino.com"
               target="_blank"
