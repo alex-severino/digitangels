@@ -60,7 +60,7 @@ export const projects: Project[] = [
     "slug": "giclee-club-ecommerce",
     "folder": "giclee_club_ecommerce",
     "title": "Giclée Club: E-comm",
-    "description": "As the Design Director and Product Designer for Giclée Club, I shaped the platform into a leading e-commerce destination for visual artists. My role was to ensure that every aspect of the platform was aligned with the brand strategy, and worked seamlessly making it easy for artists to print and sell their work as Fine Art prints. I led the design efforts from start to finish, creating a user experience that reflected the high standards of Giclée printing. My goal was to make the platform intuitive and visually appealing, ensuring it met the needs of artists who care about quality and presentation. The main challenge was balancing aesthetics with functionality, creating a space where art and technology come together effortlessly. The result is an e-commerce platform that artists can trust to print and sell their work, all while maintaining the highest level of quality.",
+    "description": "Digitangels shaped Giclée Club into a leading e-commerce destination for visual artists. We aligned every aspect of the platform with the brand strategy, so artists can print and sell their work as Fine Art prints with ease. The team led the design from start to finish, creating a user experience that reflected the high standards of Giclée printing. The goal was to make the platform intuitive and visually appealing, meeting the needs of artists who care about quality and presentation. The main challenge was balancing aesthetics with functionality, creating a space where art and technology come together effortlessly. The result is an e-commerce platform that artists can trust to print and sell their work, all while maintaining the highest level of quality.",
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     "slug": "giclee-club-branding",
     "folder": "giclee_club_branding",
     "title": "Giclée Club: Branding",
-    "description": "Giclée Club is an platform for visual artists looking to print and sell Fine Art prints of their work. I was inspired by the term \"Giclée,\" synonymous with the highest museum-quality printing, to create a brand identity that resonates with visual artists seeking excellence. I drew inspiration from the classical test print page to create a cohesive visual identity, where every design element was thoughtfully derived from the Giclée Club logo. The acute accent on the é became a key symbol, representing the brand’s French roots and commitment to refinement. I also developed a broad, gradient-rich color palette that captures the endless possibilities of Giclée printing, ensuring that both artists and art lovers experience a visually satisfying journey on the platform. This project emphasised the importance of cohesive product branding, where its e-commerce platform was meticulously designed to align with and enhance the overall brand identity.",
+    "description": "Giclée Club is a platform for visual artists looking to print and sell Fine Art prints of their work. Inspired by the term \"Giclée,\" synonymous with the highest museum-quality printing, we created a brand identity that resonates with visual artists seeking excellence. Digitangels drew inspiration from the classical test print page to create a cohesive visual identity, where every design element was thoughtfully derived from the Giclée Club logo. The acute accent on the é became a key symbol, representing the brand’s French roots and commitment to refinement. We also developed a broad, gradient-rich color palette that captures the endless possibilities of Giclée printing, ensuring that both artists and art lovers experience a visually satisfying journey on the platform. This work emphasised the importance of cohesive product branding, where the e-commerce platform was meticulously designed to align with and enhance the overall brand identity.",
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
@@ -308,7 +308,7 @@ export const projects: Project[] = [
     "slug": "velvet-horizon",
     "folder": "alexdealma",
     "title": "Velvet Horizon",
-    "description": "For the debut album \"Velvet Horizon\" by a one-man band, I crafted a brand identity that reflects the album's exploration of love, fears, dreams, and societal expectations. The visual motif centres on the contrast between the clear and blurred horizon, symbolising the album's thematic ambiguity. To amplify the disruptive nature of the music artist, I used bold, explosive colours traditionally associated with femininity. This design approach captures the album’s essence, blending clarity with obscurity to mirror the complex emotions and societal boundaries the artist explores.",
+    "description": "For the debut album \"Velvet Horizon\" by a one-man band, Digitangels crafted a brand identity that reflects the album's exploration of love, fears, dreams, and societal expectations. The visual motif centres on the contrast between the clear and blurred horizon, symbolising the album's thematic ambiguity. To amplify the disruptive nature of the music artist, we used bold, explosive colours traditionally associated with femininity. This design approach captures the album’s essence, blending clarity with obscurity to mirror the complex emotions and societal boundaries the artist explores.",
     "roles": [
       "CREATIVE STRATEGY",
       "BRAND DESIGN",
@@ -451,7 +451,7 @@ export const projects: Project[] = [
     "slug": "art-workers-united",
     "folder": "artworkersunited",
     "title": "Arts Workers United",
-    "description": "Arts Workers United (AWU) is dedicated to empowering and advocating for arts workers across the United States. Their mission is to educate, organise, and mobilise individuals to advance the interests of the Creative Economy through visible advocacy, grassroots efforts, and impactful lobbying. I was entrusted with the critical task of creating a web platform that would serve as the central hub for their mission. AWU needed an online space that would inform, inspire and unite their community. We designed a platform to facilitate donations, allowing supporters to directly contribute to AWU’s advocacy efforts, and to offer membership options that fostered a strong, interconnected community. The site provides with essential resources and real-time updates on legislative actions, empowering grassroots efforts and amplifying the voice of the Arts & Culture sector. My team's design work aimed to make the platform a powerful tool in the national conversation, ensuring that arts workers had the visibility and support they needed.",
+    "description": "Arts Workers United (AWU) is dedicated to empowering and advocating for arts workers across the United States. Their mission is to educate, organise, and mobilise individuals to advance the interests of the Creative Economy through visible advocacy, grassroots efforts, and impactful lobbying. Digitangels was entrusted with creating a web platform that would serve as the central hub for their mission. AWU needed an online space that would inform, inspire and unite their community. We designed a platform to facilitate donations, allowing supporters to directly contribute to AWU’s advocacy efforts, and to offer membership options that fostered a strong, interconnected community. The site provides essential resources and real-time updates on legislative actions, empowering grassroots efforts and amplifying the voice of the Arts & Culture sector. Our design work aimed to make the platform a powerful tool in the national conversation, ensuring that arts workers had the visibility and support they needed.",
     "link": {
       "label": "ARTSWORKERSUNITED.COM",
       "href": "https://www.artsworkersunited.com/"
@@ -612,7 +612,7 @@ export const projects: Project[] = [
     "slug": "crowdy-house",
     "folder": "crowdyhouse",
     "title": "Crowdyhouse",
-    "description": "For CrowdyHouse, I played a key role as both the brand and product MVP designer, shaping the identity of this innovative platform that served as a launchpad and marketplace for designers and makers. The mission was to democratise the design industry by enabling creatives, whether new or established, to sell directly to design enthusiasts worldwide. I focused on creating a brand that reflected this mission of empowerment and a product design that streamlined the process, allowing designers to maximise their profits while bringing diverse, high-quality design to a global audience.",
+    "description": "For CrowdyHouse, Digitangels led brand and product MVP design, shaping the identity of this platform as a launchpad and marketplace for designers and makers. The mission was to democratise the design industry by enabling creatives, whether new or established, to sell directly to design enthusiasts worldwide. We created a brand that reflected this mission of empowerment, and a product design that streamlined the process, allowing designers to maximise their profits while bringing diverse, high-quality design to a global audience.",
     "roles": [
       "CREATIVE STRATEGY",
       "BRAND DESIGN",
@@ -677,7 +677,7 @@ export const projects: Project[] = [
     "slug": "designwise",
     "folder": "designwise",
     "title": "Designwise",
-    "description": "Designwise is the educational wing of Digitangels – a dynamic design and development company that strives for Design Excellency and Innovation. Designwise is dedicated to elevating the understanding and impact of design on the business world. They champion the importance of quality design across the tech industry and beyond, helping businesses recognise and harness the power of strategic design. As a Creative and Brand Director of this project, I helped Designwise shape their creative vision and develop their brand strategy. I led the design of their branding elements, crafted a cohesive web presence, and ensured that all visual components were aligned with their strategic goals. My work focused on creating a compelling and consistent brand experience for Designwise, enhancing their ability to engage and inspire their audience.",
+    "description": "Designwise is the educational wing of Digitangels, dedicated to elevating the understanding and impact of design on the business world. They champion the importance of quality design across the tech industry and beyond, helping businesses recognise and harness the power of strategic design. We shaped Designwise’s creative vision and brand strategy, designed the branding elements, crafted a cohesive web presence, and aligned every visual component with their strategic goals. The team focused on creating a compelling and consistent brand experience, enhancing Designwise’s ability to engage and inspire their audience.",
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
@@ -759,7 +759,7 @@ export const projects: Project[] = [
     "slug": "digitangels",
     "folder": "digitangels",
     "title": "Digitangels",
-    "description": "Digitangels is a dynamic Design and Development company that seamlessly integrates creativity and technology to cover all aspects of digital innovation. I created a branding strategy and visual identity for that reflects Digitangels’ mission to guide businesses, start-ups, and entrepreneurs through the complexities of digital and product design, management, and marketing. When I came up with the name \"Digitangels\", it inspired a theme of \"angelic\" digital assistance, which I brought to life with a halo as the central branding element. The design features monochromatic, futuristic patterns and floating abstract shapes, symbolising the challenging, ever-evolving digital landscape that Digitangels helps its clients navigate and conquer.",
+    "description": "Digitangels is a Design Transformation advisory that integrates creativity and technology across digital innovation. We developed a branding strategy and visual identity that reflects the mission to guide businesses, start-ups, and entrepreneurs through the complexities of digital and product design, management, and marketing. The name \"Digitangels\" inspired a theme of angelic digital assistance, brought to life with a halo as the central branding element. The design features monochromatic, futuristic patterns and floating abstract shapes, symbolising the challenging, ever-evolving digital landscape that Digitangels helps clients navigate and conquer.",
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
@@ -902,7 +902,7 @@ export const projects: Project[] = [
     "slug": "hypernode",
     "folder": "hypernode",
     "title": "Hypernode",
-    "description": "As the UX/UI designer and user researcher for Hypernode, I played a crucial role in shaping a platform that offers a robust and scalable hosting solution specifically tailored for e-commerce businesses. My focus was on understanding user needs and behaviours, which informed the design of an intuitive and efficient user interface. By conducting in-depth user research, I ensured that the platform not only meets the technical requirements of developers and businesses but also provides a seamless experience that enhances productivity and satisfaction.",
+    "description": "Digitangels led UX/UI design and user research for Hypernode, shaping a platform that offers a robust and scalable hosting solution tailored for e-commerce businesses. We focused on understanding user needs and behaviours, which informed the design of an intuitive and efficient user interface. Through in-depth user research, the team ensured that the platform not only meets the technical requirements of developers and businesses but also provides a seamless experience that enhances productivity and satisfaction.",
     "link": {
       "label": "HYPERNODE.COM",
       "href": "https://www.hypernode.com/en/"

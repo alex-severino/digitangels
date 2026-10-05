@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
   }
 
   const from = process.env.EMAIL_FROM ?? "hello@digitangels.com";
-  const to = process.env.EMAIL_REPLY_TO ?? from;
+  const to = process.env.EMAIL_REPLY_TO ?? "hello@artbritannia.com";
 
   try {
     const transporter = getTransporter();

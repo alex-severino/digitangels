@@ -29,10 +29,10 @@ export const workCards: WorkCard[] = [
     tags: ["WEB DESIGN", "WEBFLOW / NO CODE", "DESIGN MANAGEMENT"],
   },
   {
-    slug: "digitangels",
-    title: "Digitangels",
-    thumbnail: "/work/thumbnails/digitangels.mp4",
-    tags: ["BRANDING", "DIGITAL DESIGN", "VISUAL DESIGN"],
+    slug: "velvet-horizon",
+    title: "Velvet Horizon",
+    thumbnail: "/work/thumbnails/alex-de-alma.mp4",
+    tags: ["BRANDING", "VISUAL DESIGN", "DIGITAL DESIGN"],
   },
   {
     slug: "giclee-club-branding",
@@ -47,18 +47,6 @@ export const workCards: WorkCard[] = [
     tags: ["E-COMMERCE", "WEB DESIGN", "RESPONSIVE DESIGN"],
   },
   {
-    slug: "velvet-horizon",
-    title: "Velvet Horizon",
-    thumbnail: "/work/thumbnails/alex-de-alma.mp4",
-    tags: ["BRANDING", "VISUAL DESIGN", "DIGITAL DESIGN"],
-  },
-  {
-    slug: "designwise",
-    title: "Designwise",
-    thumbnail: "/work/thumbnails/designwise.mp4",
-    tags: ["WEB DESIGN", "VISUAL DESIGN", "RESPONSIVE DESIGN"],
-  },
-  {
     slug: "crowdy-house",
     title: "CrowdyHouse",
     thumbnail: "/work/thumbnails/crowdy-house.mp4",
@@ -69,6 +57,18 @@ export const workCards: WorkCard[] = [
     title: "Hypernode",
     thumbnail: "/work/thumbnails/hypernode.mp4",
     tags: ["E-COMMERCE", "WEB PLATFORM", "RESPONSIVE DESIGN"],
+  },
+  {
+    slug: "digitangels",
+    title: "Digitangels",
+    thumbnail: "/work/thumbnails/digitangels.mp4",
+    tags: ["BRANDING", "DIGITAL DESIGN", "VISUAL DESIGN"],
+  },
+  {
+    slug: "designwise",
+    title: "Designwise",
+    thumbnail: "/work/thumbnails/designwise.mp4",
+    tags: ["WEB DESIGN", "VISUAL DESIGN", "RESPONSIVE DESIGN"],
   },
 ];
 

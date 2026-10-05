@@ -4,7 +4,7 @@ import { ProjectBlocks, ProjectGallery } from "@/components/project-media";
 function ProjectIntroCopy({ project }: { project: Project }) {
   return (
     <div>
-      <p className="text-[15px] leading-7 text-black/80 md:text-[16px] md:leading-8">
+      <p className="text-[15px] leading-[1.35] text-black/80 md:text-[16px]">
         {project.description}
       </p>
       {project.link ? (
@@ -31,7 +31,7 @@ function ProjectDisciplines({ roles }: { roles: string[] }) {
       {roles.map((role) => (
         <li
           key={role}
-          className="text-[12px] font-medium tracking-[0.06em] text-black/70"
+          className="text-[12px] font-medium leading-[1.35] tracking-[0.06em] text-black/70"
         >
           {role}
         </li>
@@ -55,9 +55,13 @@ export function ProjectPageView({ project }: { project: Project }) {
   const hasBlocks = Boolean(project.blocks && project.blocks.length > 0);
   const introRow = project.rows[0];
   const restRows = project.rows.slice(1);
+  const edgeBars = project.slug === "art-workers-united";
 
   return (
     <main id="top" className="min-h-screen bg-white text-black">
+      {edgeBars ? (
+        <div className="h-[50px] w-full bg-white" aria-hidden />
+      ) : null}
       {introRow ? (
         <>
           <ProjectGallery rows={[introRow]} isLastSection={false} />
@@ -83,6 +87,9 @@ export function ProjectPageView({ project }: { project: Project }) {
           <ProjectIntroRow project={project} />
         </section>
       )}
+      {edgeBars ? (
+        <div className="h-[50px] w-full bg-white" aria-hidden />
+      ) : null}
     </main>
   );
 }

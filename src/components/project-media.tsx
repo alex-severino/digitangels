@@ -157,11 +157,11 @@ function SectionCopy({
   return (
     <div style={{ color: textColor }}>
       {title ? (
-        <h3 className="mb-4 text-[22px] font-semibold tracking-tight md:text-[28px]">
+        <h3 className="mb-4 text-[22px] font-semibold leading-[1.35] tracking-tight md:text-[28px]">
           {title}
         </h3>
       ) : null}
-      <p className="whitespace-pre-line text-[15px] leading-7 md:text-[17px] md:leading-8">
+      <p className="whitespace-pre-line text-[15px] leading-[1.35] md:text-[17px]">
         {body}
       </p>
     </div>
@@ -214,7 +214,7 @@ export function ProjectBlocks({
                 />
                 {block.caption ? (
                   <p
-                    className="mx-auto mt-6 max-w-[940px] text-center text-[15px] leading-7 md:text-[17px] md:leading-8"
+                    className="mx-auto mt-6 max-w-[940px] text-center text-[15px] leading-[1.35] md:text-[17px]"
                     style={{ color: block.captionColor ?? "#000" }}
                   >
                     {block.caption}

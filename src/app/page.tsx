@@ -60,10 +60,10 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex flex-1 flex-col items-center px-4 pb-16 pt-6 text-center sm:pt-8 md:px-5 md:pb-20 md:pt-10">
+        <div className="flex flex-1 flex-col items-center px-4 pb-16 pt-2 text-center md:px-5 md:pb-20 md:pt-3">
           <Link
             href="/digitangels"
-            className="group mt-1 inline-flex items-center gap-2 self-end pb-1.5 text-[14px] font-semibold tracking-[0.18em] text-black sm:text-[16px] md:mt-0 md:text-[18px]"
+            className="group inline-flex items-center gap-2 self-end pb-1.5 text-[14px] font-semibold tracking-[0.18em] text-black sm:text-[16px] md:text-[18px]"
           >
             <span className="relative">
               OUR BRANDING
@@ -104,8 +104,8 @@ export default function Home() {
           aria-label="Scroll down"
         >
           <svg
-            width="28"
-            height="16"
+            width="84"
+            height="48"
             viewBox="0 0 28 16"
             fill="none"
             aria-hidden
@@ -125,7 +125,7 @@ export default function Home() {
         id="mission"
         className="scroll-mt-20 bg-black px-4 py-20 text-white md:scroll-mt-[108px] md:px-5 md:py-28"
       >
-        <p className="text-[clamp(1.85rem,5.4vw,4.75rem)] font-normal leading-[1.08] tracking-tight">
+        <p className="text-[clamp(1.85rem,5.4vw,4.75rem)] font-normal leading-[1.08] tracking-tight text-[#E4E4E4]">
           At the heart of Digitangels is a simple truth: Design is the
           strategic platform through which a customer experiences a
           business – and the quality of that experience determines whether
@@ -165,7 +165,7 @@ export default function Home() {
             unoptimized
             className="h-auto w-full grayscale"
           />
-          <div className="text-[1.1rem] font-light leading-[1.12] tracking-tight text-white md:text-[1.2375rem]">
+          <div className="text-[1.4667rem] font-light leading-[1.35] text-[#E4E4E4] md:text-[1.65rem]">
             <p>
               Digitangels was founded by Angelina Severino, an award-winning
               Design Leader with over 15 years of experience across Brand and
@@ -176,6 +176,34 @@ export default function Home() {
               Advertising - most recently as Global Design Lead at Lebara,
               Europe&apos;s fastest-growing MVNO.
             </p>
+            <a
+              href="https://angelinaseverino.com"
+              target="_blank"
+              rel="noreferrer"
+              className="group mt-6 inline-flex items-center gap-2 pb-1.5 text-[14px] font-semibold uppercase tracking-[0.18em] text-white sm:text-[16px] md:mt-8 md:text-[18px]"
+            >
+              <span className="relative">
+                ANGELINASEVERINO.COM
+                <span
+                  aria-hidden
+                  className="absolute top-full left-0 mt-0.5 h-[3px] w-full origin-left scale-x-0 bg-white transition-transform duration-300 ease-out group-hover:scale-x-100"
+                />
+              </span>
+              <svg
+                viewBox="0 0 24 24"
+                className="h-[1em] w-[1em] shrink-0"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M4 12h14M14 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
+                />
+              </svg>
+            </a>
             <p className="mt-6">
               Throughout the years Angelina has built a trusted network of
               senior design practitioners, researchers, creatives, and niche
@@ -188,14 +216,6 @@ export default function Home() {
               of expertise to shape the right strategy for every business
               context.
             </p>
-            <a
-              href="https://angelinaseverino.com"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-block text-[20px] font-medium tracking-[0.04em] text-white underline-offset-4 hover:underline md:mt-10 md:text-[24px]"
-            >
-              angelinaseverino.com
-            </a>
           </div>
         </div>
       </section>

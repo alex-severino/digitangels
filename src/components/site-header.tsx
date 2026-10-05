@@ -29,8 +29,10 @@ function toTitleCase(value: string) {
 }
 
 function pageLabelFromPath(pathname: string) {
-  if (pathname === "/terms") return { label: "Terms", uppercase: true };
-  if (pathname === "/privacy") return { label: "Privacy", uppercase: true };
+  if (pathname === "/terms")
+    return { label: "Terms and Conditions", uppercase: true };
+  if (pathname === "/privacy")
+    return { label: "Privacy Policy", uppercase: true };
 
   if (pathname === "/digitangels") {
     const title = workCards.find((card) => card.slug === "digitangels")?.title;
@@ -145,22 +147,22 @@ export function SiteHeader() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center md:right-8"
+            className="absolute right-5 top-1/2 z-10 flex h-16 w-16 -translate-y-1/2 items-center justify-center md:right-8"
           >
-            <span className="relative block h-[18px] w-[26px]">
+            <span className="relative block h-[36px] w-[52px]">
               <span
-                className={`absolute left-0 block h-[3px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
-                  open ? "top-[7.5px] rotate-45" : "top-0 rotate-0"
+                className={`absolute left-0 block h-[6px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                  open ? "top-[15px] rotate-45" : "top-0 rotate-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-[7.5px] block h-[3px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                className={`absolute left-0 top-[15px] block h-[6px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
                   open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[3px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
-                  open ? "top-[7.5px] -rotate-45" : "top-[15px] rotate-0"
+                className={`absolute left-0 block h-[6px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                  open ? "top-[15px] -rotate-45" : "top-[30px] rotate-0"
                 }`}
               />
             </span>
