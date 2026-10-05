@@ -9,12 +9,14 @@ const PILL_ROW_1 = [
   "BRANDING",
   "DIGITAL",
   "DESIGN SYSTEMS",
+  "ACCESSIBILITY",
   "AI AUTOMATION",
 ] as const;
 
 const PILL_ROW_2 = [
   "DESIGN ORG",
   "DESIGN OPS",
+  "UX RESEARCH",
   "DESIGN MATURITY",
   "DESIGN INTEGRATION",
 ] as const;
