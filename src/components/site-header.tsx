@@ -113,14 +113,23 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           >
             <Image
+              src="/icon.png"
+              alt="Digitangels"
+              width={192}
+              height={192}
+              priority
+              className={`w-auto invert md:hidden ${
+                isHome ? "h-[47.88px]" : "h-[38.304px]"
+              }`}
+            />
+            <Image
               src="/images/digitangels_logo.png"
               alt="Digitangels"
               width={240}
               height={80}
               priority
-              className={`w-auto invert md:h-[72px] ${
-                isHome ? "h-[30px]" : "h-[24px]"
-              }`}
+              className="hidden w-auto invert md:block md:h-[72px]"
+              aria-hidden
             />
           </Link>
 
@@ -147,22 +156,26 @@ export function SiteHeader() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="absolute right-5 top-1/2 z-10 flex h-[51px] w-[51px] -translate-y-1/2 cursor-pointer items-center justify-center md:right-8"
+            className="absolute right-5 top-1/2 z-10 flex h-[45.9px] w-[45.9px] -translate-y-1/2 cursor-pointer items-center justify-center md:right-8 md:h-[51px] md:w-[51px]"
           >
-            <span className="relative block h-[28.8px] w-[41.6px]">
+            <span className="relative block h-[25.92px] w-[37.44px] md:h-[28.8px] md:w-[41.6px]">
               <span
-                className={`absolute left-0 block h-[4.8px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
-                  open ? "top-[12px] rotate-45" : "top-0 rotate-0"
+                className={`absolute left-0 block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:h-[4.8px] ${
+                  open
+                    ? "top-[10.8px] rotate-45 md:top-[12px]"
+                    : "top-0 rotate-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-[12px] block h-[4.8px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
+                className={`absolute left-0 top-[10.8px] block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:top-[12px] md:h-[4.8px] ${
                   open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[4.8px] w-full rounded-none bg-white transition-all duration-300 ease-out ${
-                  open ? "top-[12px] -rotate-45" : "top-[24px] rotate-0"
+                className={`absolute left-0 block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:h-[4.8px] ${
+                  open
+                    ? "top-[10.8px] -rotate-45 md:top-[12px]"
+                    : "top-[21.6px] rotate-0 md:top-[24px]"
                 }`}
               />
             </span>

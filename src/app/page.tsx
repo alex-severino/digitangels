@@ -104,12 +104,10 @@ export default function Home() {
           aria-label="Scroll down"
         >
           <svg
-            width="84"
-            height="48"
             viewBox="0 0 28 16"
             fill="none"
             aria-hidden
-            className="overflow-visible"
+            className="h-[34.56px] w-[60.48px] overflow-visible md:h-[48px] md:w-[84px]"
           >
             <path
               d="M2 2L14 14L26 2"
