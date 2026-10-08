@@ -24,3 +24,17 @@
     @apply bg-accent text-accent-foreground;
   }
 }
+
+.designwise-caret {
+  animation: designwise-caret-bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes designwise-caret-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(14px);
+  }
+}

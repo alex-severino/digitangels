@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { name, email, subject, message, _hp, _t } = body;
+  const { name, email, subject, message, _hp, _t, inbox } = body;
 
   if (_hp && String(_hp).trim().length > 0) {
     return NextResponse.json({ ok: true });
@@ -78,7 +78,10 @@ export async function POST(request: NextRequest) {
   }
 
   const from = process.env.EMAIL_FROM ?? "hello@digitangels.com";
-  const to = process.env.EMAIL_REPLY_TO ?? "hello@artbritannia.com";
+  const designwise = inbox === "designwise";
+  const to = designwise
+    ? (process.env.EMAIL_TO_DESIGNWISE ?? "designwise@digitangels.com")
+    : (process.env.EMAIL_REPLY_TO ?? "hello@artbritannia.com");
 
   try {
     const transporter = getTransporter();
@@ -87,7 +90,9 @@ export async function POST(request: NextRequest) {
       from: `Digitangels <${from}>`,
       to,
       replyTo: email,
-      subject: `New contact form submission from ${name}`,
+      subject: designwise
+        ? `Designwise enquiry from ${name}`
+        : `New contact form submission from ${name}`,
       html: `
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>

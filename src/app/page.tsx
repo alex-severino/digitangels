@@ -23,6 +23,24 @@ const PILL_ROW_2 = [
 
 const HIDDEN_PROJECTS = new Set(["digitangels", "designwise"]);
 
+const CLIENTS = [
+  ["tbwa.png", "TBWA"],
+  ["ddb.png", "DDB"],
+  ["starcom.png", "Starcom"],
+  ["verve.png", "Verve"],
+  ["coca-cola.png", "Coca-Cola"],
+  ["mastercard.png", "Mastercard"],
+  ["nestle.png", "Nestlé"],
+  ["finlandia.png", "Finlandia"],
+  ["volkswagen.png", "Volkswagen"],
+  ["adidas.png", "Adidas"],
+  ["lebara.png", "Lebara"],
+  ["yamaha.png", "Yamaha"],
+  ["kia.png", "Kia"],
+  ["hyundai.png", "Hyundai"],
+  ["duracell.png", "Duracell"],
+] as const;
+
 function PillRow({ labels }: { labels: readonly string[] }) {
   return (
     <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[14px] font-medium tracking-[0.08em] text-black sm:text-[17px] md:gap-x-4 md:text-[20px]">
@@ -147,9 +165,26 @@ export default function Home() {
         />
       </section>
 
+      <section className="bg-black px-5 pb-20 pt-4 text-white md:px-[75px] md:pb-28 md:pt-8">
+        <h2 className="mb-12 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold tracking-tight md:mb-20">
+          Companies who trust us
+        </h2>
+        <div className="grid grid-cols-2 items-center gap-x-8 gap-y-14 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-12 lg:gap-y-16">
+          {CLIENTS.map(([file, name]) => (
+            <div key={file} className="flex h-16 items-center justify-center md:h-20">
+              <img
+                src={`/images/clients/${file}`}
+                alt={name}
+                className="max-h-12 w-auto max-w-[150px] object-contain brightness-0 invert md:max-h-16 md:max-w-[180px]"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section
         id="about"
-        className="scroll-mt-20 bg-black px-5 pb-20 pt-16 text-white md:scroll-mt-[108px] md:px-[75px] md:pb-28 md:pt-24"
+        className="scroll-mt-20 bg-white px-5 pb-20 pt-16 text-black md:scroll-mt-[108px] md:px-[75px] md:pb-28 md:pt-24"
       >
         <h2 className="mb-10 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase tracking-tight md:mb-14">
           About
@@ -163,7 +198,7 @@ export default function Home() {
             unoptimized
             className="h-auto w-full grayscale"
           />
-          <div className="text-[1.4667rem] font-light leading-[1.35] text-[#E4E4E4] md:text-[1.65rem]">
+          <div className="text-[1.4667rem] font-light leading-[1.35] text-black md:text-[1.65rem]">
             <p>
               Digitangels was founded by Angelina Severino, an award-winning
               Design Leader with over 15 years of experience across Brand and
@@ -178,13 +213,13 @@ export default function Home() {
               href="https://angelinaseverino.com"
               target="_blank"
               rel="noreferrer"
-              className="group mt-6 inline-flex items-center gap-2 pb-1.5 text-[14px] font-semibold uppercase tracking-[0.18em] text-white sm:text-[16px] md:mt-8 md:text-[18px]"
+              className="group mt-6 inline-flex items-center gap-2 pb-1.5 text-[14px] font-semibold uppercase tracking-[0.18em] text-black sm:text-[16px] md:mt-8 md:text-[18px]"
             >
               <span className="relative">
                 ANGELINASEVERINO.COM
                 <span
                   aria-hidden
-                  className="absolute top-full left-0 mt-0.5 h-[3px] w-full origin-left scale-x-0 bg-white transition-transform duration-300 ease-out group-hover:scale-x-100"
+                  className="absolute top-full left-0 mt-0.5 h-[3px] w-full origin-left scale-x-0 bg-black transition-transform duration-300 ease-out group-hover:scale-x-100"
                 />
               </span>
               <svg
@@ -220,14 +255,14 @@ export default function Home() {
 
       <section
         id="contact"
-        className="scroll-mt-20 bg-white px-5 pb-24 pt-16 md:scroll-mt-[108px] md:px-[75px] md:pb-32 md:pt-24"
+        className="scroll-mt-20 bg-black px-5 pb-24 pt-16 text-white md:scroll-mt-[108px] md:px-[75px] md:pb-32 md:pt-24"
       >
-        <h2 className="mb-5 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase tracking-tight text-black md:mb-7">
+        <h2 className="mb-5 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase tracking-tight md:mb-7">
           Contact
         </h2>
         <a
           href="mailto:hello@digitangels.com"
-          className="mx-auto mb-0 block w-fit select-text text-center text-[22px] font-medium tracking-tight text-black underline-offset-4 hover:underline md:text-[36px]"
+          className="mx-auto mb-0 block w-fit select-text text-center text-[22px] font-medium tracking-tight text-white underline-offset-4 hover:underline md:text-[36px]"
         >
           hello@{"\u200b"}digitangels.com
         </a>

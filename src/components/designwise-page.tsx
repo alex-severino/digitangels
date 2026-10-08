@@ -62,27 +62,6 @@ const SUPPORT = [
     image: "/designwise/images/areas/mentorship.png",
     body: "Our design mentorship program is tailored specifically for tech companies seeking to elevate their design capabilities. Whether you're a burgeoning startup or an established tech giant, our experienced mentors are here to provide personalised guidance and support to your design teams or individuals. We bring years of industry experience and expertise to the table, offering insights into best practices, emerging trends, and strategies for success.\n\nWe'll work closely with your team to identify areas for growth, overcome challenges, and unlock the full potential of your design talent.",
   },
-  {
-    title: "DESIGN COURSES",
-    image: "/designwise/images/areas/courses.png",
-    comingSoon: true,
-    body: "We have meticulously crafted our design courses to meet the unique needs of tech companies navigating their digital presence. Whether you're looking to establish a strong design foundation or seeking to refine your team's skills, our courses are tailored to equip you and your employees with the tools and expertise needed to excel in today's competitive market.\n\nLed by industry experts with hands-on experience in the tech sector, our courses combine theoretical knowledge with practical insights, ensuring that your team not only understands design principles but can also apply them effectively to real-world projects.",
-  },
-] as const;
-
-const LOGOS = [
-  ["logo-01.png", "Coca-Cola"],
-  ["logo-02.png", "Yamaha"],
-  ["logo-03.png", "Mastercard"],
-  ["logo-04.png", "Adidas"],
-  ["logo-05.png", "Nestlé"],
-  ["logo-06.png", "Kia"],
-  ["logo-07.png", "Partner"],
-  ["logo-08.png", "Volkswagen"],
-  ["logo-09.png", "Duracell"],
-  ["logo-10.png", "Diverse Leaders in Tech"],
-  ["logo-11.png", "Hyundai"],
-  ["logo-12.png", "ADPList"],
 ] as const;
 
 function Reveal({
@@ -150,17 +129,47 @@ function ShrinkingWord() {
       const parent = el.parentElement;
       if (!parent) return;
       el.style.fontSize = "100px";
+      el.style.marginLeft = "0px";
       const width = el.scrollWidth || 1;
-      el.dataset.base = String((parent.clientWidth / width) * 100);
+      const cs = getComputedStyle(el);
+      const ctx = document.createElement("canvas").getContext("2d");
+      if (!ctx) return;
+      ctx.font = cs.font;
+      ctx.letterSpacing = cs.letterSpacing;
+      const metrics = ctx.measureText(el.textContent.trim());
+      const leftGap = Math.max(0, -metrics.actualBoundingBoxLeft);
+      const rightOver = Math.max(0, metrics.actualBoundingBoxRight - metrics.width);
+      el.dataset.base = String(
+        (parent.clientWidth / (width + leftGap + rightOver)) * 100,
+      );
+      el.dataset.layout = String(width);
+      el.dataset.gap = String(leftGap);
+      el.dataset.over = String(rightOver);
       apply();
     };
 
     const apply = () => {
       const base = Number(el.dataset.base || 0);
       if (!base) return;
-      const shrink = Math.max(0, 1 - window.scrollY / 620);
-      el.style.fontSize = `${base * shrink}px`;
+      const mission = document.getElementById("mission");
+      const missionTop = mission
+        ? mission.getBoundingClientRect().top + window.scrollY
+        : window.innerHeight;
+      const end = mission
+        ? missionTop + mission.offsetHeight * 0.92
+        : window.innerHeight;
+      const distance = Math.max(window.innerHeight, end);
+      const shrink = Math.max(0, 1 - window.scrollY / distance);
+      const fontSize = base * shrink;
+      el.style.fontSize = `${fontSize}px`;
       el.style.opacity = shrink === 0 ? "0" : "1";
+      const scale = fontSize / 100;
+      const layoutW = Number(el.dataset.layout) * scale;
+      const gap = Number(el.dataset.gap) * scale;
+      const over = Number(el.dataset.over) * scale;
+      const parentW = el.parentElement?.clientWidth ?? 0;
+      const inkW = layoutW - gap + over;
+      el.style.marginLeft = `${(parentW - inkW) / 2 - gap}px`;
     };
 
     fit();
@@ -175,7 +184,7 @@ function ShrinkingWord() {
   return (
     <h1
       ref={ref}
-      className="mx-auto w-max whitespace-nowrap text-center text-[17vw] font-semibold leading-[0.78] tracking-[-0.045em] text-[#cecece]"
+      className="w-max whitespace-nowrap pt-[0.03em] text-[17vw] font-semibold leading-[1.05] tracking-[-0.045em] text-[#cecece]"
     >
       DESIGNWISE
     </h1>
@@ -209,7 +218,7 @@ function AreaList({
               type="button"
               aria-expanded={isOpen}
               onClick={() => setOpen(isOpen ? null : item.title)}
-              className={`flex w-full items-center gap-8 py-5 text-left text-[clamp(1.35rem,2.08vw,2.5rem)] font-semibold italic leading-[1.5] md:gap-16 ${title}`}
+              className={`flex w-full items-center gap-8 px-6 py-5 text-left text-[clamp(1.35rem,2.08vw,2.5rem)] font-semibold italic leading-[1.5] md:gap-16 md:px-[35px] ${title}`}
             >
               <span
                 className={`w-8 shrink-0 text-center text-[30px] font-normal not-italic leading-none transition-transform duration-300 ${
@@ -234,7 +243,7 @@ function AreaList({
               }`}
             >
               <div className="overflow-hidden" aria-hidden={!isOpen}>
-                <div className="grid items-center gap-8 pb-8 md:grid-cols-[minmax(0,1fr)_minmax(220px,400px)] md:gap-16 md:pb-10 md:pl-12">
+                <div className="grid items-center gap-8 px-6 pb-8 md:grid-cols-[minmax(0,1fr)_minmax(220px,400px)] md:gap-16 md:pr-[35px] md:pb-10 md:pl-[83px]">
                   <p className={`whitespace-pre-line text-[16px] leading-relaxed md:text-[20px] ${copy}`}>
                     {item.body}
                   </p>
@@ -257,10 +266,10 @@ function ChatLink({ light }: { light?: boolean }) {
   return (
     <a
       href="#contact"
-      className={`inline-flex h-11 min-w-[200px] items-center justify-center rounded-full px-8 text-[20px] font-semibold italic ${
+      className={`inline-flex h-[44px] w-[256px] items-center justify-center rounded-[25px] text-[20px] font-semibold italic ${
         light
           ? "bg-[#121713] text-[#cff63a]"
-          : "border border-[#cff63a] bg-transparent text-[#cff63a]"
+          : "border-2 border-[#cff63a] bg-[#121713] text-[#cff63a]"
       }`}
     >
       LET&apos;S CHAT
@@ -271,6 +280,121 @@ function ChatLink({ light }: { light?: boolean }) {
 const enterEase =
   "transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transform-none";
 
+const MENU_LINKS = [
+  { href: "#about", label: "ABOUT" },
+  { href: "#mission", label: "OUR MISSION" },
+  { href: "#1", label: "DESIGN EDUCATION" },
+  { href: "#contact", label: "CONTACT" },
+] as const;
+
+function RoundIconButton({
+  label,
+  onClick,
+  children,
+}: {
+  label: string;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full bg-black shadow-[inset_0_0_0_2px_#cff63a]"
+    >
+      {children}
+    </button>
+  );
+}
+
+function DesignwiseNav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  if (open) {
+    return (
+      <div className="fixed inset-x-0 bottom-0 z-40 bg-[#121713] px-6 pt-3 pb-8 text-[#f2f2f2] md:px-8">
+        <div className="flex items-center justify-between">
+          <a
+            href="https://digitangels.com"
+            onClick={() => setOpen(false)}
+            className="text-[19.2px] font-semibold tracking-[-0.04em] text-[#cecece]"
+          >
+            BACK TO DIGITANGELS
+          </a>
+          <RoundIconButton label="Close menu" onClick={() => setOpen(false)}>
+            <span className="relative block h-4 w-4">
+              <span className="absolute top-1/2 left-0 h-0.5 w-4 -translate-y-1/2 rotate-45 bg-[#cff63a]" />
+              <span className="absolute top-1/2 left-0 h-0.5 w-4 -translate-y-1/2 -rotate-45 bg-[#cff63a]" />
+            </span>
+          </RoundIconButton>
+        </div>
+        <nav className="mt-4 flex flex-col items-start">
+          {MENU_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="text-[32px] leading-[1.5] font-semibold text-[#f2f2f2]"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    );
+  }
+
+  return (
+    <nav className="fixed inset-x-0 bottom-[21px] z-40 flex items-end justify-end gap-2.5 px-3 md:bottom-[37px] md:px-6">
+      <RoundIconButton
+        label="Back to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M3 10.5 8 5.5 13 10.5"
+            fill="none"
+            stroke="#cff63a"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </RoundIconButton>
+      <a
+        href="#mission"
+        className="inline-flex h-11 items-center justify-center rounded-full bg-[#cff63a] px-4 text-[13px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:w-[256px] md:px-0 md:text-[20px]"
+      >
+        OUR MISSION
+      </a>
+      <a
+        href="#1"
+        className="inline-flex h-11 items-center justify-center rounded-full bg-[#cff63a] px-4 text-[13px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:w-[256px] md:px-0 md:text-[20px]"
+      >
+        <span className="md:hidden">EDUCATION</span>
+        <span className="hidden md:inline">DESIGN EDUCATION</span>
+      </a>
+      <RoundIconButton label="Open menu" onClick={() => setOpen(true)}>
+        <span className="flex w-4 flex-col gap-[4px]">
+          <span className="block h-0.5 w-4 bg-[#cff63a]" />
+          <span className="block h-0.5 w-4 bg-[#cff63a]" />
+          <span className="block h-0.5 w-4 bg-[#cff63a]" />
+        </span>
+      </RoundIconButton>
+    </nav>
+  );
+}
+
 export function DesignwisePage() {
   const missionBar = useInView(0.55);
   const joinBar = useInView(0.6);
@@ -278,30 +402,16 @@ export function DesignwisePage() {
 
   return (
     <main className="bg-[#121713] text-[#cecece]">
-      <nav className="fixed bottom-4 right-3 z-30 flex gap-2 md:bottom-6 md:right-8">
-        <a
-          href="#mission"
-          className="inline-flex rounded-full bg-[#cff63a] px-4 py-2.5 text-[13px] font-semibold italic text-black md:px-7 md:text-[20px]"
-        >
-          OUR MISSION
-        </a>
-        <a
-          href="#1"
-          className="inline-flex rounded-full bg-[#cff63a] px-4 py-2.5 text-[13px] font-semibold italic text-black md:px-7 md:text-[20px]"
-        >
-          <span className="md:hidden">EDUCATION</span>
-          <span className="hidden md:inline">DESIGN EDUCATION</span>
-        </a>
-      </nav>
+      <DesignwiseNav />
 
-      <section className="sticky top-0 z-0 flex h-svh flex-col overflow-hidden bg-[#121713] pt-20 md:pt-[108px]">
-        <div className="flex shrink-0 justify-center overflow-hidden">
+      <section className="sticky top-0 z-0 flex h-svh flex-col overflow-hidden bg-[#121713] pt-4 md:pt-5">
+        <div className="relative z-20 -mb-2 w-full shrink-0 overflow-visible md:-mb-4">
           <ShrinkingWord />
         </div>
 
-        <div className="relative min-h-0 flex-1">
+        <div className="relative z-0 min-h-0 flex-1">
           <video
-            className="pointer-events-none absolute top-[46%] left-1/2 aspect-square w-[min(46vw,768px)] -translate-x-1/2 -translate-y-1/2 object-contain"
+            className="pointer-events-none absolute top-[46%] left-1/2 z-0 aspect-square w-[min(46vw,768px)] -translate-x-1/2 -translate-y-1/2 object-contain"
             autoPlay
             muted
             loop
@@ -310,11 +420,11 @@ export function DesignwisePage() {
             src="/designwise/videos/hero.mp4"
           />
 
-          <div className="absolute top-1 left-5 z-10 flex items-center gap-3 md:top-3 md:left-6">
-            <span className="text-[clamp(1.25rem,1.8vw,2.1875rem)] font-normal text-[#cecece]">
+          <div className="absolute top-0 left-5 z-10 flex items-center gap-3 md:left-6">
+            <span className="translate-y-[0.14em] text-[clamp(1.25rem,1.8vw,2.1875rem)] font-normal text-[#cecece]">
               by
             </span>
-            <a href="https://digitangels.io/" className="inline-flex">
+            <a href="https://digitangels.com" className="inline-flex">
               <img
                 src="/designwise/images/digitangels-wordmark.png"
                 alt="digitangels"
@@ -323,7 +433,7 @@ export function DesignwisePage() {
             </a>
           </div>
 
-          <div className="absolute top-1 right-5 z-10 max-w-[46vw] text-right md:top-2 md:right-6">
+          <div className="absolute top-0 right-5 z-10 max-w-[46vw] text-right md:right-6">
             <p className="text-[clamp(1.15rem,1.8vw,2.1875rem)] leading-[1.2] font-normal text-[#cecece]">
               Design Education
               <br />
@@ -337,7 +447,7 @@ export function DesignwisePage() {
             </a>
           </div>
 
-          <p className="absolute bottom-4 left-5 z-10 text-[16px] leading-[1.35] font-normal text-[#cecece] md:bottom-8 md:left-6">
+          <p className="absolute bottom-4 left-5 z-10 text-[35.2px] leading-[1.2] font-bold text-[#cecece] md:bottom-8 md:left-6">
             FOR THE SMART.
             <br />
             FOR THE INNOVATIVE.
@@ -358,7 +468,7 @@ export function DesignwisePage() {
           </h2>
         </Reveal>
         <div ref={missionBar.ref} className="relative -mx-5 mt-16 h-[86px] md:-mx-16 md:mt-24">
-          <p className="relative z-10 flex h-full w-1/3 items-center px-5 text-[clamp(1.6rem,2.8vw,2.5rem)] font-semibold italic text-[#b7c3bb] md:px-16">
+          <p className="relative z-10 flex h-full w-1/3 items-center px-5 text-[clamp(1.6rem,2.8vw,2.5rem)] font-semibold italic text-[#9eaca2] md:px-16">
             OUR MISSION
           </p>
           <div
@@ -455,9 +565,7 @@ export function DesignwisePage() {
         <img
           src="/designwise/images/chevron.png"
           alt=""
-          className={`pointer-events-none absolute right-4 bottom-2 z-10 h-16 w-auto md:right-8 md:bottom-4 md:h-[120px] ${enterEase} ${
-            reasonsBar.shown ? "translate-x-0" : "-translate-x-[100vw]"
-          }`}
+          className="designwise-caret pointer-events-none absolute right-4 bottom-6 z-10 h-16 w-auto md:right-8 md:bottom-8 md:h-[120px]"
         />
       </section>
 
@@ -470,7 +578,7 @@ export function DesignwisePage() {
 
       <section
         id="1"
-        className="scroll-mt-20 bg-[#121713] px-6 py-16 md:scroll-mt-28 md:px-[35px] md:py-24"
+        className="scroll-mt-20 bg-[#121713] px-6 pt-16 pb-0 md:scroll-mt-28 md:px-[35px] md:pt-24 md:pb-0"
       >
         <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 md:gap-x-16">
           <p className="font-semibold text-[clamp(6.5rem,10.4vw,12.5rem)] italic leading-[0.9] text-[#9eaca2]">
@@ -482,12 +590,12 @@ export function DesignwisePage() {
           </h2>
         </div>
 
-        <div className="mt-12 md:mt-16">
+        <div className="-mx-6 mt-12 md:-mx-[35px] md:mt-16">
           <AreaList items={AREAS} />
         </div>
 
-        <div className="mt-10 flex flex-col items-end gap-8 md:mt-14">
-          <p className="max-w-[1072px] text-right text-[16px] leading-snug font-normal text-[#e4e4e4] md:text-[20px] md:leading-6">
+        <div className="-mx-6 flex flex-col items-start gap-[26px] px-6 pt-12 pb-16 min-[1100px]:-mx-[35px] min-[1100px]:pt-[70px] min-[1100px]:pr-[21px] min-[1100px]:pb-[85px] min-[1100px]:pl-[57.4%]">
+          <p className="w-full text-left text-[20px] leading-6 font-normal text-[#e4e4e4]">
             We are happy to offer our support in the multiple areas, or only in
             some part of one area – flexibility is key! Also, if you have a
             special request that is not listed above – do let us know,
@@ -506,7 +614,7 @@ export function DesignwisePage() {
 
       <section
         id="2"
-        className="scroll-mt-20 bg-[#e8e8e8] px-6 py-16 text-[#616a63] md:scroll-mt-28 md:px-[35px] md:py-24"
+        className="scroll-mt-20 bg-[#e8e8e8] px-6 pt-16 pb-0 text-[#616a63] md:scroll-mt-28 md:px-[35px] md:pt-24 md:pb-0"
       >
         <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 md:gap-x-16">
           <p className="font-semibold text-[clamp(6.5rem,10.4vw,12.5rem)] italic leading-[0.9] text-[#616a63]">
@@ -518,12 +626,12 @@ export function DesignwisePage() {
           </h2>
         </div>
 
-        <div className="mt-12 md:mt-16">
+        <div className="-mx-6 mt-12 md:-mx-[35px] md:mt-16">
           <AreaList items={SUPPORT} light />
         </div>
 
-        <div className="mt-10 flex flex-col items-end gap-8 md:mt-14">
-          <p className="max-w-[1072px] text-right text-[16px] leading-snug font-normal text-[#121713] md:text-[20px] md:leading-6">
+        <div className="-mx-6 flex flex-col items-start gap-[26px] px-6 pt-12 pb-16 min-[1100px]:-mx-[35px] min-[1100px]:pt-[70px] min-[1100px]:pr-[21px] min-[1100px]:pb-[85px] min-[1100px]:pl-[57.4%]">
+          <p className="w-full text-left text-[20px] leading-6 font-normal text-[#121713]">
             Feel free to let us know what design area is most challenging in
             your company, even if it&apos;s not listed in trainings and
             workshops above. We&apos;ll be happy to tailor our support to the
@@ -533,37 +641,18 @@ export function DesignwisePage() {
         </div>
       </section>
 
-      <section className="bg-[#c1cdc4] px-6 py-24 text-center text-[#121713] md:px-10 md:py-36">
-        <Reveal>
-          <h2 className="w-full text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-tight">
-            Companies who have trusted us
-          </h2>
-        </Reveal>
-        <div className="mt-20 grid w-full grid-cols-2 items-center gap-x-8 gap-y-16 md:mt-28 md:grid-cols-4 md:gap-x-16 md:gap-y-28">
-          {LOGOS.map(([file, name]) => (
-            <div key={file} className="flex justify-center">
-              <img
-                src={`/designwise/images/${file}`}
-                alt={name}
-                className="h-12 w-auto max-w-[150px] object-contain md:h-[72px] md:max-w-[190px]"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section
         id="contact"
         className="scroll-mt-20 bg-[#121713] px-5 py-16 text-white md:scroll-mt-28 md:px-16 md:py-24"
       >
         <Reveal>
-          <h2 className="text-center text-[clamp(2rem,5vw,4.4rem)] font-semibold leading-none tracking-tight">
+          <h2 className="whitespace-nowrap text-center text-[20px] font-semibold leading-none text-[#f2f2f2] min-[810px]:text-[30px] min-[1440px]:text-[70px]">
             LET&apos;S GET TO KNOW EACH OTHER
           </h2>
-          <p className="mx-auto mt-6 max-w-5xl text-center text-[clamp(1.15rem,2vw,2.5rem)] font-semibold leading-snug">
+          <p className="mt-5 whitespace-nowrap text-center text-[11px] font-semibold leading-none text-[#f2f2f2] min-[810px]:text-[20px] min-[1440px]:text-[40px]">
             Drop us a line on{" "}
-            <a href="mailto:hello@digitangels.com" className="text-[#cff63a]">
-              hello@digitangels.com
+            <a href="mailto:designwise@digitangels.com" className="text-[#cff63a]">
+              designwise@digitangels.com
             </a>{" "}
             or fill a short form below:
           </p>
@@ -605,6 +694,7 @@ function DesignwiseForm() {
           name: form.name,
           email: form.email,
           subject: "Designwise",
+          inbox: "designwise",
           message: form.message,
           _hp: honeypot,
           _t: Date.now() - loadedAt.current,
@@ -675,7 +765,7 @@ function DesignwiseForm() {
       ) : null}
       {status === "error" ? (
         <p className="col-span-2 text-[15px] text-[#cff63a]">
-          Something went wrong. Email us at hello@digitangels.com.
+          Something went wrong. Email us at designwise@digitangels.com.
         </p>
       ) : null}
     </form>
