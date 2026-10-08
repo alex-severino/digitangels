@@ -58,6 +58,8 @@ function scrollToHash(href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const largeMobileHalo =
+    isHome || pathname === "/terms" || pathname === "/privacy";
   const pageLabel = pageLabelFromPath(pathname);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -110,7 +112,12 @@ export function SiteHeader() {
           <Link
             href="/"
             className="relative z-10 shrink-0"
-            onClick={() => setOpen(false)}
+            onClick={(event) => {
+              setOpen(false);
+              if (!isHome) return;
+              event.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           >
             <Image
               src="/icon.png"
@@ -119,7 +126,7 @@ export function SiteHeader() {
               height={192}
               priority
               className={`w-auto invert md:hidden ${
-                isHome ? "h-[47.88px]" : "h-[38.304px]"
+                largeMobileHalo ? "h-[47.88px]" : "h-[38.304px]"
               }`}
             />
             <Image
