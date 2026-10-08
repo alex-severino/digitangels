@@ -643,7 +643,7 @@ export function DesignwisePage() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid items-center gap-10 md:mt-20 md:grid-cols-[minmax(220px,334px)_minmax(0,1fr)] md:gap-16">
+          <div className="mt-14 grid items-center gap-14 md:mt-20 md:grid-cols-[minmax(220px,334px)_minmax(0,1fr)] md:gap-16">
             <Reveal>
               <img
                 src="/designwise/images/team-constellation.png"
@@ -894,11 +894,9 @@ function DesignwiseForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="rounded-lg bg-[#cff63a] py-3 text-[16px] text-[#121614] disabled:opacity-60 sm:col-span-2"
+        className="inline-flex h-[44px] w-full items-center justify-center rounded-full bg-[#cff63a] text-[18px] font-semibold italic text-[#121713] disabled:opacity-60 sm:col-span-2"
       >
-        <span className="inline-block translate-y-[0.12em]">
-          {status === "sending" ? "Sending" : "Send"}
-        </span>
+        <ButtonLabel>{status === "sending" ? "SENDING" : "SEND"}</ButtonLabel>
       </button>
       {status === "success" ? (
         <p className="text-[15px] text-[#cff63a] sm:col-span-2">

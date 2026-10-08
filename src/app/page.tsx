@@ -90,7 +90,7 @@ export default function Home() {
   return (
     <main className="w-full bg-black">
       <section className="relative flex min-h-[calc(100svh-5rem)] w-full flex-col bg-white md:min-h-[calc(100svh-108px)]">
-        <div className="flex aspect-[3468/2080] w-full shrink-0 justify-center overflow-hidden bg-black leading-[0] md:aspect-auto md:block">
+        <div className="flex aspect-[3468/1200] w-full shrink-0 justify-center overflow-hidden bg-black leading-[0] md:aspect-auto md:block">
           <video
             autoPlay
             loop
