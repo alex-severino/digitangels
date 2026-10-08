@@ -24,21 +24,21 @@ const PILL_ROW_2 = [
 const HIDDEN_PROJECTS = new Set(["digitangels", "designwise"]);
 
 const CLIENTS = [
-  ["tbwa.png", "TBWA"],
-  ["ddb.png", "DDB"],
-  ["starcom.png", "Starcom"],
-  ["verve.png", "Verve"],
   ["coca-cola.png", "Coca-Cola"],
-  ["mastercard.png", "Mastercard"],
-  ["nestle.png", "Nestlé"],
-  ["finlandia.png", "Finlandia"],
-  ["volkswagen.png", "Volkswagen"],
-  ["adidas.png", "Adidas"],
   ["lebara.png", "Lebara"],
   ["yamaha.png", "Yamaha"],
+  ["starcom.png", "Starcom"],
+  ["tbwa.png", "TBWA"],
+  ["volkswagen.png", "Volkswagen"],
   ["kia.png", "Kia"],
-  ["hyundai.png", "Hyundai"],
   ["duracell.png", "Duracell"],
+  ["finlandia.png", "Finlandia"],
+  ["adidas.png", "Adidas"],
+  ["verve.png", "Verve"],
+  ["hyundai.png", "Hyundai"],
+  ["ddb.png", "DDB"],
+  ["mastercard.png", "Mastercard"],
+  ["nestle.png", "Nestlé"],
 ] as const;
 
 function PillRow({ labels }: { labels: readonly string[] }) {
@@ -139,7 +139,7 @@ export default function Home() {
 
       <section
         id="mission"
-        className="scroll-mt-20 bg-black px-4 py-20 text-white md:scroll-mt-[108px] md:px-5 md:py-28"
+        className="scroll-mt-20 bg-black px-4 py-20 text-[#e4e4e4] md:scroll-mt-[108px] md:px-5 md:py-28"
       >
         <p className="text-[clamp(1.85rem,5.4vw,4.75rem)] font-normal leading-[1.08] tracking-tight text-[#E4E4E4]">
           At the heart of Digitangels is a simple truth: Design is the
@@ -165,7 +165,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="bg-black px-5 pb-20 pt-4 text-white md:px-[75px] md:pb-28 md:pt-8">
+      <section className="bg-black px-5 pb-20 pt-4 text-[#e4e4e4] md:px-[75px] md:pb-28 md:pt-8">
         <h2 className="mb-12 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold tracking-tight md:mb-20">
           Companies who trust us
         </h2>
@@ -175,7 +175,7 @@ export default function Home() {
               <img
                 src={`/images/clients/${file}`}
                 alt={name}
-                className="max-h-12 w-auto max-w-[150px] object-contain brightness-0 invert md:max-h-16 md:max-w-[180px]"
+                className="max-h-12 w-auto max-w-[150px] object-contain brightness-[0.894] md:max-h-16 md:max-w-[180px]"
               />
             </div>
           ))}
@@ -255,14 +255,14 @@ export default function Home() {
 
       <section
         id="contact"
-        className="scroll-mt-20 bg-black px-5 pb-24 pt-16 text-white md:scroll-mt-[108px] md:px-[75px] md:pb-32 md:pt-24"
+        className="scroll-mt-20 bg-black px-5 pb-24 pt-16 text-[#e4e4e4] md:scroll-mt-[108px] md:px-[75px] md:pb-32 md:pt-24"
       >
         <h2 className="mb-5 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase tracking-tight md:mb-7">
           Contact
         </h2>
         <a
           href="mailto:hello@digitangels.com"
-          className="mx-auto mb-0 block w-fit select-text text-center text-[22px] font-medium tracking-tight text-white underline-offset-4 hover:underline md:text-[36px]"
+          className="mx-auto mb-0 block w-fit select-text text-center text-[22px] font-medium tracking-tight text-[#e4e4e4] underline-offset-4 hover:underline md:text-[36px]"
         >
           hello@{"\u200b"}digitangels.com
         </a>

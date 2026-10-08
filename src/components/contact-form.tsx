@@ -17,7 +17,7 @@ const initialForm: FormState = {
 };
 
 const fieldClass =
-  "w-full border-0 border-b border-white bg-transparent py-3 text-[16px] text-white outline-none placeholder:text-white/30 md:text-[18px]";
+  "w-full border-0 border-b border-[#e4e4e4] bg-transparent py-3 text-[16px] text-[#e4e4e4] outline-none placeholder:text-[#e4e4e4]/30 md:text-[18px]";
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -70,7 +70,7 @@ export function ContactForm() {
       />
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-white/55">
+        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
           NAME
         </span>
         <input
@@ -83,7 +83,7 @@ export function ContactForm() {
       </label>
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-white/55">
+        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
           EMAIL
         </span>
         <input
@@ -98,7 +98,7 @@ export function ContactForm() {
       </label>
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-white/55">
+        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
           SUBJECT
         </span>
         <input
@@ -113,7 +113,7 @@ export function ContactForm() {
       </label>
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-white/55">
+        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
           MESSAGE
         </span>
         <textarea
@@ -128,10 +128,10 @@ export function ContactForm() {
       </label>
 
       {status === "success" ? (
-        <p className="text-[14px] text-white">Thank you. We’ll be in touch soon.</p>
+        <p className="text-[14px] text-[#e4e4e4]">Thank you. We’ll be in touch soon.</p>
       ) : null}
       {status === "error" ? (
-        <p className="text-[14px] text-white/70">
+        <p className="text-[14px] text-[#e4e4e4]/70">
           Something went wrong. Please try again or email hello@digitangels.com
           directly.
         </p>
@@ -140,7 +140,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="self-center bg-white px-10 py-3 text-[13px] font-semibold tracking-[0.16em] text-black transition-opacity hover:opacity-70 disabled:opacity-40"
+        className="self-center bg-[#e4e4e4] px-10 py-3 text-[13px] font-semibold tracking-[0.16em] text-black transition-opacity hover:opacity-70 disabled:opacity-40"
       >
         {status === "sending" ? "SENDING…" : "SEND"}
       </button>

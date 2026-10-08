@@ -130,21 +130,17 @@ function ShrinkingWord() {
       if (!parent) return;
       el.style.fontSize = "100px";
       el.style.marginLeft = "0px";
-      const width = el.scrollWidth || 1;
       const cs = getComputedStyle(el);
       const ctx = document.createElement("canvas").getContext("2d");
       if (!ctx) return;
       ctx.font = cs.font;
-      ctx.letterSpacing = cs.letterSpacing;
+      ctx.letterSpacing = cs.letterSpacing === "normal" ? "0px" : cs.letterSpacing;
       const metrics = ctx.measureText(el.textContent.trim());
       const leftGap = Math.max(0, -metrics.actualBoundingBoxLeft);
-      const rightOver = Math.max(0, metrics.actualBoundingBoxRight - metrics.width);
-      el.dataset.base = String(
-        (parent.clientWidth / (width + leftGap + rightOver)) * 100,
-      );
-      el.dataset.layout = String(width);
+      const ink = metrics.actualBoundingBoxRight - metrics.actualBoundingBoxLeft;
+      el.dataset.base = String((parent.clientWidth / ink) * 100);
+      el.dataset.ink = String(ink);
       el.dataset.gap = String(leftGap);
-      el.dataset.over = String(rightOver);
       apply();
     };
 
@@ -164,12 +160,10 @@ function ShrinkingWord() {
       el.style.fontSize = `${fontSize}px`;
       el.style.opacity = shrink === 0 ? "0" : "1";
       const scale = fontSize / 100;
-      const layoutW = Number(el.dataset.layout) * scale;
+      const inkW = Number(el.dataset.ink) * scale;
       const gap = Number(el.dataset.gap) * scale;
-      const over = Number(el.dataset.over) * scale;
       const parentW = el.parentElement?.clientWidth ?? 0;
-      const inkW = layoutW - gap + over;
-      el.style.marginLeft = `${(parentW - inkW) / 2 - gap}px`;
+      el.style.marginLeft = `${(parentW - inkW) / 2 + gap}px`;
     };
 
     fit();
@@ -184,7 +178,7 @@ function ShrinkingWord() {
   return (
     <h1
       ref={ref}
-      className="w-max whitespace-nowrap pt-[0.03em] text-[17vw] font-semibold leading-[1.05] tracking-[-0.045em] text-[#cecece]"
+      className="w-max whitespace-nowrap pt-[0.03em] text-[17vw] font-semibold leading-[1.05] text-[#cecece]"
     >
       DESIGNWISE
     </h1>
@@ -262,6 +256,10 @@ function AreaList({
   );
 }
 
+function ButtonLabel({ children }: { children: ReactNode }) {
+  return <span className="translate-y-[0.1em]">{children}</span>;
+}
+
 function ChatLink({ light }: { light?: boolean }) {
   return (
     <a
@@ -272,7 +270,7 @@ function ChatLink({ light }: { light?: boolean }) {
           : "border-2 border-[#cff63a] bg-[#121713] text-[#cff63a]"
       }`}
     >
-      LET&apos;S CHAT
+      <ButtonLabel>LET&apos;S CHAT</ButtonLabel>
     </a>
   );
 }
@@ -326,10 +324,34 @@ function DesignwiseNav() {
         <div className="flex items-center justify-between">
           <a
             href="https://digitangels.com"
+            aria-label="Back to Digitangels"
             onClick={() => setOpen(false)}
-            className="text-[19.2px] font-semibold tracking-[-0.04em] text-[#cecece]"
+            className="inline-flex items-center gap-3 text-[19.2px] text-[#c1cdc4]"
           >
-            BACK TO DIGITANGELS
+            <svg
+              viewBox="0 0 28 16"
+              aria-hidden="true"
+              className="h-[0.55em] w-auto translate-y-[0.09em]"
+              fill="none"
+            >
+              <path
+                d="M10.5 1.75 2.25 8l8.25 6.25"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M3 8h23"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span
+              aria-hidden="true"
+              className="block h-[1.15em] aspect-[640/133] bg-current [mask-image:url(/designwise/images/digitangels-wordmark.png)] [mask-repeat:no-repeat] [mask-size:100%_100%] [-webkit-mask-image:url(/designwise/images/digitangels-wordmark.png)] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:100%_100%]"
+            />
           </a>
           <RoundIconButton label="Close menu" onClick={() => setOpen(false)}>
             <span className="relative block h-4 w-4">
@@ -375,14 +397,16 @@ function DesignwiseNav() {
         href="#mission"
         className="inline-flex h-11 items-center justify-center rounded-full bg-[#cff63a] px-4 text-[13px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:w-[256px] md:px-0 md:text-[20px]"
       >
-        OUR MISSION
+        <ButtonLabel>OUR MISSION</ButtonLabel>
       </a>
       <a
         href="#1"
         className="inline-flex h-11 items-center justify-center rounded-full bg-[#cff63a] px-4 text-[13px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:w-[256px] md:px-0 md:text-[20px]"
       >
-        <span className="md:hidden">EDUCATION</span>
-        <span className="hidden md:inline">DESIGN EDUCATION</span>
+        <ButtonLabel>
+          <span className="md:hidden">EDUCATION</span>
+          <span className="hidden md:inline">DESIGN EDUCATION</span>
+        </ButtonLabel>
       </a>
       <RoundIconButton label="Open menu" onClick={() => setOpen(true)}>
         <span className="flex w-4 flex-col gap-[4px]">
@@ -443,11 +467,11 @@ export function DesignwisePage() {
               href="#contact"
               className="mt-4 inline-flex h-[42px] items-center justify-center rounded-full border border-[#cff63a] px-8 text-[20px] font-semibold italic text-[#cff63a]"
             >
-              CONTACT US
+              <ButtonLabel>CONTACT US</ButtonLabel>
             </a>
           </div>
 
-          <p className="absolute bottom-4 left-5 z-10 text-[35.2px] leading-[1.2] font-bold text-[#cecece] md:bottom-8 md:left-6">
+          <p className="absolute bottom-4 left-5 z-10 text-[35.2px] leading-[1.2] font-semibold text-[#cecece] md:bottom-8 md:left-6">
             FOR THE SMART.
             <br />
             FOR THE INNOVATIVE.
@@ -468,7 +492,7 @@ export function DesignwisePage() {
           </h2>
         </Reveal>
         <div ref={missionBar.ref} className="relative -mx-5 mt-16 h-[86px] md:-mx-16 md:mt-24">
-          <p className="relative z-10 flex h-full w-1/3 items-center px-5 text-[clamp(1.6rem,2.8vw,2.5rem)] font-semibold italic text-[#9eaca2] md:px-16">
+          <p className="relative z-10 flex h-full w-1/3 items-center px-5 text-[clamp(1.6rem,2.8vw,2.5rem)] font-semibold italic text-[#616a63] md:px-16">
             OUR MISSION
           </p>
           <div
@@ -756,7 +780,9 @@ function DesignwiseForm() {
         disabled={status === "sending"}
         className="col-span-2 rounded-lg bg-[#cff63a] py-3 text-[16px] text-[#121614] disabled:opacity-60"
       >
-        {status === "sending" ? "Sending" : "Send"}
+        <span className="inline-block translate-y-[0.12em]">
+          {status === "sending" ? "Sending" : "Send"}
+        </span>
       </button>
       {status === "success" ? (
         <p className="col-span-2 text-[15px] text-[#cff63a]">

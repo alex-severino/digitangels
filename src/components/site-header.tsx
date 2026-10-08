@@ -128,7 +128,7 @@ export function SiteHeader() {
               width={192}
               height={192}
               priority
-              className={`w-auto invert md:hidden ${
+              className={`w-auto brightness-0 invert md:hidden ${
                 largeMobileHalo ? "h-[47.88px]" : "h-[38.304px]"
               }`}
             />
@@ -138,7 +138,7 @@ export function SiteHeader() {
               width={640}
               height={133}
               priority
-              className="hidden w-auto md:block md:h-[72px]"
+              className="hidden w-auto brightness-0 invert md:block md:h-[72px]"
             />
           </Link>
 
@@ -150,7 +150,7 @@ export function SiteHeader() {
                 setHidden(false);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`absolute inset-x-16 truncate text-center font-bold tracking-tight text-white sm:inset-x-32 md:inset-x-44 ${
+              className={`absolute inset-x-16 truncate text-center font-bold tracking-tight text-[#e4e4e4] sm:inset-x-32 md:inset-x-44 ${
                 pageLabel.uppercase
                   ? "text-[16px] uppercase sm:text-[19px] md:text-[24px]"
                   : "text-[13px] sm:text-[15px] md:text-[24px]"
@@ -227,29 +227,29 @@ export function SiteHeader() {
                     scrollToHash(link.href);
                   }
                 }}
-                className="text-[24px] font-medium uppercase tracking-tight text-white transition-opacity hover:opacity-70 md:text-[32px]"
+                className="text-[24px] font-medium uppercase tracking-tight text-[#e4e4e4] transition-opacity hover:opacity-70 md:text-[32px]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="mt-auto flex flex-col gap-2 pt-10 text-[12px] font-medium tracking-[0.04em] text-white/70 md:text-[13px]">
+          <div className="mt-auto flex flex-col gap-2 pt-10 text-[12px] font-medium tracking-[0.04em] text-[#e4e4e4]/70 md:text-[13px]">
             <Link
               href="/terms"
               onClick={() => setOpen(false)}
-              className="uppercase transition-opacity hover:text-white hover:opacity-100"
+              className="uppercase transition-opacity hover:text-[#e4e4e4] hover:opacity-100"
             >
               Terms and Conditions
             </Link>
             <Link
               href="/privacy"
               onClick={() => setOpen(false)}
-              className="uppercase transition-opacity hover:text-white hover:opacity-100"
+              className="uppercase transition-opacity hover:text-[#e4e4e4] hover:opacity-100"
             >
               Privacy Policy
             </Link>
-            <p className="mt-3 text-white/50">© Digitangels 2026</p>
+            <p className="mt-3 text-[#e4e4e4]/50">© Digitangels 2026</p>
           </div>
         </aside>
       </div>
