@@ -21,6 +21,13 @@ const PILL_ROW_2 = [
   "DESIGN INTEGRATION",
 ] as const;
 
+const PILL_ROWS_MOBILE = [
+  ["BRANDING", "DIGITAL", "DESIGN SYSTEMS"],
+  ["ACCESSIBILITY", "AI AUTOMATION"],
+  ["DESIGN ORG", "DESIGN OPS", "UX RESEARCH"],
+  ["DESIGN MATURITY", "DESIGN INTEGRATION"],
+] as const;
+
 const HIDDEN_PROJECTS = new Set(["digitangels", "designwise"]);
 
 const CLIENTS = [
@@ -41,13 +48,27 @@ const CLIENTS = [
   ["nestle.png", "Nestlé"],
 ] as const;
 
-function PillRow({ labels }: { labels: readonly string[] }) {
+function PillRow({
+  labels,
+  nowrap = false,
+}: {
+  labels: readonly string[];
+  nowrap?: boolean;
+}) {
   return (
-    <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[14px] font-medium tracking-[0.08em] text-black sm:text-[17px] md:gap-x-4 md:text-[20px]">
+    <p
+      className={`flex items-center justify-center font-medium text-black ${
+        nowrap
+          ? "flex-nowrap gap-x-2.5 whitespace-nowrap text-[13px] tracking-[0.04em]"
+          : "flex-wrap gap-x-3 gap-y-1 text-[14px] tracking-[0.08em] sm:text-[17px] md:gap-x-4 md:text-[20px]"
+      }`}
+    >
       {labels.map((label, index) => (
         <span
           key={label}
-          className="inline-flex items-center gap-x-3 whitespace-nowrap md:gap-x-4"
+          className={`inline-flex items-center whitespace-nowrap ${
+            nowrap ? "gap-x-2.5" : "gap-x-3 md:gap-x-4"
+          }`}
         >
           {label}
           {index < labels.length - 1 ? (
@@ -69,14 +90,14 @@ export default function Home() {
   return (
     <main className="w-full bg-black">
       <section className="relative flex min-h-[calc(100svh-5rem)] w-full flex-col bg-white md:min-h-[calc(100svh-108px)]">
-        <div className="flex w-full shrink-0 items-center justify-center bg-black leading-[0]">
+        <div className="flex aspect-[3468/2080] w-full shrink-0 justify-center overflow-hidden bg-black leading-[0] md:aspect-auto md:block">
           <video
             autoPlay
             loop
             muted
             playsInline
             preload="metadata"
-            className="block h-auto w-full object-contain"
+            className="h-full w-auto max-w-none object-contain md:h-auto md:w-full md:max-w-full"
             src="/videos/Hands-Halo.mp4?v=5"
           />
         </div>
@@ -114,8 +135,10 @@ export default function Home() {
           </div>
 
           <div className="mt-5 flex w-full max-w-6xl flex-col items-center gap-2 sm:mt-6 md:mt-8">
-            <div className="w-full md:hidden">
-              <PillRow labels={[...PILL_ROW_1, ...PILL_ROW_2]} />
+            <div className="flex w-full flex-col items-center gap-1 md:hidden">
+              {PILL_ROWS_MOBILE.map((row) => (
+                <PillRow key={row.join("-")} labels={row} nowrap />
+              ))}
             </div>
             <div className="hidden w-full flex-col items-center gap-2 md:flex">
               <PillRow labels={PILL_ROW_1} />

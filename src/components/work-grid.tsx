@@ -13,7 +13,7 @@ export function WorkGrid({ cards }: { cards: WorkCard[] }) {
             </h2>
             <div
               className={`aspect-[605/340] overflow-hidden ${
-                card.slug === "designwise" ? "bg-[#121412]" : "bg-[#C9C9C9]"
+                card.slug === "designwise" ? "bg-[#121412]" : "bg-black/5"
               }`}
             >
               <LazyVideo

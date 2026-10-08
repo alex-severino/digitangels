@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { LazyVideo } from "@/components/lazy-video";
 
 const AREAS = [
@@ -118,12 +124,81 @@ function useInView(threshold = 0.4) {
   return { ref, shown };
 }
 
+function MobileHeroTitle() {
+  const boxRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLHeadingElement>(null);
+
+  useLayoutEffect(() => {
+    const box = boxRef.current;
+    const el = textRef.current;
+    if (!box || !el) return;
+
+    const fit = () => {
+      const sub = box.parentElement?.querySelector("p");
+      const ctx = document.createElement("canvas").getContext("2d");
+      if (!sub || !ctx) return;
+
+      const measure = (font: string, text: string, letterSpacing: string) => {
+        ctx.font = font;
+        ctx.letterSpacing = letterSpacing === "normal" ? "0px" : letterSpacing;
+        return ctx.measureText(text);
+      };
+
+      const subCs = getComputedStyle(sub);
+      const subD = measure(subCs.font, "D", subCs.letterSpacing);
+      const targetLeft =
+        sub.getBoundingClientRect().left - subD.actualBoundingBoxLeft;
+      const targetInk = window.innerWidth - targetLeft * 2;
+      if (targetInk <= 0) return;
+
+      el.style.marginLeft = "0px";
+      el.style.fontSize = "100px";
+      const cs = getComputedStyle(el);
+      const word = measure(cs.font, "DESIGNWISE", cs.letterSpacing);
+      const ink = word.actualBoundingBoxRight + word.actualBoundingBoxLeft;
+      if (!ink) return;
+      const fontSize = (targetInk / ink) * 100;
+      el.style.fontSize = `${fontSize}px`;
+      const live = measure(
+        getComputedStyle(el).font,
+        "DESIGNWISE",
+        getComputedStyle(el).letterSpacing,
+      );
+      el.style.marginLeft = `${targetLeft + live.actualBoundingBoxLeft - box.getBoundingClientRect().left}px`;
+    };
+
+    fit();
+    document.fonts?.ready.then(fit);
+    document.fonts?.addEventListener("loadingdone", fit);
+    const ro = new ResizeObserver(fit);
+    ro.observe(box);
+    window.addEventListener("resize", fit);
+    return () => {
+      ro.disconnect();
+      document.fonts?.removeEventListener("loadingdone", fit);
+      window.removeEventListener("resize", fit);
+    };
+  }, []);
+
+  return (
+    <div ref={boxRef} className="w-full min-w-0 md:hidden">
+      <h1
+        ref={textRef}
+        className="w-max whitespace-nowrap font-semibold leading-[1.05] text-[#cecece]"
+      >
+        DESIGNWISE
+      </h1>
+    </div>
+  );
+}
+
 function ShrinkingWord() {
   const ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
 
     const fit = () => {
       const parent = el.parentElement;
@@ -264,7 +339,7 @@ function ChatLink({ light }: { light?: boolean }) {
   return (
     <a
       href="#contact"
-      className={`inline-flex h-[44px] w-full max-w-[256px] items-center justify-center rounded-[25px] text-[18px] font-semibold italic md:w-[256px] md:text-[20px] ${
+      className={`inline-flex h-[44px] w-full self-stretch items-center justify-center rounded-[25px] text-[18px] font-semibold italic md:w-[256px] md:self-auto md:text-[20px] ${
         light
           ? "bg-[#121713] text-[#cff63a]"
           : "border-2 border-[#cff63a] bg-[#121713] text-[#cff63a]"
@@ -429,13 +504,31 @@ export function DesignwisePage() {
       <DesignwiseNav />
 
       <section className="sticky top-0 z-0 flex h-svh flex-col overflow-hidden bg-[#121713] pt-3 md:pt-5">
-        <div className="relative z-20 -mb-1 w-full shrink-0 overflow-visible md:-mb-4">
-          <ShrinkingWord />
+        <div className="relative z-20 -mb-1 w-full min-w-0 shrink-0 overflow-x-clip overflow-y-visible px-4 md:overflow-visible md:px-0 md:-mb-4">
+          <MobileHeroTitle />
+          <div className="hidden md:block">
+            <ShrinkingWord />
+          </div>
+          <div className="mt-1 flex flex-col items-start md:hidden">
+            <p className="text-[22px] leading-[1.15] font-normal text-[#cecece]">
+              Design Education
+              <br />
+              <span className="inline-flex w-max flex-col items-stretch">
+                <span>for Tech and beyond</span>
+                <a
+                  href="#contact"
+                  className="mt-3 inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full border border-[#cff63a] text-[13px] font-semibold italic text-[#cff63a]"
+                >
+                  <ButtonLabel>CONTACT US</ButtonLabel>
+                </a>
+              </span>
+            </p>
+          </div>
         </div>
 
         <div className="relative z-0 min-h-0 flex-1">
           <video
-            className="pointer-events-none absolute top-[40%] left-1/2 z-0 aspect-square w-[min(72vw,520px)] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[46%] md:w-[min(46vw,768px)]"
+            className="pointer-events-none absolute top-[40%] left-1/2 z-0 aspect-square w-[min(100.8vw,728px)] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain md:top-[46%] md:w-[min(46vw,768px)]"
             autoPlay
             muted
             loop
@@ -443,20 +536,6 @@ export function DesignwisePage() {
             preload="metadata"
             src="/designwise/videos/hero.mp4"
           />
-
-          <div className="absolute inset-x-4 top-2 z-10 flex flex-col items-start gap-3 md:hidden">
-            <p className="text-[22px] leading-[1.15] font-normal text-[#cecece]">
-              Design Education
-              <br />
-              for Tech and beyond
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full border border-[#cff63a] px-5 text-[13px] font-semibold italic text-[#cff63a]"
-            >
-              <ButtonLabel>CONTACT US</ButtonLabel>
-            </a>
-          </div>
 
           <div className="absolute top-0 left-5 z-10 hidden items-center gap-3 md:left-6 md:flex">
             <span className="translate-y-[0.14em] text-[clamp(1.25rem,1.8vw,2.1875rem)] font-normal text-[#cecece]">
@@ -569,7 +648,7 @@ export function DesignwisePage() {
               <img
                 src="/designwise/images/team-constellation.png"
                 alt="A constellation of people linked around the world"
-                className="mx-auto w-full max-w-[167px] md:max-w-[334px]"
+                className="mx-auto w-full max-w-[217px] md:max-w-[334px]"
               />
             </Reveal>
             <Reveal delay={80}>
@@ -613,8 +692,8 @@ export function DesignwisePage() {
         <div ref={reasonsBar.ref} className="relative -mx-5 mt-4 md:-mx-16">
           <div
             aria-hidden
-            className={`pointer-events-none absolute inset-x-0 bottom-[0.08em] z-0 h-9 bg-[#9eaca2] md:h-[86px] ${enterEase} ${
-              reasonsBar.shown ? "translate-x-0" : "translate-x-full"
+            className={`pointer-events-none absolute inset-x-0 bottom-[0.08em] z-0 h-9 bg-[#9eaca2] md:h-[86px] ${enterEase} duration-[2000ms] md:duration-[1100ms] ${
+              reasonsBar.shown ? "translate-x-0" : "-translate-x-full"
             }`}
           />
           <h2 className="relative z-10 px-5 text-[clamp(2.6rem,15vw,12.5rem)] font-semibold italic leading-[0.85] tracking-tight md:px-16 md:text-[clamp(4.5rem,14vw,12.5rem)]">
