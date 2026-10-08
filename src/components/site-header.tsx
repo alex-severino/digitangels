@@ -33,6 +33,7 @@ function pageLabelFromPath(pathname: string) {
     return { label: "Terms and Conditions", uppercase: true };
   if (pathname === "/privacy")
     return { label: "Privacy Policy", uppercase: true };
+  if (pathname === "/designwise") return { label: "Designwise", uppercase: false };
 
   if (pathname === "/digitangels") {
     const title = workCards.find((card) => card.slug === "digitangels")?.title;
@@ -58,11 +59,13 @@ function scrollToHash(href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isDesignwise = pathname === "/designwise";
   const largeMobileHalo =
     isHome || pathname === "/terms" || pathname === "/privacy";
-  const pageLabel = pageLabelFromPath(pathname);
+  const pageLabel = isDesignwise ? null : pageLabelFromPath(pathname);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [onLight, setOnLight] = useState(false);
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -89,6 +92,43 @@ export function SiteHeader() {
   }, [open]);
 
   useEffect(() => {
+    if (!isDesignwise) return;
+
+    const sample = () => {
+      const header = document.querySelector("header");
+      const y = (header?.getBoundingClientRect().height ?? 80) * 0.5;
+      const stack = document.elementsFromPoint(window.innerWidth / 2, y);
+      const hit = stack.find((el) => el !== header && !header?.contains(el));
+      let node: Element | null = hit ?? null;
+      let bg = "";
+      while (node && node !== document.documentElement) {
+        const color = getComputedStyle(node).backgroundColor;
+        if (color && color !== "transparent" && color !== "rgba(0, 0, 0, 0)") {
+          bg = color;
+          break;
+        }
+        node = node.parentElement;
+      }
+      const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (!match) return;
+      const luminance =
+        (0.2126 * Number(match[1]) +
+          0.7152 * Number(match[2]) +
+          0.0722 * Number(match[3])) /
+        255;
+      setOnLight(luminance > 0.55);
+    };
+
+    sample();
+    window.addEventListener("scroll", sample, { passive: true });
+    window.addEventListener("resize", sample);
+    return () => {
+      window.removeEventListener("scroll", sample);
+      window.removeEventListener("resize", sample);
+    };
+  }, [isDesignwise]);
+
+  useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -104,9 +144,9 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 bg-black transition-transform duration-300 ease-out ${
-          hidden && !open ? "-translate-y-full" : "translate-y-0"
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-out ${
+          isDesignwise ? "bg-transparent" : "bg-black"
+        } ${hidden && !open ? "-translate-y-full" : "translate-y-0"}`}
       >
         <div className="relative flex h-20 items-center justify-start px-5 md:h-[108px] md:px-8">
           <Link
@@ -125,9 +165,9 @@ export function SiteHeader() {
               width={192}
               height={192}
               priority
-              className={`w-auto invert md:hidden ${
-                largeMobileHalo ? "h-[47.88px]" : "h-[38.304px]"
-              }`}
+              className={`w-auto md:hidden ${
+                isDesignwise && onLight && !open ? "" : "invert"
+              } ${largeMobileHalo ? "h-[47.88px]" : "h-[38.304px]"}`}
             />
             <Image
               src="/images/digitangels_logo.png"
@@ -135,7 +175,9 @@ export function SiteHeader() {
               width={240}
               height={80}
               priority
-              className="hidden w-auto invert md:block md:h-[72px]"
+              className={`hidden w-auto md:block md:h-[72px] ${
+                isDesignwise && onLight && !open ? "" : "invert"
+              }`}
               aria-hidden
             />
           </Link>
@@ -167,19 +209,23 @@ export function SiteHeader() {
           >
             <span className="relative block h-[25.92px] w-[37.44px] md:h-[28.8px] md:w-[41.6px]">
               <span
-                className={`absolute left-0 block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:h-[4.8px] ${
+                className={`absolute left-0 block h-[4.32px] w-full rounded-none transition-all duration-300 ease-out md:h-[4.8px] ${
+                  isDesignwise && onLight && !open ? "bg-black" : "bg-white"
+                } ${
                   open
                     ? "top-[10.8px] rotate-45 md:top-[12px]"
                     : "top-0 rotate-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-[10.8px] block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:top-[12px] md:h-[4.8px] ${
-                  open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
-                }`}
+                className={`absolute left-0 top-[10.8px] block h-[4.32px] w-full rounded-none transition-all duration-300 ease-out md:top-[12px] md:h-[4.8px] ${
+                  isDesignwise && onLight && !open ? "bg-black" : "bg-white"
+                } ${open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"}`}
               />
               <span
-                className={`absolute left-0 block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:h-[4.8px] ${
+                className={`absolute left-0 block h-[4.32px] w-full rounded-none transition-all duration-300 ease-out md:h-[4.8px] ${
+                  isDesignwise && onLight && !open ? "bg-black" : "bg-white"
+                } ${
                   open
                     ? "top-[10.8px] -rotate-45 md:top-[12px]"
                     : "top-[21.6px] rotate-0 md:top-[24px]"
@@ -190,7 +236,9 @@ export function SiteHeader() {
         </div>
       </header>
 
-      <div className="h-20 shrink-0 bg-black md:h-[108px]" aria-hidden />
+      {isDesignwise ? null : (
+        <div className="h-20 shrink-0 bg-black md:h-[108px]" aria-hidden />
+      )}
 
       <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 ${
@@ -220,7 +268,7 @@ export function SiteHeader() {
                 href={link.href}
                 onClick={(event) => {
                   setOpen(false);
-                  if (isHome) {
+                  if (isHome && link.href.includes("#")) {
                     event.preventDefault();
                     scrollToHash(link.href);
                   }
