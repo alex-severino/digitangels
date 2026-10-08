@@ -276,7 +276,7 @@ function ChatLink({ light }: { light?: boolean }) {
 }
 
 const enterEase =
-  "transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transform-none";
+  "transition-[transform,translate,scale] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transform-none motion-reduce:translate-none motion-reduce:scale-none";
 
 const MENU_LINKS = [
   { href: "#about", label: "ABOUT" },
@@ -395,13 +395,13 @@ function DesignwiseNav() {
       </RoundIconButton>
       <a
         href="#mission"
-        className="inline-flex h-10 min-w-0 flex-1 items-center justify-center rounded-full bg-[#cff63a] px-2 text-[11px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:h-11 md:w-[256px] md:flex-none md:px-0 md:text-[20px]"
+        className="inline-flex h-10 min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-full bg-[#cff63a] px-2 text-[14px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:h-11 md:w-[256px] md:flex-none md:px-0 md:text-[20px]"
       >
         <ButtonLabel>OUR MISSION</ButtonLabel>
       </a>
       <a
         href="#1"
-        className="inline-flex h-10 min-w-0 flex-1 items-center justify-center rounded-full bg-[#cff63a] px-2 text-[11px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:h-11 md:w-[256px] md:flex-none md:px-0 md:text-[20px]"
+        className="inline-flex h-10 min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-full bg-[#cff63a] px-2 text-[14px] font-semibold italic text-black shadow-[inset_0_0_0_2px_#000] md:h-11 md:w-[256px] md:flex-none md:px-0 md:text-[20px]"
       >
         <ButtonLabel>
           <span className="md:hidden">EDUCATION</span>
@@ -422,7 +422,7 @@ function DesignwiseNav() {
 export function DesignwisePage() {
   const missionBar = useInView(0.55);
   const joinBar = useInView(0.6);
-  const reasonsBar = useInView(0.45);
+  const reasonsBar = useInView(0.2);
 
   return (
     <main className="overflow-x-hidden bg-[#121713] text-[#cecece]">
@@ -526,13 +526,13 @@ export function DesignwisePage() {
             and user experiences
           </h2>
         </Reveal>
-        <div ref={missionBar.ref} className="relative -mx-5 mt-12 h-[72px] md:-mx-16 md:mt-24 md:h-[86px]">
-          <p className="relative z-10 flex h-full w-[42%] items-center px-4 text-[17px] leading-tight font-semibold italic text-[#616a63] md:w-1/3 md:px-16 md:text-[clamp(1.6rem,2.8vw,2.5rem)] md:leading-normal">
+        <div ref={missionBar.ref} className="relative -mx-5 mt-12 h-9 md:-mx-16 md:mt-24 md:h-[86px]">
+          <p className="relative z-10 flex h-full w-[42%] items-center px-4 text-[13px] leading-none font-semibold italic text-[#616a63] md:w-1/3 md:px-16 md:text-[clamp(1.6rem,2.8vw,2.5rem)] md:leading-normal">
             OUR MISSION
           </p>
           <div
             aria-hidden
-            className={`absolute inset-y-0 right-0 w-2/3 rounded-tl-[100px] bg-[#9eaca2] ${enterEase} ${
+            className={`absolute inset-y-0 right-0 w-2/3 rounded-tl-[50px] bg-[#9eaca2] md:rounded-tl-[100px] ${enterEase} ${
               missionBar.shown ? "translate-x-0" : "translate-x-full"
             }`}
           />
@@ -569,7 +569,7 @@ export function DesignwisePage() {
               <img
                 src="/designwise/images/team-constellation.png"
                 alt="A constellation of people linked around the world"
-                className="mx-auto w-full max-w-[334px]"
+                className="mx-auto w-full max-w-[167px] md:max-w-[334px]"
               />
             </Reveal>
             <Reveal delay={80}>
@@ -588,13 +588,13 @@ export function DesignwisePage() {
           </div>
         </div>
 
-        <div ref={joinBar.ref} className="relative h-[86px] overflow-hidden">
+        <div ref={joinBar.ref} className="relative h-[43px] overflow-hidden md:h-[86px]">
           <div
-            className={`absolute inset-y-0 right-0 flex w-full items-center rounded-tl-[40px] bg-[#cff63a] px-5 md:w-max md:max-w-full md:rounded-tl-[64px] md:px-16 ${enterEase} ${
+            className={`absolute inset-y-0 right-0 flex w-full items-center rounded-tl-[20px] bg-[#cff63a] px-5 md:w-max md:max-w-full md:rounded-tl-[64px] md:px-16 ${enterEase} ${
               joinBar.shown ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <p className="text-[14px] leading-snug font-semibold italic text-[#121713] md:whitespace-nowrap md:text-[clamp(0.95rem,2.5vw,2.5rem)]">
+            <p className="text-[12px] leading-tight font-semibold italic text-[#121713] md:whitespace-nowrap md:text-[clamp(0.95rem,2.5vw,2.5rem)]">
               JOIN US IN REDIFINING EXCELLENCE IN DESIGN!
             </p>
           </div>
@@ -603,29 +603,31 @@ export function DesignwisePage() {
 
       <section
         id="reasons"
-        className="relative scroll-mt-20 overflow-hidden bg-[#c1cdc4] px-5 py-16 text-[#121713] md:scroll-mt-28 md:px-16 md:py-24"
+        className="relative scroll-mt-20 overflow-hidden bg-[#c1cdc4] px-5 pt-16 pb-32 text-[#121713] md:scroll-mt-28 md:px-16 md:py-24"
       >
         <Reveal>
           <h2 className="text-[clamp(2rem,4.8vw,5.4rem)] font-normal leading-[1.05]">
             Most probably, you came here for
           </h2>
         </Reveal>
-        <div ref={reasonsBar.ref} className="relative mt-4">
+        <div ref={reasonsBar.ref} className="relative -mx-5 mt-4 md:-mx-16">
           <div
             aria-hidden
-            className={`pointer-events-none absolute bottom-[0.08em] left-1/2 z-0 h-[72px] w-screen origin-left -translate-x-1/2 bg-[#9eaca2] md:h-[86px] ${enterEase} ${
-              reasonsBar.shown ? "scale-x-100" : "scale-x-0"
+            className={`pointer-events-none absolute inset-x-0 bottom-[0.08em] z-0 h-9 bg-[#9eaca2] md:h-[86px] ${enterEase} ${
+              reasonsBar.shown ? "translate-x-0" : "translate-x-full"
             }`}
           />
-          <h2 className="relative z-10 text-[clamp(3.4rem,22vw,12.5rem)] font-semibold italic leading-[0.85] tracking-tight md:text-[clamp(4.5rem,14vw,12.5rem)]">
+          <h2 className="relative z-10 px-5 text-[clamp(2.6rem,15vw,12.5rem)] font-semibold italic leading-[0.85] tracking-tight md:px-16 md:text-[clamp(4.5rem,14vw,12.5rem)]">
             2 REASONS
           </h2>
         </div>
-        <img
-          src="/designwise/images/chevron.png"
-          alt=""
-          className="designwise-caret pointer-events-none absolute right-3 bottom-4 z-10 h-12 w-auto md:right-8 md:bottom-8 md:h-[120px]"
-        />
+        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-10 flex justify-center md:inset-x-auto md:right-8 md:bottom-8 md:justify-end">
+          <img
+            src="/designwise/images/chevron.png"
+            alt=""
+            className="designwise-caret h-16 w-auto md:h-[120px]"
+          />
+        </div>
       </section>
 
       <div className="bg-[#121713] py-8 md:py-0">
@@ -653,7 +655,7 @@ export function DesignwisePage() {
           <AreaList items={AREAS} />
         </div>
 
-        <div className="-mx-6 flex flex-col items-start gap-[26px] px-6 pt-12 pb-16 min-[1100px]:-mx-[35px] min-[1100px]:pt-[70px] min-[1100px]:pr-[21px] min-[1100px]:pb-[85px] min-[1100px]:pl-[57.4%]">
+        <div className="-mx-6 flex flex-col items-center gap-[26px] px-6 pt-12 pb-16 md:items-start min-[1100px]:-mx-[35px] min-[1100px]:pt-[70px] min-[1100px]:pr-[21px] min-[1100px]:pb-[85px] min-[1100px]:pl-[57.4%]">
           <p className="w-full text-left text-[20px] leading-6 font-normal text-[#e4e4e4]">
             We are happy to offer our support in the multiple areas, or only in
             some part of one area – flexibility is key! Also, if you have a
@@ -689,7 +691,7 @@ export function DesignwisePage() {
           <AreaList items={SUPPORT} light />
         </div>
 
-        <div className="-mx-6 flex flex-col items-start gap-[26px] px-6 pt-12 pb-16 min-[1100px]:-mx-[35px] min-[1100px]:pt-[70px] min-[1100px]:pr-[21px] min-[1100px]:pb-[85px] min-[1100px]:pl-[57.4%]">
+        <div className="-mx-6 flex flex-col items-center gap-[26px] px-6 pt-12 pb-16 md:items-start min-[1100px]:-mx-[35px] min-[1100px]:pt-[70px] min-[1100px]:pr-[21px] min-[1100px]:pb-[85px] min-[1100px]:pl-[57.4%]">
           <p className="w-full text-left text-[20px] leading-6 font-normal text-[#121713]">
             Feel free to let us know what design area is most challenging in
             your company, even if it&apos;s not listed in trainings and

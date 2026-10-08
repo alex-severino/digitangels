@@ -45,8 +45,12 @@ function PillRow({ labels }: { labels: readonly string[] }) {
   return (
     <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[14px] font-medium tracking-[0.08em] text-black sm:text-[17px] md:gap-x-4 md:text-[20px]">
       {labels.map((label, index) => (
-        <span key={label} className="inline-flex items-center gap-x-3 md:gap-x-4">
-          {index > 0 ? (
+        <span
+          key={label}
+          className="inline-flex items-center gap-x-3 whitespace-nowrap md:gap-x-4"
+        >
+          {label}
+          {index < labels.length - 1 ? (
             <svg
               aria-hidden
               viewBox="0 0 8 8"
@@ -55,7 +59,6 @@ function PillRow({ labels }: { labels: readonly string[] }) {
               <circle cx="4" cy="4" r="4" fill="currentColor" />
             </svg>
           ) : null}
-          {label}
         </span>
       ))}
     </p>
@@ -111,8 +114,13 @@ export default function Home() {
           </div>
 
           <div className="mt-5 flex w-full max-w-6xl flex-col items-center gap-2 sm:mt-6 md:mt-8">
-            <PillRow labels={PILL_ROW_1} />
-            <PillRow labels={PILL_ROW_2} />
+            <div className="w-full md:hidden">
+              <PillRow labels={[...PILL_ROW_1, ...PILL_ROW_2]} />
+            </div>
+            <div className="hidden w-full flex-col items-center gap-2 md:flex">
+              <PillRow labels={PILL_ROW_1} />
+              <PillRow labels={PILL_ROW_2} />
+            </div>
           </div>
         </div>
 
@@ -155,7 +163,7 @@ export default function Home() {
 
       <section
         id="projects"
-        className="scroll-mt-20 bg-white px-5 pb-20 pt-16 md:scroll-mt-[108px] md:px-[75px] md:pb-28 md:pt-24"
+        className="scroll-mt-20 bg-[#C9C9C9] px-5 pb-20 pt-16 md:scroll-mt-[108px] md:px-[75px] md:pb-28 md:pt-24"
       >
         <h2 className="mb-10 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase tracking-tight text-black md:mb-14">
           Projects
@@ -169,13 +177,16 @@ export default function Home() {
         <h2 className="mb-12 text-center text-[clamp(2rem,5vw,4.5rem)] font-bold tracking-tight md:mb-20">
           Companies who trust us
         </h2>
-        <div className="grid grid-cols-2 items-center gap-x-8 gap-y-14 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-12 lg:gap-y-16">
+        <div className="grid grid-cols-3 items-center gap-x-4 gap-y-10 md:grid-cols-5 md:gap-x-12 md:gap-y-16">
           {CLIENTS.map(([file, name]) => (
-            <div key={file} className="flex h-16 items-center justify-center md:h-20">
+            <div
+              key={file}
+              className="flex h-12 items-center justify-center md:h-20"
+            >
               <img
                 src={`/images/clients/${file}`}
                 alt={name}
-                className="max-h-12 w-auto max-w-[150px] object-contain brightness-[0.894] md:max-h-16 md:max-w-[180px]"
+                className="max-h-9 w-auto max-w-[110px] object-contain brightness-[0.894] md:max-h-16 md:max-w-[180px]"
               />
             </div>
           ))}
@@ -213,7 +224,7 @@ export default function Home() {
               href="https://angelinaseverino.com"
               target="_blank"
               rel="noreferrer"
-              className="group mt-6 inline-flex items-center gap-2 pb-1.5 text-[14px] font-semibold uppercase tracking-[0.18em] text-black sm:text-[16px] md:mt-8 md:text-[18px]"
+              className="group mt-6 inline-flex items-center gap-2 pb-1.5 text-[19px] font-semibold uppercase tracking-[0.18em] text-black md:mt-8 md:text-[24px]"
             >
               <span className="relative">
                 ANGELINASEVERINO.COM

@@ -60,15 +60,15 @@ export function ProjectPageView({ project }: { project: Project }) {
   const edgeBars = project.slug === "art-workers-united";
 
   return (
-    <main id="top" className="min-h-screen bg-white text-black">
+    <main id="top" className="min-h-screen bg-[#C9C9C9] text-black">
       {edgeBars ? (
-        <div className="h-[50px] w-full bg-white" aria-hidden />
+        <div className="h-[50px] w-full bg-[#C9C9C9]" aria-hidden />
       ) : null}
       {introRow ? (
         <>
           <ProjectGallery rows={[introRow]} isLastSection={false} />
 
-          <section className="bg-white px-5 py-8 md:px-[75px] md:py-10">
+          <section className="bg-[#C9C9C9] px-5 py-8 md:px-[75px] md:py-10">
             <ProjectIntroRow project={project} />
           </section>
 
@@ -85,12 +85,12 @@ export function ProjectPageView({ project }: { project: Project }) {
           )}
         </>
       ) : (
-        <section className="bg-white px-5 py-24 md:px-[75px]">
+        <section className="bg-[#C9C9C9] px-5 py-24 md:px-[75px]">
           <ProjectIntroRow project={project} />
         </section>
       )}
       {edgeBars ? (
-        <div className="h-[50px] w-full bg-white" aria-hidden />
+        <div className="h-[50px] w-full bg-[#C9C9C9]" aria-hidden />
       ) : null}
     </main>
   );

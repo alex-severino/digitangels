@@ -34,12 +34,8 @@ function pageLabelFromPath(pathname: string) {
     return { label: "Terms and Conditions", uppercase: true };
   if (pathname === "/privacy")
     return { label: "Privacy Policy", uppercase: true };
-  if (pathname === "/digitangels") {
-    const title = workCards.find((card) => card.slug === "digitangels")?.title;
-    return title
-      ? { label: toTitleCase(title), uppercase: false }
-      : { label: "Digitangels", uppercase: false };
-  }
+  if (pathname === "/digitangels")
+    return { label: "OUR BRANDING", uppercase: true };
 
   const match = pathname.match(/^\/projects\/([^/]+)\/?$/);
   if (!match) return null;
@@ -59,8 +55,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isDesignwise = pathname === "/designwise";
-  const largeMobileHalo =
-    isHome || pathname === "/terms" || pathname === "/privacy";
+  const largeHalo = pathname === "/terms" || pathname === "/privacy";
   const pageLabel = pageLabelFromPath(pathname);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -122,24 +117,29 @@ export function SiteHeader() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <Image
-              src="/icon.png"
-              alt="Digitangels"
-              width={192}
-              height={192}
-              priority
-              className={`w-auto brightness-0 invert md:hidden ${
-                largeMobileHalo ? "h-[47.88px]" : "h-[38.304px]"
-              }`}
-            />
-            <Image
-              src="/designwise/images/digitangels-wordmark.png"
-              alt="Digitangels"
-              width={640}
-              height={133}
-              priority
-              className="hidden w-auto brightness-0 invert md:block md:h-[72px]"
-            />
+            {isHome ? (
+              <Image
+                src="/designwise/images/digitangels-wordmark.png"
+                alt="Digitangels"
+                width={640}
+                height={133}
+                priority
+                className="h-[36px] w-auto brightness-0 invert md:h-[72px]"
+              />
+            ) : (
+              <Image
+                src="/icon.png"
+                alt="Digitangels"
+                width={192}
+                height={192}
+                priority
+                className={`w-auto brightness-0 invert ${
+                  largeHalo
+                    ? "h-[47.88px] md:h-[72px]"
+                    : "h-[38.304px] md:h-[56px]"
+                }`}
+              />
+            )}
           </Link>
 
           {pageLabel ? (
