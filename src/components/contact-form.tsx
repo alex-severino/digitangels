@@ -17,7 +17,7 @@ const initialForm: FormState = {
 };
 
 const fieldClass =
-  "w-full border-0 border-b border-[#e4e4e4] bg-transparent py-3 text-[16px] text-[#e4e4e4] outline-none placeholder:text-[#e4e4e4]/30 md:text-[18px]";
+  "w-full border-0 border-b border-[#e4e4e4]/30 bg-transparent py-3 text-[16px] text-[#e4e4e4] outline-none transition-colors duration-300 focus:border-[#cff63a] md:text-[18px]";
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -140,7 +140,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="self-center bg-[#e4e4e4] px-10 py-3 text-[13px] font-semibold tracking-[0.16em] text-black transition-opacity hover:opacity-70 disabled:opacity-40"
+        className="self-start bg-[#cff63a] px-10 py-3 text-[13px] font-semibold tracking-[0.16em] text-[#121713] transition-transform duration-500 hover:-translate-y-0.5 disabled:opacity-40"
       >
         {status === "sending" ? "SENDING…" : "SEND"}
       </button>

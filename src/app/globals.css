@@ -25,6 +25,102 @@
   }
 }
 
+.dt-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dt-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.dt-marquee {
+  animation: dt-marquee 32s linear infinite;
+}
+
+.dt-spin {
+  animation: dt-spin 28s linear infinite;
+}
+
+.dt-pulse-ring {
+  animation: dt-pulse-ring 4.8s ease-in-out infinite;
+}
+
+.dt-draw {
+  transform-origin: left center;
+  animation: dt-draw 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dt-word {
+  display: inline-block;
+  animation: dt-word-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes dt-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes dt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dt-pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes dt-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes dt-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dt-reveal,
+  .dt-marquee,
+  .dt-spin,
+  .dt-pulse-ring,
+  .dt-draw,
+  .dt-word {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .designwise-caret {
   animation: designwise-caret-bounce 1.4s ease-in-out infinite;
 }

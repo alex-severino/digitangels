@@ -4,7 +4,7 @@ import { ProjectBlocks, ProjectGallery } from "@/components/project-media";
 function ProjectIntroCopy({ project }: { project: Project }) {
   return (
     <div>
-      <p className="text-[19.95px] leading-[1.35] text-black md:text-[21.28px]">
+      <p className="text-[clamp(1.15rem,2vw,1.55rem)] leading-[1.4] text-[#121713]">
         {project.description}
       </p>
       {project.link ? (
@@ -33,7 +33,7 @@ function ProjectDisciplines({ roles }: { roles: string[] }) {
       {roles.map((role) => (
         <li
           key={role}
-          className="text-[15.96px] font-medium leading-[1.35] tracking-[0.06em] text-black"
+          className="text-[13px] font-semibold uppercase leading-[1.4] tracking-[0.14em] text-[#121713]/70"
         >
           {role}
         </li>
@@ -60,7 +60,7 @@ export function ProjectPageView({ project }: { project: Project }) {
   const edgeBars = project.slug === "art-workers-united";
 
   return (
-    <main id="top" className="min-h-screen bg-white text-black">
+    <main id="top" className="min-h-screen bg-[#f3f3ee] text-[#121713]">
       {edgeBars ? (
         <div className="h-[50px] w-full bg-white" aria-hidden />
       ) : null}
@@ -68,7 +68,7 @@ export function ProjectPageView({ project }: { project: Project }) {
         <>
           <ProjectGallery rows={[introRow]} isLastSection={false} />
 
-          <section className="bg-white px-5 py-8 md:px-[75px] md:py-10">
+          <section className="bg-[#f3f3ee] px-5 py-12 md:px-10 md:py-16">
             <ProjectIntroRow project={project} />
           </section>
 
@@ -85,7 +85,7 @@ export function ProjectPageView({ project }: { project: Project }) {
           )}
         </>
       ) : (
-        <section className="bg-white px-5 py-24 md:px-[75px]">
+        <section className="bg-[#f3f3ee] px-5 py-24 md:px-10">
           <ProjectIntroRow project={project} />
         </section>
       )}

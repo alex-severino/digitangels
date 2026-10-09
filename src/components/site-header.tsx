@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 import { workCards } from "@/data/work-index";
 
 const NAV_LINKS = [
-  { href: "/#projects", label: "Projects" },
-  { href: "/designwise", label: "Design Education" },
-  { href: "/#about", label: "About" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#projects", label: "Projects", index: "01" },
+  { href: "/designwise", label: "Design Education", index: "02" },
+  { href: "/#about", label: "About", index: "03" },
+  { href: "/#contact", label: "Contact", index: "04" },
 ] as const;
 
 const SLUG_ALIASES: Record<string, string> = {
@@ -35,7 +35,7 @@ function pageLabelFromPath(pathname: string) {
   if (pathname === "/privacy")
     return { label: "Privacy Policy", uppercase: true };
   if (pathname === "/digitangels")
-    return { label: "OUR BRANDING", uppercase: true };
+    return { label: "Our branding", uppercase: false };
 
   const match = pathname.match(/^\/projects\/([^/]+)\/?$/);
   if (!match) return null;
@@ -55,7 +55,6 @@ export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isDesignwise = pathname === "/designwise";
-  const largeHalo = pathname === "/terms" || pathname === "/privacy";
   const pageLabel = pageLabelFromPath(pathname);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -102,11 +101,11 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 bg-black transition-transform duration-300 ease-out ${
+        className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#121713]/75 backdrop-blur-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           hidden && !open ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <div className="relative flex h-20 items-center justify-start px-5 md:h-[108px] md:px-8">
+        <div className="relative flex h-[72px] items-center px-5 md:h-[88px] md:px-8">
           <Link
             href="/"
             className="relative z-10 shrink-0"
@@ -117,29 +116,14 @@ export function SiteHeader() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            {isHome ? (
-              <Image
-                src="/designwise/images/digitangels-wordmark.png"
-                alt="Digitangels"
-                width={640}
-                height={133}
-                priority
-                className="h-[36px] w-auto brightness-0 invert md:h-[72px]"
-              />
-            ) : (
-              <Image
-                src="/icon.png"
-                alt="Digitangels"
-                width={192}
-                height={192}
-                priority
-                className={`w-auto brightness-0 invert ${
-                  largeHalo
-                    ? "h-[47.88px] md:h-[72px]"
-                    : "h-[38.304px] md:h-[56px]"
-                }`}
-              />
-            )}
+            <Image
+              src="/designwise/images/digitangels-wordmark.png"
+              alt="Digitangels"
+              width={640}
+              height={133}
+              priority
+              className="h-[28px] w-auto brightness-0 invert md:h-[40px]"
+            />
           </Link>
 
           {pageLabel ? (
@@ -150,11 +134,7 @@ export function SiteHeader() {
                 setHidden(false);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`absolute inset-x-16 truncate text-center font-bold tracking-tight text-[#e4e4e4] sm:inset-x-32 md:inset-x-44 ${
-                pageLabel.uppercase
-                  ? "text-[16px] uppercase sm:text-[19px] md:text-[24px]"
-                  : "text-[13px] sm:text-[15px] md:text-[24px]"
-              }`}
+              className="absolute inset-x-24 truncate text-center text-[13px] font-medium tracking-tight text-[#e4e4e4] md:inset-x-48 md:text-[16px]"
             >
               {pageLabel.label}
             </button>
@@ -165,26 +145,22 @@ export function SiteHeader() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="absolute right-5 top-1/2 z-10 flex h-[45.9px] w-[45.9px] -translate-y-1/2 cursor-pointer items-center justify-center md:right-8 md:h-[51px] md:w-[51px]"
+            className="absolute right-5 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#cff63a]/50 md:right-8"
           >
-            <span className="relative block h-[25.92px] w-[37.44px] md:h-[28.8px] md:w-[41.6px]">
+            <span className="relative block h-[14px] w-[18px]">
               <span
-                className={`absolute left-0 block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:h-[4.8px] ${
-                  open
-                    ? "top-[10.8px] rotate-45 md:top-[12px]"
-                    : "top-0 rotate-0"
+                className={`absolute left-0 block h-px w-full bg-[#cff63a] transition-all duration-300 ${
+                  open ? "top-[7px] rotate-45" : "top-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-[10.8px] block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:top-[12px] md:h-[4.8px] ${
-                  open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+                className={`absolute left-0 top-[7px] block h-px w-full bg-[#e4e4e4] transition-all duration-300 ${
+                  open ? "opacity-0" : "opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[4.32px] w-full rounded-none bg-white transition-all duration-300 ease-out md:h-[4.8px] ${
-                  open
-                    ? "top-[10.8px] -rotate-45 md:top-[12px]"
-                    : "top-[21.6px] rotate-0 md:top-[24px]"
+                className={`absolute left-0 block h-px w-full bg-[#cff63a] transition-all duration-300 ${
+                  open ? "top-[7px] -rotate-45" : "top-[14px]"
                 }`}
               />
             </span>
@@ -192,10 +168,10 @@ export function SiteHeader() {
         </div>
       </header>
 
-      <div className="h-20 shrink-0 bg-black md:h-[108px]" aria-hidden />
+      <div className="h-[72px] shrink-0 md:h-[88px]" aria-hidden />
 
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-[#121713] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -203,20 +179,9 @@ export function SiteHeader() {
         aria-hidden={!open}
         {...(!open ? { inert: true } : {})}
       >
-        <button
-          type="button"
-          aria-label="Close menu"
-          className="absolute inset-0 bg-black/40"
-          onClick={() => setOpen(false)}
-        />
-
-        <aside
-          className={`absolute right-0 top-0 flex h-full w-[min(100%,33.333vw)] min-w-[240px] flex-col bg-black px-8 pb-12 pt-24 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:px-10 md:pt-28 ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <nav className="flex flex-col gap-5 md:gap-6">
-            {NAV_LINKS.map((link) => (
+        <div className="flex h-full flex-col justify-end px-6 pb-16 pt-28 md:px-16">
+          <nav className="flex flex-col gap-2">
+            {NAV_LINKS.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -227,31 +192,34 @@ export function SiteHeader() {
                     scrollToHash(link.href);
                   }
                 }}
-                className="text-[24px] font-medium uppercase tracking-tight text-[#e4e4e4] transition-opacity hover:opacity-70 md:text-[32px]"
+                className="group flex items-baseline gap-5 text-[#e4e4e4] transition-colors hover:text-[#cff63a]"
+                style={{
+                  transitionDelay: open ? `${60 + i * 50}ms` : "0ms",
+                  transform: open ? "none" : "translateY(16px)",
+                  opacity: open ? 1 : 0,
+                  transitionProperty: "color, transform, opacity",
+                  transitionDuration: "700ms",
+                }}
               >
-                {link.label}
+                <span className="text-[12px] font-semibold tracking-[0.2em] text-[#cff63a]">
+                  {link.index}
+                </span>
+                <span className="text-[clamp(2.4rem,6vw,5rem)] font-semibold leading-none tracking-[-0.04em]">
+                  {link.label}
+                </span>
               </Link>
             ))}
           </nav>
-
-          <div className="mt-auto flex flex-col gap-2 pt-10 text-[12px] font-medium tracking-[0.04em] text-[#e4e4e4]/70 md:text-[13px]">
-            <Link
-              href="/terms"
-              onClick={() => setOpen(false)}
-              className="uppercase transition-opacity hover:text-[#e4e4e4] hover:opacity-100"
-            >
-              Terms and Conditions
+          <div className="mt-12 flex flex-wrap gap-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#e4e4e4]/50">
+            <Link href="/terms" onClick={() => setOpen(false)} className="hover:text-[#cff63a]">
+              Terms
             </Link>
-            <Link
-              href="/privacy"
-              onClick={() => setOpen(false)}
-              className="uppercase transition-opacity hover:text-[#e4e4e4] hover:opacity-100"
-            >
-              Privacy Policy
+            <Link href="/privacy" onClick={() => setOpen(false)} className="hover:text-[#cff63a]">
+              Privacy
             </Link>
-            <p className="mt-3 text-[#e4e4e4]/50">© Digitangels 2026</p>
+            <span className="ml-auto">© Digitangels 2026</span>
           </div>
-        </aside>
+        </div>
       </div>
     </>
   );
