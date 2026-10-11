@@ -9,8 +9,9 @@ import { LondonTime, Scramble } from "@/components/chrome/fx";
 const NAV_LINKS = [
   { href: "/#projects", label: "Work", index: "01" },
   { href: "/designwise", label: "Education", index: "02" },
-  { href: "/#about", label: "About", index: "03" },
-  { href: "/#contact", label: "Contact", index: "04" },
+  { href: "/digitangels", label: "Branding", index: "03" },
+  { href: "/#about", label: "About", index: "04" },
+  { href: "/#contact", label: "Contact", index: "05" },
 ] as const;
 
 const MENU_LINKS = [
@@ -31,6 +32,17 @@ export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
+
+  // The overlay menu only exists below md; close it if the viewport grows.
+  useEffect(() => {
+    if (!open) return;
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const onChange = () => {
+      if (desktop.matches) setOpen(false);
+    };
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -102,16 +114,20 @@ export function SiteHeader() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="group flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em]"
+              className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] md:hidden"
             >
-              <span className="hidden sm:inline">{open ? "Close" : "Menu"}</span>
-              <span
-                className={`dt-menu-ring relative block h-11 w-11 rounded-full border border-white transition-transform duration-700 ${
-                  open ? "rotate-[135deg] scale-90" : "group-hover:rotate-90"
-                }`}
-              >
-                <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-white" />
-                <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-white" />
+              <span>{open ? "Close" : "Menu"}</span>
+              <span className="relative block h-11 w-11 rounded-full border border-white">
+                <span
+                  className={`absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 bg-white transition-transform duration-500 ${
+                    open ? "-translate-y-1/2 rotate-45" : "-translate-y-[4px]"
+                  }`}
+                />
+                <span
+                  className={`absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 bg-white transition-transform duration-500 ${
+                    open ? "-translate-y-1/2 -rotate-45" : "translate-y-[3px]"
+                  }`}
+                />
               </span>
             </button>
           </div>
