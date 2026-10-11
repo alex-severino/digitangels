@@ -24,6 +24,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "var(--font-mori)",
           "var(--font-geist-sans)",
           "Inter",
           "ui-sans-serif",

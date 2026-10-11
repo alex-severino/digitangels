@@ -1,55 +1,88 @@
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { ProjectBlocks, ProjectGallery } from "@/components/project-media";
+import { Split } from "@/components/chrome/split";
+import { projectHref, workCards } from "@/data/work-index";
 
-function ProjectIntroCopy({ project }: { project: Project }) {
-  return (
-    <div>
-      <p className="text-[clamp(1.15rem,2vw,1.55rem)] leading-[1.4] text-[#121713]">
-        {project.description}
-      </p>
-      {project.link ? (
-        <p className="mt-6">
-          <a
-            href={project.link.href}
-            target="_blank"
-            rel="noreferrer"
-            className={`text-[26px] font-bold tracking-[0.08em] underline-offset-4 hover:underline ${
-              project.slug === "hypernode" ? "text-[#004179]" : "text-[#6B21A8]"
-            }`}
-          >
-            {project.link.label}
-          </a>
-        </p>
-      ) : null}
-    </div>
-  );
+const HIDDEN_FROM_ROTATION = new Set(["designwise"]);
+
+function nextProject(slug: string) {
+  const pool = workCards.filter((card) => !HIDDEN_FROM_ROTATION.has(card.slug));
+  const index = pool.findIndex((card) => card.slug === slug);
+  return pool[(index + 1) % pool.length] ?? pool[0];
 }
 
-function ProjectDisciplines({ roles }: { roles: string[] }) {
-  if (roles.length === 0) return null;
+function ProjectHero({ project }: { project: Project }) {
+  const index = workCards.findIndex((card) => card.slug === project.slug);
+  const [lead, ...rest] = project.title.split(":");
 
   return (
-    <ul className="shrink-0 space-y-1 whitespace-nowrap md:pt-1">
-      {roles.map((role) => (
-        <li
-          key={role}
-          className="text-[13px] font-semibold uppercase leading-[1.4] tracking-[0.14em] text-[#121713]/70"
-        >
-          {role}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function ProjectIntroRow({ project }: { project: Project }) {
-  return (
-    <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 md:flex-row md:items-start md:justify-center md:gap-20">
-      <div className="w-full min-w-0 md:w-[57.5%]">
-        <ProjectIntroCopy project={project} />
+    <section className="dt-hero relative bg-black px-4 pb-14 pt-[120px] text-white md:px-8 md:pb-20 md:pt-[150px]">
+      <div className="mb-10 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:mb-16 md:text-[11px]">
+        <span>
+          ({String(index + 1).padStart(2, "0")}) — Case study
+        </span>
+        <span>{project.categories.slice(0, 2).join(" / ")}</span>
       </div>
-      <ProjectDisciplines roles={project.roles} />
-    </div>
+
+      <h1 className="text-[clamp(3.4rem,12vw,13rem)] font-semibold uppercase leading-[0.82] tracking-[-0.065em]">
+        <Split text={lead.trim()} />
+        {rest.length ? (
+          <span className="dt-italic dt-chrome-text block normal-case tracking-[-0.04em]">
+            {rest.join(":").trim()}
+          </span>
+        ) : null}
+      </h1>
+
+      <div className="mt-14 grid gap-10 border-t border-white/15 pt-8 md:mt-20 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-16">
+        <ul className="space-y-1 font-mono text-[11px] uppercase leading-[1.6] tracking-[0.18em] text-white/55">
+          {project.roles.map((role) => (
+            <li key={role}>{role}</li>
+          ))}
+        </ul>
+        <div>
+          <p className="text-[clamp(1.15rem,1.9vw,1.6rem)] font-normal leading-[1.4] text-white/85">
+            {project.description}
+          </p>
+          {project.link ? (
+            <a
+              href={project.link.href}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="Visit"
+              className="dt-chrome-pill mt-8 inline-flex items-center gap-3 px-8 py-4 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-black"
+            >
+              {project.link.label} <span aria-hidden>↗</span>
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NextProject({ slug }: { slug: string }) {
+  const next = nextProject(slug);
+  if (!next || next.slug === slug) return null;
+
+  return (
+    <Link
+      href={projectHref(next.slug)}
+      data-cursor="Next"
+      className="group relative block overflow-hidden bg-black px-4 py-20 text-white md:px-8 md:py-32"
+    >
+      <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:text-[11px]">
+        Next project →
+      </p>
+      <p className="text-[clamp(3rem,11vw,12rem)] font-semibold uppercase leading-[0.82] tracking-[-0.065em]">
+        <span className="dt-swap">
+          <span>{next.title}</span>
+          <span className="dt-italic dt-chrome-text normal-case" aria-hidden>
+            {next.title}
+          </span>
+        </span>
+      </p>
+    </Link>
   );
 }
 
@@ -60,18 +93,12 @@ export function ProjectPageView({ project }: { project: Project }) {
   const edgeBars = project.slug === "art-workers-united";
 
   return (
-    <main id="top" className="min-h-screen bg-[#f3f3ee] text-[#121713]">
-      {edgeBars ? (
-        <div className="h-[50px] w-full bg-white" aria-hidden />
-      ) : null}
+    <main id="top" className="min-h-screen bg-[#e9e9e6] text-black">
+      <ProjectHero project={project} />
+      {edgeBars ? <div className="h-[50px] w-full bg-white" aria-hidden /> : null}
       {introRow ? (
         <>
           <ProjectGallery rows={[introRow]} isLastSection={false} />
-
-          <section className="bg-[#f3f3ee] px-5 py-12 md:px-10 md:py-16">
-            <ProjectIntroRow project={project} />
-          </section>
-
           {hasBlocks ? (
             <ProjectBlocks
               blocks={project.blocks!}
@@ -84,14 +111,9 @@ export function ProjectPageView({ project }: { project: Project }) {
             <ProjectGallery rows={restRows} />
           )}
         </>
-      ) : (
-        <section className="bg-[#f3f3ee] px-5 py-24 md:px-10">
-          <ProjectIntroRow project={project} />
-        </section>
-      )}
-      {edgeBars ? (
-        <div className="h-[50px] w-full bg-white" aria-hidden />
       ) : null}
+      {edgeBars ? <div className="h-[50px] w-full bg-white" aria-hidden /> : null}
+      <NextProject slug={project.slug} />
     </main>
   );
 }

@@ -6,13 +6,15 @@ export function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen bg-[#121713] text-[#e4e4e4]">
-      <article className="mx-auto max-w-3xl px-6 py-16 md:px-10 md:py-24">
-        <div className="dt-draw mb-8 h-px w-24 bg-[#cff63a]" />
-        <h1 className="mb-10 text-[clamp(2.4rem,6vw,4.5rem)] font-semibold leading-none tracking-[-0.04em]">
+    <main className="min-h-screen bg-black text-[#e4e4e4]">
+      <article className="px-4 pb-24 pt-[120px] md:px-8 md:pt-[150px]">
+        <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:text-[11px]">
+          (Legal) — Digitangels
+        </p>
+        <h1 className="dt-chrome-text mb-16 max-w-[14ch] text-[clamp(3rem,9vw,9rem)] font-semibold leading-[0.85] tracking-[-0.06em]">
           {title}
         </h1>
-        <div className="space-y-6 text-[16px] leading-7 text-[#e4e4e4]/80 md:text-[18px] md:leading-8">
+        <div className="ml-auto max-w-3xl space-y-6 border-t border-white/15 pt-10 text-[16px] leading-7 text-[#e4e4e4]/80 md:text-[18px] md:leading-8">
           {children}
         </div>
       </article>

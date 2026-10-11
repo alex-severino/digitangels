@@ -17,7 +17,7 @@ const initialForm: FormState = {
 };
 
 const fieldClass =
-  "w-full border-0 border-b border-[#e4e4e4]/30 bg-transparent py-3 text-[16px] text-[#e4e4e4] outline-none transition-colors duration-300 focus:border-[#cff63a] md:text-[18px]";
+  "w-full border-0 border-b border-[#e4e4e4]/30 bg-transparent py-3 text-[16px] text-[#e4e4e4] outline-none transition-colors duration-300 focus:border-white md:text-[18px]";
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -56,7 +56,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative mx-auto mt-12 flex w-full max-w-xl flex-col gap-8"
+      className="relative flex w-full flex-col gap-8"
     >
       <input
         type="text"
@@ -70,7 +70,7 @@ export function ContactForm() {
       />
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
+        <span className="font-mono text-[10px] tracking-[0.22em] text-[#e4e4e4]/55">
           NAME
         </span>
         <input
@@ -83,7 +83,7 @@ export function ContactForm() {
       </label>
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
+        <span className="font-mono text-[10px] tracking-[0.22em] text-[#e4e4e4]/55">
           EMAIL
         </span>
         <input
@@ -98,7 +98,7 @@ export function ContactForm() {
       </label>
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
+        <span className="font-mono text-[10px] tracking-[0.22em] text-[#e4e4e4]/55">
           SUBJECT
         </span>
         <input
@@ -113,7 +113,7 @@ export function ContactForm() {
       </label>
 
       <label className="flex flex-col gap-2">
-        <span className="text-[11px] font-semibold tracking-[0.16em] text-[#e4e4e4]/55">
+        <span className="font-mono text-[10px] tracking-[0.22em] text-[#e4e4e4]/55">
           MESSAGE
         </span>
         <textarea
@@ -140,9 +140,10 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="self-start bg-[#cff63a] px-10 py-3 text-[13px] font-semibold tracking-[0.16em] text-[#121713] transition-transform duration-500 hover:-translate-y-0.5 disabled:opacity-40"
+        data-cursor="Send"
+        className="dt-chrome-pill self-start px-10 py-4 font-mono text-[12px] font-semibold tracking-[0.22em] text-black disabled:opacity-40"
       >
-        {status === "sending" ? "SENDING…" : "SEND"}
+        {status === "sending" ? "SENDING…" : "SEND →"}
       </button>
     </form>
   );

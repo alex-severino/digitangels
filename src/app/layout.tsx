@@ -1,17 +1,48 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
+import { Cursor } from "@/components/chrome/cursor";
+import { Preloader } from "@/components/chrome/preloader";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-EM0PRR5HBE";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const mori = localFont({
+  variable: "--font-mori",
+  display: "swap",
+  src: [
+    {
+      path: "../../public/designwise/fonts/pp-mori-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/designwise/fonts/pp-mori-semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/designwise/fonts/pp-mori-semibold-italic.woff2",
+      weight: "600",
+      style: "italic",
+    },
+  ],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
+
+
+// Runs before paint: enables JS-only styles and skips the intro for visitors
+// who have already seen it this session. The timeout is a safety net so the
+// page can never stay hidden if the preloader fails to hydrate.
+const BOOT_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js');try{if(sessionStorage.getItem('dt-seen'))d.dataset.seen='1'}catch(e){}if(d.dataset.seen||location.pathname!=='/'){d.dataset.seen='1';d.dataset.ready='1'}setTimeout(function(){d.dataset.ready='1'},6000)})();`;
 
 const ICON_VERSION = "3";
 
@@ -90,9 +121,11 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} h-full`}
+      className={`${mori.variable} ${geistMono.variable} h-full`}
+      suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -108,9 +141,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="flex min-h-screen flex-col bg-black text-foreground font-sans">
+        <Preloader />
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Cursor />
+        <div className="dt-grain" aria-hidden />
       </body>
     </html>
   );
