@@ -140,9 +140,6 @@ function Menu({
             className="dw-menu-link group flex items-center gap-4 border-b border-[#121713]/15 py-2 md:gap-8 md:py-3"
             style={{ "--i": i } as CSSProperties}
           >
-            <span className="w-8 font-mono text-[11px] tabular-nums md:w-12 md:text-[13px]">
-              {String(i + 1).padStart(2, "0")}
-            </span>
             <span className="text-[clamp(2.2rem,7.4vw,7rem)] leading-[1.02] font-semibold tracking-[-0.03em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-4 group-hover:italic">
               {link.label}
             </span>
