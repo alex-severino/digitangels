@@ -1,27 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { DesignwisePage } from "@/components/designwise-page";
-
-const mori = localFont({
-  src: [
-    {
-      path: "../../../public/designwise/fonts/pp-mori-regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../../public/designwise/fonts/pp-mori-semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../../../public/designwise/fonts/pp-mori-semibold-italic.woff2",
-      weight: "600",
-      style: "italic",
-    },
-  ],
-  display: "swap",
-});
+import { DesignwisePage } from "@/components/designwise/designwise-page";
+import "./designwise.css";
 
 export const metadata: Metadata = {
   title: "Designwise",
@@ -30,9 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function DesignwiseRoute() {
-  return (
-    <div className={mori.className}>
-      <DesignwisePage />
-    </div>
-  );
+  return <DesignwisePage />;
 }

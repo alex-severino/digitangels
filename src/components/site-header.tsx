@@ -57,7 +57,7 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  if (pathname === "/designwise") return null;
+  if (pathname.startsWith("/designwise")) return null;
 
   const onNav = (href: string) => (event: React.MouseEvent) => {
     setOpen(false);

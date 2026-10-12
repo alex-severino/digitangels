@@ -494,7 +494,7 @@ function DesignwiseNav() {
   );
 }
 
-export function DesignwisePage() {
+export function DesignwiseOldPage() {
   const missionBar = useInView(0.55);
   const joinBar = useInView(0.6);
   const reasonsBar = useInView(0.2);

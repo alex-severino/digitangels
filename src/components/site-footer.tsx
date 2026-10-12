@@ -7,7 +7,7 @@ import { Scene } from "@/components/chrome/scene";
 
 export function SiteFooter() {
   const pathname = usePathname();
-  if (pathname === "/designwise") return null;
+  if (pathname.startsWith("/designwise")) return null;
 
   return (
     <Scene
