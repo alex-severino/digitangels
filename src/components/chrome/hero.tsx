@@ -40,8 +40,8 @@ export function Hero() {
           className="dt-badge absolute right-4 top-[20svh] hidden md:right-10 md:block"
           aria-label="Our branding"
         >
-          <Magnetic strength={0.25}>
-            <svg viewBox="0 0 200 200" className="dt-badge-spin h-40 w-40 lg:h-48 lg:w-48">
+          <Magnetic strength={0.25} className="relative">
+            <svg viewBox="0 0 200 200" className="dt-badge-spin block h-40 w-40 lg:h-48 lg:w-48">
               <defs>
                 <path id="badge-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
               </defs>

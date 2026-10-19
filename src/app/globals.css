@@ -130,8 +130,9 @@
 .dt-split-word {
   display: inline-block;
   overflow: hidden;
-  padding: 0 0.06em 0.06em 0;
-  margin-bottom: -0.06em;
+  /* Vertical room so tight line-heights don't clip ascenders/descenders. */
+  padding: 0.16em 0.06em 0.16em 0;
+  margin: -0.16em 0;
   vertical-align: top;
 }
 
@@ -140,7 +141,7 @@
 }
 
 .js .dt-hero .dt-split-ch {
-  transform: translateY(105%) rotate(9deg);
+  transform: translateY(140%) rotate(9deg);
   opacity: 0;
 }
 
@@ -683,7 +684,7 @@ html[data-seen] .dt-preloader {
 
 @keyframes dt-char {
   from {
-    transform: translateY(105%) rotate(9deg);
+    transform: translateY(140%) rotate(9deg);
     opacity: 0;
   }
   to {
