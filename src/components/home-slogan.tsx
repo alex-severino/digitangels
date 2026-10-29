@@ -65,7 +65,7 @@ export function HomeSlogan() {
         playsInline
         preload="auto"
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/Hands-Halo.mp4?v=5#t=2"
+        src="/videos/Hands-Halo.mp4?v=6#t=2"
       />
 
       <h1 className="relative z-20 flex h-full w-full flex-col justify-center px-4 pt-[72px] text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.9)] md:px-8 md:pt-[88px]">

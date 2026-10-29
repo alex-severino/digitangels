@@ -49,7 +49,7 @@ export function HaloPortal() {
             playsInline
             preload="metadata"
             className="dt-portal-video absolute inset-0 h-full w-full object-contain grayscale"
-            src="/videos/Hands-Halo.mp4?v=5#t=2"
+            src="/videos/Hands-Halo.mp4?v=6#t=2"
           />
         </div>
         <div className="dt-portal-rim pointer-events-none absolute left-1/2 top-1/2">
