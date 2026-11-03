@@ -1,0 +1,17 @@
+---
+description: Digitangels Vercel release workflow
+alwaysApply: true
+---
+
+# Vercel releases
+
+Apply the global Vercel release defaults to this repository. Ordinary editing is not permission to release; respect **commit only** and **do not deploy**.
+
+- Read `AGENTS.md`, these rules, `package.json`, `scripts/deploy.mjs`, and `.vercel/project.json` before releasing.
+- Production branch: `main`. Remote: `origin` (`git@github.com:realbenfica/digitangels.git`). Package manager: npm. Serving domain: `https://www.digitangels.com`. Vercel project/team IDs come from `.vercel/project.json`.
+- Commit only the intended changes and require a clean working tree on `main`. Push that exact commit to GitHub before a direct Vercel CLI upload. Keep credentials, `node_modules`, `.next`, `.vercel`, and other local-only files out of the upload.
+- A bare **push** means commit on `main`, push that commit to GitHub, and deploy it to Vercel. Use `npm run ship` for that (not a GitHub-only `git push`). Use `npm run deploy` when the commit is already on `origin/main`. Inspect `scripts/deploy.mjs` before running either. `npm run deploy -- --check` is read-only.
+- Cancel only pending Git-triggered production builds in this project, on `main`, for the exact commit being released or already proven live. Leave other commits, previews, and CLI deployments alone. Automatic Git deployments stay enabled.
+- Skip rebuilding only when `https://www.digitangels.com` is READY with `meta.digitangelsVerifiedCommit` equal to the release SHA. Git SHA metadata alone is not enough.
+- Preserve original media bytes, dimensions, frame rates, and visible quality. Keep media in Git. Do not add a storage service, apply lossy compression, rewrite history, or force-push as a speed optimisation.
+- Before reporting success, confirm `origin/main` has the commit, the serving deployment is READY, and no matching Git production jobs remain. Report end-to-end release time separately from Vercel build time.

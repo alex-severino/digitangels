@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { isLiveCommit, matchingGitBuilds } from "./deploy.mjs";
+import { isLiveCommit, matchingGitBuilds, releaseSucceeded } from "./deploy.mjs";
 
 const sha = "current-commit";
 const job = {
@@ -42,4 +42,15 @@ test("a pending project target must not count as a live release", () => {
   assert.equal(isLiveCommit({ ...job, readyState: "READY", meta: {
     ...job.meta, digitangelsVerifiedCommit: sha,
   } }, sha), true);
+});
+
+test("success requires a READY verified serving deployment and no leftover Git jobs", () => {
+  const live = {
+    ...job,
+    readyState: "READY",
+    meta: { ...job.meta, digitangelsVerifiedCommit: sha },
+  };
+  assert.equal(releaseSucceeded(live, sha, 0), true);
+  assert.equal(releaseSucceeded(live, sha, 1), false);
+  assert.equal(releaseSucceeded(job, sha, 0), false);
 });
