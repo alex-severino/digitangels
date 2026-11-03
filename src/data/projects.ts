@@ -88,7 +88,7 @@ export const projects: Project[] = [
       [
         {
           "type": "video",
-          "src": "/projects/giclee_club_ecommerce/02.mp4"
+          "src": "/work/thumbnails/giclee-club-ecommerce.mp4"
         }
       ],
       [

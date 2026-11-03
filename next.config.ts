@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Reuse compiler work from Vercel's restored .next/cache on later deploys.
+    turbopackFileSystemCacheForBuild: true,
+  },
   async redirects() {
     return [
       {

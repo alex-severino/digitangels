@@ -1,0 +1,1085 @@
+{
+  "originalCommit": "e279b2b54c81401c12c88a8c89de716ca3d7ccca",
+  "files": [
+    {
+      "path": "public/advertising/01.png",
+      "bytes": 70766,
+      "sha256": "d40cdc8c582c301f40dd1ceb2637767eee99e297cc8914aec28476eb2728e821"
+    },
+    {
+      "path": "public/advertising/02.png",
+      "bytes": 394621,
+      "sha256": "eaab641bbe1f67ad616524a2ecb0dc2b26c9e909145813bf8f8f34164eb066b5"
+    },
+    {
+      "path": "public/advertising/03.png",
+      "bytes": 423306,
+      "sha256": "fced7608494cbd8c2a5186143e129395d4bf0a6d9dcca975e0025d0eb59dd23a"
+    },
+    {
+      "path": "public/advertising/04.png",
+      "bytes": 441612,
+      "sha256": "cc6358c1ba3c0d148e80ccb985b76189adadca9c633fc687f2e4b44f47beaf0e"
+    },
+    {
+      "path": "public/advertising/05.png",
+      "bytes": 350450,
+      "sha256": "586fd753a8d58bd0e406c634a35ec5d0777cade2b9a4d425b02bd9e08a5b0242"
+    },
+    {
+      "path": "public/advertising/06.png",
+      "bytes": 299092,
+      "sha256": "41ee1eb68dabd80acc5c498c5ad77e3a5dad3c2ed12f4e636c84285cbc84517e"
+    },
+    {
+      "path": "public/advertising/07.png",
+      "bytes": 414972,
+      "sha256": "a420c38c8ef458daffcd1ebd4e4fd0679609345b8cb60f2262a84f3814d47d5a"
+    },
+    {
+      "path": "public/advertising/08.png",
+      "bytes": 471451,
+      "sha256": "757fe9ca7b15ad2d0d2862459d5b253c9f21d137d93e9935fb187ad254ae9e68"
+    },
+    {
+      "path": "public/advertising/09.png",
+      "bytes": 203362,
+      "sha256": "b2c7809548444823a0e40203878f44c78a7e0c23a1e28aabc400220c56a938de"
+    },
+    {
+      "path": "public/advertising/10.png",
+      "bytes": 178103,
+      "sha256": "4273e1c96ddb28c95c1b1250f8c0126940aff6fe3af05a78c51266e3b494c9b1"
+    },
+    {
+      "path": "public/advertising/11.png",
+      "bytes": 356715,
+      "sha256": "8d0eb88b3d8d2ca541600b6f5f9b5f9d8d3895549e58faae73335165f0f9b832"
+    },
+    {
+      "path": "public/advertising/12.png",
+      "bytes": 162360,
+      "sha256": "1109c2c0106180910305db12abc3e48e5116f7071e2a340e61670cbe4030b7cc"
+    },
+    {
+      "path": "public/android-chrome-192x192.png",
+      "bytes": 4884,
+      "sha256": "ec5aeb7ffe5e63829aea0c869b07d039280bb86ffd8b3bfb1428b7baa4b5c8f4"
+    },
+    {
+      "path": "public/android-chrome-512x512.png",
+      "bytes": 18605,
+      "sha256": "c5f8aa5350a4d9bfb1efa48f56ea6684fb22ebae1e4429d5f67c768c918f41af"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "bytes": 4510,
+      "sha256": "e9552b060e613fd91ab672e89f90389015030306630e250ff8a843fc21f75f90"
+    },
+    {
+      "path": "public/art/01.1.png",
+      "bytes": 10891,
+      "sha256": "0b237f32a816e9ce42f16dc618d2b8133acf9f91e5d2ae2765b6ef8e0addb98c"
+    },
+    {
+      "path": "public/art/01.2.png",
+      "bytes": 11997,
+      "sha256": "c1cd17a60dea784c3ea9fbcbeccdfe563af1dc70cc44c68a34fcecbc67bdd23b"
+    },
+    {
+      "path": "public/art/01.3.png",
+      "bytes": 9737,
+      "sha256": "173678e0394c1d3425c713c2386dac5f2d61941e8c40188e1af0da84ed97fbaf"
+    },
+    {
+      "path": "public/art/01.4.png",
+      "bytes": 17487,
+      "sha256": "f23444e21abe1a4d204380c174f63c952491c018dc0fe18b29e19efb360c516b"
+    },
+    {
+      "path": "public/art/02.png",
+      "bytes": 660576,
+      "sha256": "2287308fc6068770f792715d7453f4e75bbc55a3bed64711d4b22aea247c0d84"
+    },
+    {
+      "path": "public/art/03.1.png",
+      "bytes": 47114,
+      "sha256": "19f31cf22e7a41dfa1fb45bc58c99f57d1bc73c7122d9dc1f940d1025984f61f"
+    },
+    {
+      "path": "public/art/03.2.png",
+      "bytes": 10764,
+      "sha256": "14108db4cdaabdb6d220a1c502b2183c04342a7948673a2a5bc9254dc5992424"
+    },
+    {
+      "path": "public/art/03.3.png",
+      "bytes": 14953,
+      "sha256": "8c601681130a62f4e953002f4d3119a635472ba6b5c76e20281dd9fcb920fc22"
+    },
+    {
+      "path": "public/art/03.4.png",
+      "bytes": 11776,
+      "sha256": "ca1b8b7a78f2561df91e5115073e9b30e325d5660f93be19551078053e46d076"
+    },
+    {
+      "path": "public/art/04.1.png",
+      "bytes": 14616,
+      "sha256": "3b0c037b1b0169a136ce67f963b3c1faa0c93b33cbd4a08b94846ee0c5a92c2c"
+    },
+    {
+      "path": "public/art/04.2.png",
+      "bytes": 13633,
+      "sha256": "56832650cece25c400a870b3ef39c8250ca4f08a43aebb49435954174de7839d"
+    },
+    {
+      "path": "public/art/04.3.png",
+      "bytes": 9737,
+      "sha256": "173678e0394c1d3425c713c2386dac5f2d61941e8c40188e1af0da84ed97fbaf"
+    },
+    {
+      "path": "public/art/04.4.png",
+      "bytes": 11678,
+      "sha256": "5ba83253a5dd9a4fa578933314bb10579474270dabb89b46424cacaae7ba14c0"
+    },
+    {
+      "path": "public/designwise/fonts/pp-mori-regular.woff2",
+      "bytes": 35224,
+      "sha256": "aa44e6471e4135b847f8b965a8fb757174ec0d6b156321f68037ad4dea16212b"
+    },
+    {
+      "path": "public/designwise/fonts/pp-mori-semibold-italic.woff2",
+      "bytes": 39148,
+      "sha256": "679afd42a37084ac08ad5fd2228ce29c2c5c8777fc0f813f9abca66d0d5851aa"
+    },
+    {
+      "path": "public/designwise/fonts/pp-mori-semibold.woff2",
+      "bytes": 37720,
+      "sha256": "fdcfee3427ed132c2a1eb2256671eb4502ec6fbeb02585694629403d1a9364d0"
+    },
+    {
+      "path": "public/designwise/images/areas/audit.png",
+      "bytes": 8928,
+      "sha256": "b30c8db9ba606c51e042808a17bafd0c78929fc089f4ad936a2fbe6c244585cb"
+    },
+    {
+      "path": "public/designwise/images/areas/branding.png",
+      "bytes": 9143,
+      "sha256": "70f4c5acf3657d75f8c1ff4aba21e6ba0cf9cb02125e57a276441dabaccc4a7a"
+    },
+    {
+      "path": "public/designwise/images/areas/courses.png",
+      "bytes": 12411,
+      "sha256": "f9b34ada0e8fa6c8391651ae8968981fc2ca4005d0aba4f3dafe3beddfa27268"
+    },
+    {
+      "path": "public/designwise/images/areas/digital.png",
+      "bytes": 6558,
+      "sha256": "2adfa542533e7607df6491989597ad08d4220190c18987d7567381ee116a204d"
+    },
+    {
+      "path": "public/designwise/images/areas/management.png",
+      "bytes": 11171,
+      "sha256": "f9dd153e7a8bb1fc9907af7132b897df7ed70adf4aa163abe6236334297be6ae"
+    },
+    {
+      "path": "public/designwise/images/areas/mentorship.png",
+      "bytes": 13150,
+      "sha256": "203401d8deeffd2267322699dffddc6105665701ff195713b611b8a3291f1fcc"
+    },
+    {
+      "path": "public/designwise/images/areas/product.png",
+      "bytes": 7398,
+      "sha256": "3873f2b0410672499f63da78de1fe414c3c93f2da1c9dca2fbbd26dfe8f3870b"
+    },
+    {
+      "path": "public/designwise/images/areas/sprints.png",
+      "bytes": 10377,
+      "sha256": "9ae0faa87f1a1b73c0c0aba43b6e1852c2495ea7aa6d9093e9e248129bd1df14"
+    },
+    {
+      "path": "public/designwise/images/areas/systems.png",
+      "bytes": 5847,
+      "sha256": "d75dd6282a3f3defc53bc18023af58ea2e243c86a625a58c4150d0b0c77e24e9"
+    },
+    {
+      "path": "public/designwise/images/areas/trainings.png",
+      "bytes": 9153,
+      "sha256": "3ebc7da5c12e03b8ca3532a876590842cc4023931e744a553f3512803f916d2a"
+    },
+    {
+      "path": "public/designwise/images/areas/uxui.png",
+      "bytes": 11497,
+      "sha256": "439795ed089b9817bca2d9eb1cf5ff0489988cd5bc2298d73b01162910d380a3"
+    },
+    {
+      "path": "public/designwise/images/areas/workshops.png",
+      "bytes": 7326,
+      "sha256": "3821763fdba77bb7415d128f4e38b0df2507e5e1a8e3f134fbd117cbae15e909"
+    },
+    {
+      "path": "public/designwise/images/chevron.png",
+      "bytes": 676,
+      "sha256": "b3774271c8789e24668b6a34851c45170e3bc192b06280be646422fd464f91ce"
+    },
+    {
+      "path": "public/designwise/images/digitangels-wordmark.png",
+      "bytes": 3903,
+      "sha256": "3c4b495fbb0c67ca2d4be174a9802314ea54f335db35a08e6922acd5d43357dc"
+    },
+    {
+      "path": "public/designwise/images/extra-kkv.png",
+      "bytes": 1599,
+      "sha256": "9efaa74b6f18d555aaff1a6ead3b93e6a7b9dafe4b7bfea2f8fff14b41bfdc25"
+    },
+    {
+      "path": "public/designwise/images/extra-l8d.png",
+      "bytes": 1543,
+      "sha256": "2e35759242e86e28168a0d43d6c082acb5fa22a49da49bba3a2800421ce60e60"
+    },
+    {
+      "path": "public/designwise/images/logo-01.png",
+      "bytes": 3610,
+      "sha256": "df0d9b98b04aecccb9a487bede59338facd9355046f43d49daa758e9c2c80ef5"
+    },
+    {
+      "path": "public/designwise/images/logo-02.png",
+      "bytes": 4542,
+      "sha256": "c03fb56f3b53d4b5d6d4a91fc8897e8e3afd5d86a3ded02cf0d47e8b71c2933c"
+    },
+    {
+      "path": "public/designwise/images/logo-03.png",
+      "bytes": 3122,
+      "sha256": "8731815c0100597d209a861fb844ee5a535699d926af684965aa5343673ed0f7"
+    },
+    {
+      "path": "public/designwise/images/logo-04.png",
+      "bytes": 2392,
+      "sha256": "cb76d95948e53cfc5314a3042b93924d8d2c35b73ccb4c2a2d4c352c9952253f"
+    },
+    {
+      "path": "public/designwise/images/logo-05.png",
+      "bytes": 4195,
+      "sha256": "412f60674668af1891c2cb4b9f3d4db123c9f559e284d82091760b83b95c731f"
+    },
+    {
+      "path": "public/designwise/images/logo-06.png",
+      "bytes": 1242,
+      "sha256": "d08e6f68617c0c1824fe224ef70d820d20b32516f0a1dc3486be902e8255ea6f"
+    },
+    {
+      "path": "public/designwise/images/logo-07.png",
+      "bytes": 1626,
+      "sha256": "6bdf148a7406d1e8a0c33f733559f35f76aa49208cbfda577a5f78b2d338946b"
+    },
+    {
+      "path": "public/designwise/images/logo-08.png",
+      "bytes": 3769,
+      "sha256": "0003b9c037701cd60db3af5fce14b4873e5bc82baea18504c77efe6b94494b73"
+    },
+    {
+      "path": "public/designwise/images/logo-09.png",
+      "bytes": 1671,
+      "sha256": "afaab1eab73030445749a9499fd572adb60e3b18c8b61263ec6cbd6201d3d1f8"
+    },
+    {
+      "path": "public/designwise/images/logo-10.png",
+      "bytes": 5667,
+      "sha256": "dc239b4584a6269c4c1164c18426972914b1f940889f58dc902bf588ec12d3cb"
+    },
+    {
+      "path": "public/designwise/images/logo-11.png",
+      "bytes": 2629,
+      "sha256": "4dccdf0bc0613a9ab45752d9eaab0eb21fb7ff5541336af54c0ee7fcf6840736"
+    },
+    {
+      "path": "public/designwise/images/logo-12.png",
+      "bytes": 2184,
+      "sha256": "ce902d8ed587af8d0e908cd69dddb905603bc174a78fd593f22103b3f5ae5a4a"
+    },
+    {
+      "path": "public/designwise/images/team-constellation.png",
+      "bytes": 13359,
+      "sha256": "f251714a87e651888679cd7df9a3a3d7c4b0129cefd008e7c1678ce83f299bc5"
+    },
+    {
+      "path": "public/designwise/videos/about.mp4",
+      "bytes": 12211701,
+      "sha256": "94e80f77f73b0628b41a904a5e0854017d3faedb9861c0dd090cd1720b70652b"
+    },
+    {
+      "path": "public/designwise/videos/bridge.mp4",
+      "bytes": 12151317,
+      "sha256": "9d7c6e66fef69d7756e53dc02f1110d630cfc55052e042fc20c9b368f3507ac2"
+    },
+    {
+      "path": "public/designwise/videos/contact.mp4",
+      "bytes": 12433726,
+      "sha256": "6e7b114282f0facea7e080991caa7436d255b336cf2c8b088448504b148938ab"
+    },
+    {
+      "path": "public/designwise/videos/hero.mp4",
+      "bytes": 22956796,
+      "sha256": "6ae6287d97d884bc48f60c5e56b811c447910376f62be2abc319d0c0e8c780c5"
+    },
+    {
+      "path": "public/designwise/videos/reasons.mp4",
+      "bytes": 11754163,
+      "sha256": "9b86323fafac5ed6c7e09708534397e27c0d5789c00fcfc1c0fa3c533e617e1a"
+    },
+    {
+      "path": "public/favicon-16x16.png",
+      "bytes": 627,
+      "sha256": "84b4ac56cfe610f9ed073200a207f2a7b696e534a0e72ce0532e903a948aa63e"
+    },
+    {
+      "path": "public/favicon-32x32.png",
+      "bytes": 938,
+      "sha256": "70deb47be9dde39452feca736f36af81ba526b38924bbe6f4cd19766e38e86f6"
+    },
+    {
+      "path": "public/favicon.ico",
+      "bytes": 337947,
+      "sha256": "5f9b5d600d16d4bb27786a14e6223227a122a899cf089f9f909ee1fa0143cdd8"
+    },
+    {
+      "path": "public/icon-512.png",
+      "bytes": 18605,
+      "sha256": "c5f8aa5350a4d9bfb1efa48f56ea6684fb22ebae1e4429d5f67c768c918f41af"
+    },
+    {
+      "path": "public/icon.png",
+      "bytes": 4884,
+      "sha256": "ec5aeb7ffe5e63829aea0c869b07d039280bb86ffd8b3bfb1428b7baa4b5c8f4"
+    },
+    {
+      "path": "public/images/clients/adidas.png",
+      "bytes": 5158,
+      "sha256": "76eef22a0e92c37c175fc5086746c614774845d75977b8c9346cd190112f25fb"
+    },
+    {
+      "path": "public/images/clients/coca-cola.png",
+      "bytes": 8490,
+      "sha256": "f7030f8ca80eae5162680daa9fe34c9baeb611968123510eca38553fb2d647bf"
+    },
+    {
+      "path": "public/images/clients/ddb.png",
+      "bytes": 65973,
+      "sha256": "d6e1f25116aff45b35f9e025453368574900964d9525ab9d2613e618c6d7cbc6"
+    },
+    {
+      "path": "public/images/clients/duracell.png",
+      "bytes": 3804,
+      "sha256": "7f785def5677f55f00161e3dc12196d53388fa7e199a78ae43b7a32af4582b8c"
+    },
+    {
+      "path": "public/images/clients/finlandia.png",
+      "bytes": 151924,
+      "sha256": "ec74cbcf165db319e6adbd4eb8a4424b41ed89cc847b5bbd66f14cd0db04c07c"
+    },
+    {
+      "path": "public/images/clients/hyundai.png",
+      "bytes": 6533,
+      "sha256": "cac5f7538e2fbd71f106a460b297a3947d99cb9baf387b6868fe1660c267e671"
+    },
+    {
+      "path": "public/images/clients/kia.png",
+      "bytes": 2290,
+      "sha256": "4d1f2170c3ae08df4bda3e774057697178be888de126d1208e65153fdc1abb61"
+    },
+    {
+      "path": "public/images/clients/lebara.png",
+      "bytes": 57821,
+      "sha256": "b57b2ed0da9e2d8dd652d0a33b5d1d1a29247cc1db0c23a3e0208ee1db38160e"
+    },
+    {
+      "path": "public/images/clients/mastercard.png",
+      "bytes": 8317,
+      "sha256": "c1bd84edad669a2dc1faeedd79b8fa2237a5eb06996887357f229b38b9a5d608"
+    },
+    {
+      "path": "public/images/clients/nestle.png",
+      "bytes": 89281,
+      "sha256": "e2661cb3c5f2241c829765128e62ed35db2f033cfd1c1237ab738bc62121a986"
+    },
+    {
+      "path": "public/images/clients/starcom.png",
+      "bytes": 71966,
+      "sha256": "027e689890ae01bf869d92cc8f6ecb758cca1ead09cf8a8d9c9067a6a96f8c37"
+    },
+    {
+      "path": "public/images/clients/tbwa.png",
+      "bytes": 81410,
+      "sha256": "3e1b56a53c9b7aa14ea5005b2fd720d78207ce8e4f5c59e1ce9016b9a22de767"
+    },
+    {
+      "path": "public/images/clients/verve.png",
+      "bytes": 76317,
+      "sha256": "2f6366eacdf485b347be8f522ec734b8fefc4048e9a358d58ac10d12cb16cb1d"
+    },
+    {
+      "path": "public/images/clients/volkswagen.png",
+      "bytes": 8496,
+      "sha256": "164743d2e81ff944b54a97f61aecd630daf1628fc42f3837bcf52efae12954f5"
+    },
+    {
+      "path": "public/images/clients/yamaha.png",
+      "bytes": 9566,
+      "sha256": "be366fd619c24928f85036691be618a54e860f96566a53fee7f7ad0080891b29"
+    },
+    {
+      "path": "public/images/digitangels_logo.png",
+      "bytes": 18193,
+      "sha256": "bc3d5a81050805a6957b2293cea2ccd6edbe1c12f852b6a254759083ba46fe70"
+    },
+    {
+      "path": "public/images/portrait.png",
+      "bytes": 838166,
+      "sha256": "8bb33dd63c5868748a4c5df769db7ee399048c3543f09b9e02e07a2798c4a342"
+    },
+    {
+      "path": "public/projects/alexdealma/01.mp4",
+      "bytes": 15131369,
+      "sha256": "19e1c6b5f57d80c1775f95b28eaf213839475271b6ee7b976e0a7e200001b9b1"
+    },
+    {
+      "path": "public/projects/alexdealma/02.1.mp4",
+      "bytes": 10897002,
+      "sha256": "ea1466debc4501e1d8dfd43301ca37d49eef2b40035c60fcd1b83ae57ef348dc"
+    },
+    {
+      "path": "public/projects/alexdealma/02.2.png",
+      "bytes": 543779,
+      "sha256": "516c0258b11091bf25a631443969d626535fdf8113df0a6f50c8bb60006d233c"
+    },
+    {
+      "path": "public/projects/alexdealma/03.mp4",
+      "bytes": 29361102,
+      "sha256": "b7d7f662c0e8b90abf764ef6c2538c34ad265ecc0d47f2de474fbd11586815ef"
+    },
+    {
+      "path": "public/projects/alexdealma/04.1.png",
+      "bytes": 690439,
+      "sha256": "d9771b15b1ec9010b9db50d64df6497f403336d7afb0c178ee7dabff11f0c8dc"
+    },
+    {
+      "path": "public/projects/alexdealma/04.2.png",
+      "bytes": 663608,
+      "sha256": "a519b79b56d57eabfe7012e36cf8a43e506e35f9086567f24b9724023b538086"
+    },
+    {
+      "path": "public/projects/alexdealma/05.png",
+      "bytes": 384691,
+      "sha256": "7f89333cb193dd3381630f8e7c97f8d2d8d20699f3366d6549304f6147a38b4c"
+    },
+    {
+      "path": "public/projects/alexdealma/06.png",
+      "bytes": 521155,
+      "sha256": "3a72591f0739469c47c59472b78851a6160801506edbf0cac5f005e1ebbb4db1"
+    },
+    {
+      "path": "public/projects/alexdealma/07.mp4",
+      "bytes": 88219019,
+      "sha256": "58ba2728deb976d8fbabc9f9084cae5f5938bdbb3e96a5e0457dff0bedeeba20"
+    },
+    {
+      "path": "public/projects/alexdealma/08.1.png",
+      "bytes": 614212,
+      "sha256": "836c2c1331ca53dd3dd2455c449159c25f850c1bdc4dd30765c87b5a393acc5c"
+    },
+    {
+      "path": "public/projects/alexdealma/08.2.png",
+      "bytes": 1305035,
+      "sha256": "5648e9572a26228e6a7770048050966449eb63fb9c8629e8379d0fb4d8d43094"
+    },
+    {
+      "path": "public/projects/alexdealma/09.1.png",
+      "bytes": 722230,
+      "sha256": "4c9179b78c4c61590cdd0a19fd85462be5d76ee0541f75f54f027f7ebc5598db"
+    },
+    {
+      "path": "public/projects/alexdealma/09.2.png",
+      "bytes": 524419,
+      "sha256": "b81be557fbcb5aebe5e09177e1404f3f3445157180ab7b73fba706a3c54e8e48"
+    },
+    {
+      "path": "public/projects/alexdealma/10.mp4",
+      "bytes": 74991248,
+      "sha256": "91191aecb62d548fa98b09c8c98f75da40ffb4aa7ca6c56c30d638bba3ba7753"
+    },
+    {
+      "path": "public/projects/alexdealma/11.1.png",
+      "bytes": 369651,
+      "sha256": "e5d1cc557fa6b78dc02f9a7260052d08f03fac0b5022777a8e6b538288909b8f"
+    },
+    {
+      "path": "public/projects/alexdealma/11.2.png",
+      "bytes": 397141,
+      "sha256": "783826fc5dc1e9aeeef48d61d47e592b9bd54a6afa68f31d8a0d76991324b93c"
+    },
+    {
+      "path": "public/projects/alexdealma/12.png",
+      "bytes": 635985,
+      "sha256": "2e3d13548d8c3a408f357aa9d36f09e2cb275c83bf0bd812d73bdc949bfd468d"
+    },
+    {
+      "path": "public/projects/alexdealma/13.1.png",
+      "bytes": 989621,
+      "sha256": "f26fdacc5162de2a045396fb2b73d70aa3948ca75897b253c2810960d899b025"
+    },
+    {
+      "path": "public/projects/alexdealma/13.2.png",
+      "bytes": 518753,
+      "sha256": "4ef43f92714eecb5d304052fbb548d35a5021a9154ce3f785e43b232ea7b9121"
+    },
+    {
+      "path": "public/projects/alexdealma/14.1.png",
+      "bytes": 546146,
+      "sha256": "e71fa534683ed6c91f94d15bfbfd41bae670c7abdc75be88cd91d0ac6df7931f"
+    },
+    {
+      "path": "public/projects/alexdealma/14.2.png",
+      "bytes": 773684,
+      "sha256": "47aafa402364ddf17cf5b895559f56dec0be8586f349bb85e554e666d5bd299f"
+    },
+    {
+      "path": "public/projects/alexdealma/15.png",
+      "bytes": 439983,
+      "sha256": "7128f801f623498eaa608dcfdb9240389568a63db3de47951052dffcd2f14acb"
+    },
+    {
+      "path": "public/projects/artworkersunited/01.mp4",
+      "bytes": 7064561,
+      "sha256": "60199702e3995c4763217fd66ba70bc4a12a2d3aafacab0e3f77abcd84124fa2"
+    },
+    {
+      "path": "public/projects/artworkersunited/02.mp4",
+      "bytes": 61605348,
+      "sha256": "8ff09c00f99349ef19216f37237c18107b187ac6fb7118e03f1ed8fc40b2cbd3"
+    },
+    {
+      "path": "public/projects/artworkersunited/03.png",
+      "bytes": 16066,
+      "sha256": "c8e4684844d12d9f6aeda81a0b1bb1dec411d0206e8683f03713ed8674b1fb13"
+    },
+    {
+      "path": "public/projects/artworkersunited/04.mp4",
+      "bytes": 44617908,
+      "sha256": "0d0331f04dc6466490e1e0af93613ac5f87edb68deac4b270b8ef227e8f69fd1"
+    },
+    {
+      "path": "public/projects/artworkersunited/05.mp4",
+      "bytes": 40798393,
+      "sha256": "06304fe5ade3ae0f9695358f6be1699d0b508349cafdfa81c3d66a8d3b345592"
+    },
+    {
+      "path": "public/projects/artworkersunited/06.mp4",
+      "bytes": 29549170,
+      "sha256": "aa85b951b3e536303a515363105ba9303bcec8fe7d3726df70ec96e79cf94216"
+    },
+    {
+      "path": "public/projects/artworkersunited/07.mp4",
+      "bytes": 33178202,
+      "sha256": "b65f6745ec4b598e2e9f7a0ee55e69c3a3666b363a14946eec76c5fd7089630b"
+    },
+    {
+      "path": "public/projects/artworkersunited/08.mp4",
+      "bytes": 8477642,
+      "sha256": "d1ed4ef146916cd6b6c06014c5769fef197660b703e68248e13c8545e652b43b"
+    },
+    {
+      "path": "public/projects/artworkersunited/09.mp4",
+      "bytes": 100626198,
+      "sha256": "2b4eba738b2018226e77179d99d53628067342cc33a960ec1ee7f4456034707c"
+    },
+    {
+      "path": "public/projects/artworkersunited/10.png",
+      "bytes": 358983,
+      "sha256": "db89599afbd8b214b72fccb57a98e37ea4bbd21af2dadc9189b894e415337c38"
+    },
+    {
+      "path": "public/projects/artworkersunited/11.1.mp4",
+      "bytes": 6014719,
+      "sha256": "7116cd1895dce37cd31039272eb93b793072458173ed432d17ecb1d35700e35d"
+    },
+    {
+      "path": "public/projects/artworkersunited/11.2.mp4",
+      "bytes": 33649763,
+      "sha256": "a14d83530ecb448f4a21cc0e622eb4e8998a13f0ef2d8f2cf7413937be95a341"
+    },
+    {
+      "path": "public/projects/artworkersunited/12.png",
+      "bytes": 57230,
+      "sha256": "6f449263340505b7781a68a2f448f94a4d70f506ab9af4fa49abf064895c0e8c"
+    },
+    {
+      "path": "public/projects/artworkersunited/13.mp4",
+      "bytes": 7058395,
+      "sha256": "12b1d75f9f6c177efd28bae814c2a0f6f6f1797e4470078a0ffbdb1d2bb6bdf6"
+    },
+    {
+      "path": "public/projects/crowdyhouse/01.mp4",
+      "bytes": 18276648,
+      "sha256": "2b9de6dafdb5c8dbd8986f4ea0971514fa6301a3b56f07f0e3fe314d1697500f"
+    },
+    {
+      "path": "public/projects/crowdyhouse/02.mp4",
+      "bytes": 6542741,
+      "sha256": "6f965f55a8ff8c335de4bbd7f5bd0dd397627895b96a15bca427328df25904c1"
+    },
+    {
+      "path": "public/projects/crowdyhouse/03.mp4",
+      "bytes": 15451558,
+      "sha256": "554ad05b62b281c256a6edbe2f5bbfa96016e7ceadfe194bf7913be8c2b76394"
+    },
+    {
+      "path": "public/projects/crowdyhouse/04.mp4",
+      "bytes": 32139107,
+      "sha256": "1e19bed1f3591f24c1ca537eba1426f8ea9c4844f974a9c3278fda931d9dd4a5"
+    },
+    {
+      "path": "public/projects/crowdyhouse/05.mp4",
+      "bytes": 7632502,
+      "sha256": "96cebde9c795e8bba9a4fc8c0fffe1edaecdd88eb48883696d5be6f5843fb6e7"
+    },
+    {
+      "path": "public/projects/crowdyhouse/06.jpg",
+      "bytes": 690261,
+      "sha256": "6900a2fa85683d55688eac9c823f04ff24c0ce2274a111cd2c39fb50cdd6e9bf"
+    },
+    {
+      "path": "public/projects/crowdyhouse/07.mp4",
+      "bytes": 41005608,
+      "sha256": "1561d9ef8e949a691a8ea407faa54140c094f0999d63c44fe8feb147730ffa06"
+    },
+    {
+      "path": "public/projects/designwise/01.png",
+      "bytes": 31430,
+      "sha256": "0789e3ca8097addf2ebaf891054eae5014844b75d01abd5a2a75360c53ad6381"
+    },
+    {
+      "path": "public/projects/designwise/02.mp4",
+      "bytes": 12122023,
+      "sha256": "7ef4e5213d8d9fe6c8a1179fbc2e2c1a9b2ced8ab8543c3e230f93dfd61bd758"
+    },
+    {
+      "path": "public/projects/designwise/03.mp4",
+      "bytes": 23567063,
+      "sha256": "c85342a45cad663f98463d96222d349cc9348fb9d3c4275294b407acb165ed07"
+    },
+    {
+      "path": "public/projects/designwise/04.mp4",
+      "bytes": 597018,
+      "sha256": "1ef7c508afb6383158ca997e410175e0e58f672dda6156962f09008cec88c00e"
+    },
+    {
+      "path": "public/projects/designwise/05.mp4",
+      "bytes": 11437403,
+      "sha256": "ff75f0da8818c14c358fa45209b986dec8a5a332ce0e4d27779e44ffae209666"
+    },
+    {
+      "path": "public/projects/designwise/06.mp4",
+      "bytes": 33710227,
+      "sha256": "d50ca9bcace5d3cf38e9935ab63ac03c0919a067f9652db32f387608507c78f7"
+    },
+    {
+      "path": "public/projects/designwise/07.mp4",
+      "bytes": 11452937,
+      "sha256": "53d5c41f68b3296c491cd54feb05ba8d0e36d49e5231085b500e2af2f1195798"
+    },
+    {
+      "path": "public/projects/designwise/08.mp4",
+      "bytes": 32351413,
+      "sha256": "fcf0710bd01d6664dd7af052c1496048fb46330d469afbf099d1fe89212d87fa"
+    },
+    {
+      "path": "public/projects/designwise/09.mp4",
+      "bytes": 11624914,
+      "sha256": "2facaff3517fba4f4798bd73c25ab2ed5b93a787ca5b66b390f4a07e740bc512"
+    },
+    {
+      "path": "public/projects/digitangels/01.mp4",
+      "bytes": 10982924,
+      "sha256": "61017db339640021642036c969a51080206b265bfd1412a99ea88abf294f0ef1"
+    },
+    {
+      "path": "public/projects/digitangels/02.mp4",
+      "bytes": 14495006,
+      "sha256": "fbca8b7b861ba4d2ab97d017826616329743b0d1173659e3e4c660f391ee1e04"
+    },
+    {
+      "path": "public/projects/digitangels/03.png",
+      "bytes": 259897,
+      "sha256": "399ecc19994f16d35c9a91372738bc30cf88ee5394fecc4ef0cfea5e2f9092e7"
+    },
+    {
+      "path": "public/projects/digitangels/04.1.png",
+      "bytes": 231409,
+      "sha256": "fe81bed7a5a66cc39f85c1e5fa2f68d2a528280968af627aea9b3bdb3782c9d6"
+    },
+    {
+      "path": "public/projects/digitangels/04.2.png",
+      "bytes": 142488,
+      "sha256": "a44b15b2cc97885744e84ee4f97d245aaba8f96f258458e13329031c32211d01"
+    },
+    {
+      "path": "public/projects/digitangels/05.1.png",
+      "bytes": 1089115,
+      "sha256": "200e8cf9c6fe353efda10522372d5e849deb395a122f9d7052a02915054a68c2"
+    },
+    {
+      "path": "public/projects/digitangels/05.2.mp4",
+      "bytes": 4526087,
+      "sha256": "a8591889732a029b653c166e17ac9e912c51b791f9bc22d48828024d4e49fd75"
+    },
+    {
+      "path": "public/projects/digitangels/06.1.jpg",
+      "bytes": 818676,
+      "sha256": "c1ac932b866489e9ac3371642af2bf12c5d6fa52dcd6d76770b81909c1e1b1bf"
+    },
+    {
+      "path": "public/projects/digitangels/06.2.jpg",
+      "bytes": 530661,
+      "sha256": "aeb8fe26c9aa5c6c1bbe7a7a8131d2233d88e098e6e5353fad4830b01868bc90"
+    },
+    {
+      "path": "public/projects/digitangels/07.png",
+      "bytes": 493552,
+      "sha256": "d1a1e24b7da387c54cd164a1b50a441df352fdd7e1aa4eda44af98db05e9e9cf"
+    },
+    {
+      "path": "public/projects/digitangels/08.1.png",
+      "bytes": 376066,
+      "sha256": "1adb34250b7447736b43a26a7f69d027ef5316d0ec71e942729834a6f42be8a9"
+    },
+    {
+      "path": "public/projects/digitangels/08.2.png",
+      "bytes": 912497,
+      "sha256": "69dfa8a5bb89e053b1b51347965503c78aa6ad7743ed240099946fabd387f0f9"
+    },
+    {
+      "path": "public/projects/digitangels/09.png",
+      "bytes": 665412,
+      "sha256": "bc907d41273ed1e2407578ce01e5fa6f5b710aab930f135ec6fc17b8b0e271fe"
+    },
+    {
+      "path": "public/projects/digitangels/10.1.png",
+      "bytes": 269490,
+      "sha256": "7775292ee353037d92238fbc4285fad297c9cb4b895ec6577240a84d764fd5a1"
+    },
+    {
+      "path": "public/projects/digitangels/10.2.png",
+      "bytes": 425595,
+      "sha256": "f7d3ea0a57a8c1b5133d18b2b598bcdb35f92853736a0616edcdd6f140383c26"
+    },
+    {
+      "path": "public/projects/digitangels/11.mp4",
+      "bytes": 10100072,
+      "sha256": "0831811113beea4ee43d466aac381813454298853029df6199a91f960b08ce40"
+    },
+    {
+      "path": "public/projects/digitangels/12.1.png",
+      "bytes": 948813,
+      "sha256": "68ed830a16e1df9bd087639be46ddf9e23e6876f2373be8237ed28d0f159696f"
+    },
+    {
+      "path": "public/projects/digitangels/12.2.png",
+      "bytes": 344142,
+      "sha256": "5b3bb89c152441d73bd38050ab92a8291d837f05ac7a2cce66e3e7ea56e0b992"
+    },
+    {
+      "path": "public/projects/digitangels/13.png",
+      "bytes": 290676,
+      "sha256": "3fda18335bd02ee9c5f72b1c007e84e397ae08e198621fa784f7fa3d774fbaf5"
+    },
+    {
+      "path": "public/projects/digitangels/14.1.png",
+      "bytes": 278576,
+      "sha256": "d3f4706d28b83da27d9cbd71661cf10fcf9631f271cb8604c642f2784d7acb5a"
+    },
+    {
+      "path": "public/projects/digitangels/14.2.png",
+      "bytes": 331548,
+      "sha256": "2bdc9f538ff5ab3d2b03f669b65da9e85f7ea3e45ca457cc93eaa6c889fd0ce0"
+    },
+    {
+      "path": "public/projects/digitangels/15.png",
+      "bytes": 720931,
+      "sha256": "b28d9672322d43809c20c8cd2b386536772f4e9d631fded4de4a021ed96c89a9"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/01.png",
+      "bytes": 268661,
+      "sha256": "8e689dc3c438e5c24cb5cee1d1a39c0516d4fc843148b4a0dcc7f27ca8abd88c"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/02.1.png",
+      "bytes": 624912,
+      "sha256": "148439523c5dc2abc99855ef6d7702c2b7da02d69d6392025eec4b0ca9a4ed90"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/02.2.png",
+      "bytes": 49946,
+      "sha256": "ff4c4f951606ec0375917e393f4e9ffbf3e05c0545661b30deba6594e3f03992"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/03.png",
+      "bytes": 677505,
+      "sha256": "339ec8fb6441e89415285a16c2bee6199f5de9eb61ca3539fd30f3705da0ee04"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/04.png",
+      "bytes": 411650,
+      "sha256": "57c2c281556d84a8c44b5f3364a8116404f3bcd108abe0d971a4be284b5c5ef8"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/05.1.png",
+      "bytes": 1443386,
+      "sha256": "bbfcdfc4c14765e76c4ebd1a684b97e6bff31511d73c820992e72f2eaad165d9"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/05.2.jpg",
+      "bytes": 429943,
+      "sha256": "5a7f3b659d6f59502283dd74a1a52e7c314ba399d82a4bc395e517a5aace0c54"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/06.1.jpg",
+      "bytes": 316079,
+      "sha256": "fe605cf9e3279f30eab2a5d8a367119130643865f8cac81ef9a06bcb6eaf7abd"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/06.2.jpg",
+      "bytes": 292784,
+      "sha256": "567b7e5a174113c69ada1a7c2d4a7354e67af34f553d221b29dc3b6af1e1582b"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/07.1.jpg",
+      "bytes": 421744,
+      "sha256": "9fd36b7065ca35dd029261c9cca31d2a0bfa1be138c04090d86b9cb0c227f9db"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/07.2.jpg",
+      "bytes": 739973,
+      "sha256": "2ca735058879001c9f44845029eddebd70ae0d14380e35b9f8ec228fc7920f2c"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/08.1.mp4",
+      "bytes": 3097021,
+      "sha256": "cd7203a2028f1c92686ac5815093e782a8643711ffe5b5099a6e5a7f93c55745"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/08.2.jpg",
+      "bytes": 345656,
+      "sha256": "c6ac579d6d3de692b680bde1a34e3c378fe5fb3493f55f9279e8a616d1b555f1"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/09.jpg",
+      "bytes": 78804,
+      "sha256": "9214dd69409c7e6d97b287746fae8d322f9dc64ab613c95ffe62eb1a8856f542"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/10.1.png",
+      "bytes": 977183,
+      "sha256": "bcd935aa8223db95c77560f5581b8bdae1b953a47bccd16b3ae39d073ec9dabf"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/10.2.png",
+      "bytes": 664183,
+      "sha256": "42209f196ac3776e2778b91b3b9b753d5b0cf0b088a1e3dedea15d0f3e1d9550"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/11.1.jpg",
+      "bytes": 478029,
+      "sha256": "dee07cf8dc452aa665f9c5c8485692dd1e984da39b5b70148ab3e7bf88f15852"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/11.2.jpg",
+      "bytes": 1005178,
+      "sha256": "cc8d7bf31284412a6b7308f48ab3340841dfb0efd94aa9c4d4170d1552397939"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/12.1.png",
+      "bytes": 893670,
+      "sha256": "e6e735ebafe93a113778205ea50e21177e83f8312765d7ecd04a997efd724ec0"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/12.2.png",
+      "bytes": 481770,
+      "sha256": "ced3b2c8bb42aeda2b26b444fd614c6f7126994c4786286764bed66093d4e036"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/13.1.png",
+      "bytes": 697972,
+      "sha256": "c660aa378c712aa6a9e094e9c8381af5cc7d29a40cc5010f5017792991c64400"
+    },
+    {
+      "path": "public/projects/giclee_club_branding/13.2.jpg",
+      "bytes": 373678,
+      "sha256": "fe0297b5c7f9fba64f270be89a12cd318278fe69b85b9bd6b696f7ae00374af9"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/01.png",
+      "bytes": 411650,
+      "sha256": "57c2c281556d84a8c44b5f3364a8116404f3bcd108abe0d971a4be284b5c5ef8"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/03.1.png",
+      "bytes": 1443386,
+      "sha256": "bbfcdfc4c14765e76c4ebd1a684b97e6bff31511d73c820992e72f2eaad165d9"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/03.2.mp4",
+      "bytes": 3097021,
+      "sha256": "cd7203a2028f1c92686ac5815093e782a8643711ffe5b5099a6e5a7f93c55745"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/04.mp4",
+      "bytes": 21362182,
+      "sha256": "03fef1b88373630e4d6bab1e964fe714c2d579367a95aeb2c8db9057c6479415"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/05.1.jpg",
+      "bytes": 499166,
+      "sha256": "b7c0cd0f59007f2cc691e1966a5dcaf73277471e521b71cc20ee38ed17127435"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/05.2.png",
+      "bytes": 441199,
+      "sha256": "15d84da9b4a6addbab2aa2a51f38ed046fd332d8dc360983be06968441110319"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/06.png",
+      "bytes": 850509,
+      "sha256": "48b02685e8e15d656d096f688c91eb69ae0cc49ad479d386a87ba2da85dcaa5d"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/07.mp4",
+      "bytes": 17765956,
+      "sha256": "b0b570d34bdc72dc2af1ed13c2673b329e819ec2e6ff740529828fe60644d8c6"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/08.1.png",
+      "bytes": 893670,
+      "sha256": "e6e735ebafe93a113778205ea50e21177e83f8312765d7ecd04a997efd724ec0"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/08.2.png",
+      "bytes": 664183,
+      "sha256": "42209f196ac3776e2778b91b3b9b753d5b0cf0b088a1e3dedea15d0f3e1d9550"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/09.mp4",
+      "bytes": 9896551,
+      "sha256": "344d0b5ba5a6ba7f5f6ab94d324b682c0a46d660051e40bbffee49b9f5f5caee"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/10.png",
+      "bytes": 268661,
+      "sha256": "8e689dc3c438e5c24cb5cee1d1a39c0516d4fc843148b4a0dcc7f27ca8abd88c"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/11.png",
+      "bytes": 450615,
+      "sha256": "3a6515c0479d4c4643c7766a7ea17df082e906867ed3eabee2e6feea1fba1f73"
+    },
+    {
+      "path": "public/projects/giclee_club_ecommerce/12.png",
+      "bytes": 809552,
+      "sha256": "13f24baa9457de6b63d5c09e777a6883f456a9f6dad77a45514d420ff565e08a"
+    },
+    {
+      "path": "public/projects/hypernode/01.png",
+      "bytes": 513299,
+      "sha256": "f1eaf30eb4d971c2aefa9e60834842f14b28d6441ac6f229458b8ee3f026483b"
+    },
+    {
+      "path": "public/projects/hypernode/02.png",
+      "bytes": 606151,
+      "sha256": "54d2cfa4975b3735b354f9234582d0a98104e2174a058d21d0aa1ae69554ddbe"
+    },
+    {
+      "path": "public/projects/hypernode/03.1.png",
+      "bytes": 136799,
+      "sha256": "0d94c27ef3b27c9dccc2f33069e54183d1517ca55302d46376345692ad0b422b"
+    },
+    {
+      "path": "public/projects/hypernode/03.2.png",
+      "bytes": 124623,
+      "sha256": "00b63dc197c8e08c08c6a7da603af2c331b85b22868441acfc2c7cb9854733ef"
+    },
+    {
+      "path": "public/projects/hypernode/04.png",
+      "bytes": 555580,
+      "sha256": "e2a0d077ee9e57790efba3547f79f412dcb5cb981affe994d65dae6c23a62da8"
+    },
+    {
+      "path": "public/projects/hypernode/05.1.png",
+      "bytes": 443573,
+      "sha256": "ab09fc500e567675ec0d0e79257454b3e0556cd2247c7ae93faf8e16a396bdca"
+    },
+    {
+      "path": "public/projects/hypernode/05.2.png",
+      "bytes": 271386,
+      "sha256": "005d1213b62cb1a6f307412f1a4411d01f8e16ffd48d78a29ce29591bb1f31b0"
+    },
+    {
+      "path": "public/projects/hypernode/06.png",
+      "bytes": 161481,
+      "sha256": "c4620a9a3c359baafd057570a23d023a09b873e840558a3b433e7cf771e637a3"
+    },
+    {
+      "path": "public/projects/hypernode/07.mp4",
+      "bytes": 2191539,
+      "sha256": "aef64946000f3678beafd74801f9bbb63026daa08f54dfaafbc8e977e8d15ccf"
+    },
+    {
+      "path": "public/site.webmanifest",
+      "bytes": 387,
+      "sha256": "6d9dc6916938e4460148af3ee922ea57a17ced27651905c107909d5b6d2a05f8"
+    },
+    {
+      "path": "public/videos/Hands-Halo.mp4",
+      "bytes": 5058399,
+      "sha256": "b53f6a7730b918535692e2e996e8c3d28f3a2cd366f67756c733dbb8dd60a669"
+    },
+    {
+      "path": "public/work/thumbnails/alex-de-alma.mp4",
+      "bytes": 15131369,
+      "sha256": "19e1c6b5f57d80c1775f95b28eaf213839475271b6ee7b976e0a7e200001b9b1"
+    },
+    {
+      "path": "public/work/thumbnails/art-workers-united.mp4",
+      "bytes": 8046675,
+      "sha256": "7e8704ba9fe6ed9b73ab784892c39de56e43e42f9581ccd0b47831356ed8afa9"
+    },
+    {
+      "path": "public/work/thumbnails/crowdy-house.mp4",
+      "bytes": 6542741,
+      "sha256": "6f965f55a8ff8c335de4bbd7f5bd0dd397627895b96a15bca427328df25904c1"
+    },
+    {
+      "path": "public/work/thumbnails/designwise.mp4",
+      "bytes": 12122023,
+      "sha256": "7ef4e5213d8d9fe6c8a1179fbc2e2c1a9b2ced8ab8543c3e230f93dfd61bd758"
+    },
+    {
+      "path": "public/work/thumbnails/digitangels.mp4",
+      "bytes": 585985,
+      "sha256": "93cc945fd6ee593ba09b0dc813117320fa921cd901bf0aa616bd4aebbb046550"
+    },
+    {
+      "path": "public/work/thumbnails/giclee-club-branding.mp4",
+      "bytes": 9896551,
+      "sha256": "344d0b5ba5a6ba7f5f6ab94d324b682c0a46d660051e40bbffee49b9f5f5caee"
+    },
+    {
+      "path": "public/work/thumbnails/giclee-club-ecommerce.mp4",
+      "bytes": 33815292,
+      "sha256": "b3a7212063d30b678c923540c665618e3a3a6d2d55d9c0d3f5204ca1f665dd56"
+    },
+    {
+      "path": "public/work/thumbnails/hypernode.mp4",
+      "bytes": 2191539,
+      "sha256": "aef64946000f3678beafd74801f9bbb63026daa08f54dfaafbc8e977e8d15ccf"
+    }
+  ]
+}

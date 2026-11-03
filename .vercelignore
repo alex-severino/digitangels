@@ -1,0 +1,7 @@
+# Local tooling and optimisation records are not needed by the live site.
+.claude/
+.cursor/
+docs/
+scripts/
+*.tsbuildinfo
+**/.DS_Store

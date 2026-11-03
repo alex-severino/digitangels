@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digitangels
 
-## Getting Started
+Next.js 16 portfolio, deployed to Vercel from `main`.
 
-First, run the development server:
+## Development and checks
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run audit:assets -- --verify-originals
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Read the relevant bundled documentation in `node_modules/next/dist/docs/` before changing Next.js configuration or APIs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Media quality and storage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Public media keeps its original bytes, dimensions, frame rates and audio. Do not resize, reduce frame rates or apply lossy compression to save deployment time. `docs/media-originals.json` records SHA-256 hashes and sizes for the 216 public assets at commit `e279b2b`; the verification command above checks them against the working files.
 
-## Learn More
+The Giclée e-commerce gallery reuses its existing full-resolution thumbnail for its second video. SHA-256 comparison against the original Shopify video confirms they are identical; the previous gallery path pointed to a missing file.
 
-To learn more about Next.js, take a look at the following resources:
+Geist Mono is bundled from the existing Google Fonts Latin variable font, with its SIL Open Font License in `src/assets/fonts/`. All fonts load locally, so production builds do not need to download fonts from Google.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For local disk cleanup, stop the development server before deleting `.next/dev`. It is a regenerable cache. `git lfs prune --verify-remote` removes unused LFS cache only after checking remote copies; it does not remove the original public media or rewrite Git history.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment speed
 
-## Deploy on Vercel
+Turbopack's production filesystem cache is enabled in `next.config.ts` so subsequent Vercel builds can reuse `.next/cache`. Keep Vercel's normal build cache enabled. `.vercelignore` excludes local tooling and audit records from CLI uploads.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The deployment of `e279b2b` took about 82 seconds: 41 seconds cloning the repository, 33 seconds building and packaging, and 6 seconds deploying outputs. The original public assets total approximately 1.16 GB. Vercel's shallow clone includes recent history, so reducing local Git caches does not itself reduce remote clone time. A 30-second end-to-end Git deployment cannot be guaranteed while every deployment clones these originals.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The build keeps TypeScript validation enabled. `npm run lint` currently reports pre-existing React ref and purity errors in the legacy Designwise page and media/contact components; these are independent of the deployment optimisation.

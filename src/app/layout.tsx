@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Cursor } from "@/components/chrome/cursor";
@@ -32,9 +31,11 @@ const mori = localFont({
   ],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../assets/fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
+  style: "normal",
   display: "swap",
 });
 
