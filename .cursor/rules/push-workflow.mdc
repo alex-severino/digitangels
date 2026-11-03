@@ -12,7 +12,7 @@ Always work on `main`. There is no `staging` branch.
 When the user says **push** (or "push all branches"), run this exact workflow — not a bare `git push`:
 
 1. **Commit** all local changes on `main` (stage everything relevant, write a clear commit message)
-2. **Push** `main` to origin (`git push -u origin main`)
+2. **Push and deploy** `main` using `npm run ship`. It runs `git push -u origin main`, cancels pending Git builds only for that exact commit, and deploys through the cached Vercel CLI path. A commit already live is not rebuilt.
 
 Do not skip the commit step. There is no staging merge — work and deploy from `main` only.
 

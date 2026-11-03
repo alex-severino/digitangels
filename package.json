@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "vercel deploy --prod",
+    "deploy": "node scripts/deploy.mjs",
+    "ship": "node scripts/deploy.mjs --ship",
+    "test:deploy": "node --test scripts/deploy.test.mjs",
     "lint": "eslint",
     "audit:assets": "node scripts/audit-assets.mjs"
   },
