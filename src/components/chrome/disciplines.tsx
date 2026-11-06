@@ -22,12 +22,7 @@ export function Disciplines() {
       style={{ "--count": DISCIPLINES.length } as CSSProperties}
     >
       <div className="sticky top-0 flex h-[100svh] flex-col overflow-hidden">
-        <div className="flex justify-between px-4 pt-[96px] font-mono text-[10px] uppercase tracking-[0.22em] text-black/50 md:px-8 md:pt-[112px] md:text-[11px]">
-          <span>(02) — Capabilities</span>
-          <span>{String(DISCIPLINES.length).padStart(2, "0")} disciplines</span>
-        </div>
-
-        <div className="dt-drum-stage relative flex flex-1 items-center justify-center">
+        <div className="dt-drum-stage relative flex flex-1 items-center justify-center pt-[96px] md:pt-[112px]">
           <div className="dt-drum-band pointer-events-none absolute inset-x-0 top-1/2" aria-hidden />
           <ul className="dt-drum">
             {DISCIPLINES.map((label, i) => (

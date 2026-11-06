@@ -45,21 +45,21 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
     >
       <div className="sticky top-0 flex h-[100svh] flex-col overflow-hidden">
         <div className="flex justify-between px-4 pt-[96px] font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:px-8 md:pt-[112px] md:text-[11px]">
-          <span>(03) — Selected work</span>
+          <span>selected work</span>
           <span>Keep scrolling →</span>
         </div>
 
         <div className="flex flex-1 items-center">
           <div ref={trackRef} className="dt-rail-track flex items-center gap-[6vw] px-4 md:px-8">
             <div className="w-[78vw] shrink-0 md:w-[46vw]">
-              <h2 className="text-[clamp(4rem,14vw,15rem)] font-semibold uppercase leading-[0.78] tracking-[-0.07em]">
-                Pro
-                <br />
-                <span className="dt-italic dt-chrome-text normal-case tracking-[-0.04em]">jects</span>
+              <h2 className="overflow-visible text-[clamp(4rem,14vw,15rem)] font-semibold uppercase leading-none tracking-[-0.07em]">
+                <span className="block pb-[0.08em]">Pro</span>
+                <span className="dt-italic dt-chrome-text mt-[0.02em] inline-block normal-case leading-[1.2] tracking-[-0.04em] px-[0.22em] pt-[0.12em] pb-[0.38em] -ml-[0.12em]">
+                  jects
+                </span>
               </h2>
               <p className="mt-8 max-w-[22rem] font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-white/55">
-                ({String(cards.length).padStart(2, "0")}) Brand, product and platform work —
-                from naming to the last pixel.
+                Brand, product and platform work — from naming to the last pixel.
               </p>
             </div>
 
@@ -73,16 +73,22 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
                 <span className="dt-card-num dt-outline pointer-events-none absolute -top-[0.42em] left-[-0.04em] z-10 text-[clamp(5rem,13vw,13rem)] font-semibold leading-none tracking-[-0.08em]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div className="dt-card-media relative aspect-[16/10] overflow-hidden bg-[#111]">
+                <div
+                  className={`dt-card-media relative aspect-[16/10] overflow-hidden bg-[#111] ${
+                    card.contain ? "is-contain" : ""
+                  }`}
+                >
                   <LazyVideo
                     src={card.thumbnail}
                     eager={index < 2}
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full ${
+                      card.contain ? "object-contain" : "object-cover"
+                    }`}
                   />
                   <div className="dt-card-sheen pointer-events-none absolute inset-0" />
                 </div>
                 <div className="mt-5 flex items-start justify-between gap-6">
-                  <h3 className="text-[clamp(1.6rem,3.2vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.045em]">
+                  <h3 className="text-[clamp(1.6rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.045em]">
                     <span className="dt-swap">
                       <span>{card.title}</span>
                       <span className="dt-italic" aria-hidden>
@@ -100,9 +106,6 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
             ))}
 
             <div className="flex w-[78vw] shrink-0 flex-col gap-6 md:w-[38vw]">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
-                (More) — Beyond client work
-              </p>
               <Link
                 href="/digitangels"
                 data-cursor="Open"

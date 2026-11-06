@@ -63,10 +63,6 @@ export function HaloPortal() {
           the digital unknown
         </p>
 
-        <div className="pointer-events-none absolute inset-x-4 bottom-5 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-white/60 md:inset-x-8 md:text-[11px]">
-          <span>(00) — The halo</span>
-          <span>Keep scrolling</span>
-        </div>
       </div>
     </Scene>
   );

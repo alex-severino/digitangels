@@ -9,7 +9,7 @@ import { LondonTime, Scramble } from "@/components/chrome/fx";
 const NAV_LINKS = [
   { href: "/#projects", label: "Work", index: "01" },
   { href: "/designwise", label: "Education", index: "02" },
-  { href: "/digitangels", label: "Branding", index: "03" },
+  { href: "/digitangels", label: "Our branding", index: "03" },
   { href: "/#about", label: "About", index: "04" },
   { href: "/#contact", label: "Contact", index: "05" },
 ] as const;

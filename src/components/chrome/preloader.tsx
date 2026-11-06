@@ -74,7 +74,7 @@ export function Preloader() {
         <div className="dt-ring dt-ring-flip w-[min(56vmin,420px)]" />
       </div>
 
-      <div className="absolute inset-x-4 bottom-5 flex items-end justify-between md:inset-x-8">
+      <div className="absolute inset-x-4 bottom-5 flex items-end justify-between overflow-visible md:inset-x-8">
         <p className="max-w-[16rem] font-mono text-[11px] uppercase leading-relaxed tracking-[0.2em] text-white/50">
           Design Transformation Advisory
           <br />
@@ -82,7 +82,7 @@ export function Preloader() {
         </p>
         <span
           ref={countRef}
-          className="dt-chrome-text font-sans text-[clamp(5rem,18vw,16rem)] font-semibold leading-[0.75] tracking-[-0.08em] tabular-nums"
+          className="dt-chrome-text block shrink-0 overflow-visible font-sans text-[clamp(4.2rem,14vw,13rem)] font-semibold leading-none tracking-[-0.04em] tabular-nums px-[0.18em] pb-[0.2em] pt-[0.08em]"
         >
           000
         </span>

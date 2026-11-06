@@ -91,7 +91,7 @@
   background-size: 100% 1px;
 }
 
-/* Two stacked labels; hovering rolls the serif twin into place. */
+/* Two stacked labels; the italic twin is invisible until hover. */
 .dt-swap {
   display: inline-grid;
   overflow: hidden;
@@ -101,19 +101,24 @@
 
 .dt-swap > span {
   grid-area: 1 / 1;
-  transition: transform 0.7s var(--ease-out);
+  transition:
+    transform 0.7s var(--ease-out),
+    opacity 0.7s var(--ease-out);
 }
 
 .dt-swap > span:last-child {
-  transform: translateY(105%);
+  transform: translateY(110%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .group:hover .dt-swap > span:first-child {
-  transform: translateY(-105%);
+  transform: translateY(-110%);
 }
 
 .group:hover .dt-swap > span:last-child {
   transform: none;
+  opacity: 1;
 }
 
 .dt-arrow {
@@ -331,6 +336,7 @@ html.has-cursor .dt-cursor-dot {
   position: fixed;
   inset: 0;
   z-index: 100;
+  overflow: visible;
   background: #000;
   color: #fff;
   clip-path: circle(150% at 50% 50%);
@@ -565,6 +571,16 @@ html[data-seen] .dt-preloader {
 .dt-card:hover .dt-card-media video {
   filter: grayscale(0) contrast(1);
   transform: scale(1.1);
+}
+
+.dt-card-media.is-contain {
+  background: #000;
+}
+
+.dt-card-media.is-contain video,
+.dt-card:hover .dt-card-media.is-contain video {
+  object-fit: contain;
+  transform: none;
 }
 
 .dt-card-sheen {

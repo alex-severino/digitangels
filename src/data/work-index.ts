@@ -3,6 +3,7 @@ export type WorkCard = {
   title: string;
   thumbnail: string;
   tags: string[];
+  contain?: boolean;
 };
 
 export function projectHref(slug: string) {
@@ -26,37 +27,39 @@ export const workCards: WorkCard[] = [
     slug: "art-workers-united",
     title: "Arts Workers United",
     thumbnail: "/work/thumbnails/art-workers-united.mp4",
-    tags: ["WEB DESIGN", "WEBFLOW / NO CODE", "DESIGN MANAGEMENT"],
+    tags: ["digital branding", "digital design", "no code development"],
+    contain: true,
   },
   {
     slug: "velvet-horizon",
     title: "Velvet Horizon",
     thumbnail: "/work/thumbnails/alex-de-alma.mp4",
-    tags: ["BRANDING", "VISUAL DESIGN", "DIGITAL DESIGN"],
+    tags: ["naming, branding", "VISUAL DESIGN", "DIGITAL DESIGN"],
   },
   {
     slug: "giclee-club-branding",
     title: "Giclée Club: Branding",
     thumbnail: "/work/thumbnails/giclee-club-branding.mp4",
-    tags: ["BRANDING", "PRODUCT BRANDING", "BRANDING IN UX"],
+    tags: ["naming, branding", "PRODUCT BRANDING", "BRANDING IN UX"],
   },
   {
     slug: "giclee-club-ecommerce",
     title: "Giclée Club: E-comm",
     thumbnail: "/work/thumbnails/giclee-club-ecommerce.mp4",
-    tags: ["E-COMMERCE", "WEB DESIGN", "RESPONSIVE DESIGN"],
+    tags: ["e-commerce platform", "digital branding", "service design and CX"],
   },
   {
     slug: "crowdy-house",
     title: "CrowdyHouse",
     thumbnail: "/work/thumbnails/crowdy-house.mp4",
-    tags: ["MVP CONCEPT", "STARTUP", "BRANDING"],
+    tags: ["branding", "e-commerce platform", "app design"],
   },
   {
     slug: "hypernode",
     title: "Hypernode",
     thumbnail: "/work/thumbnails/hypernode.mp4",
-    tags: ["E-COMMERCE", "WEB PLATFORM", "RESPONSIVE DESIGN"],
+    tags: ["B2B e-commerce platform", "user research", "internal tools"],
+    contain: true,
   },
   {
     slug: "digitangels",

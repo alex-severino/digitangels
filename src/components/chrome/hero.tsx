@@ -4,7 +4,7 @@ import { Magnetic } from "@/components/chrome/fx";
 import { Scene } from "@/components/chrome/scene";
 import { Split } from "@/components/chrome/split";
 
-const BADGE = "Digitangels • Our branding • Digitangels • Our branding • ";
+const BADGE = "Digitangels • Digitangels • Digitangels • Digitangels • ";
 
 export function Hero() {
   return (
@@ -15,10 +15,8 @@ export function Hero() {
         </div>
         <div className="dt-vignette pointer-events-none absolute inset-0" />
 
-        <div className="dt-hero-meta pointer-events-none absolute inset-x-4 top-[84px] grid grid-cols-2 gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/60 md:inset-x-8 md:top-[104px] md:grid-cols-4 md:text-[11px]">
-          <span>(Est.) Digitangels®</span>
-          <span className="text-right md:text-left">51.5072° N, 0.1276° W</span>
-          <span className="hidden md:block">Brand × Digital Product</span>
+        <div className="dt-hero-meta pointer-events-none absolute inset-x-4 top-[84px] flex justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/60 md:inset-x-8 md:top-[104px] md:text-[11px]">
+          <span>design services for brand × digital product</span>
           <span className="hidden text-right md:block">Est. London</span>
         </div>
 
