@@ -13,18 +13,10 @@ function nextProject(slug: string) {
 }
 
 function ProjectHero({ project }: { project: Project }) {
-  const index = workCards.findIndex((card) => card.slug === project.slug);
   const [lead, ...rest] = project.title.split(":");
 
   return (
     <section className="dt-hero relative bg-black px-4 pb-14 pt-[120px] text-white md:px-8 md:pb-20 md:pt-[150px]">
-      <div className="mb-10 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:mb-16 md:text-[11px]">
-        <span>
-          ({String(index + 1).padStart(2, "0")}) — Case study
-        </span>
-        <span>{project.categories.slice(0, 2).join(" / ")}</span>
-      </div>
-
       <h1 className="text-[clamp(3.4rem,12vw,13rem)] font-semibold uppercase leading-[0.82] tracking-[-0.065em]">
         <Split text={lead.trim()} />
         {rest.length ? (
@@ -69,15 +61,18 @@ function NextProject({ slug }: { slug: string }) {
     <Link
       href={projectHref(next.slug)}
       data-cursor="Next"
-      className="group relative block overflow-hidden bg-black px-4 py-20 text-white md:px-8 md:py-32"
+      className="group relative block overflow-visible bg-black px-4 py-20 text-white md:px-8 md:py-32"
     >
       <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:text-[11px]">
         Next project →
       </p>
-      <p className="text-[clamp(3rem,11vw,12rem)] font-semibold uppercase leading-[0.82] tracking-[-0.065em]">
+      <p className="dt-next-title overflow-visible text-[clamp(3rem,11vw,12rem)] font-semibold uppercase leading-none tracking-[-0.065em]">
         <span className="dt-swap">
-          <span>{next.title}</span>
-          <span className="dt-italic dt-chrome-text normal-case" aria-hidden>
+          <span className="block py-[0.14em]">{next.title}</span>
+          <span
+            className="dt-italic dt-chrome-text inline-block px-[0.18em] py-[0.2em] leading-[1.2] normal-case"
+            aria-hidden
+          >
             {next.title}
           </span>
         </span>

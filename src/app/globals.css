@@ -99,6 +99,10 @@
   vertical-align: bottom;
 }
 
+.dt-next-title .dt-swap {
+  overflow: visible;
+}
+
 .dt-swap > span {
   grid-area: 1 / 1;
   transition:

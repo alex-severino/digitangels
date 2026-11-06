@@ -308,7 +308,7 @@ export const projects: Project[] = [
     "slug": "velvet-horizon",
     "folder": "alexdealma",
     "title": "Velvet Horizon",
-    "description": "For the debut album \"Velvet Horizon\" by a one-man band, Digitangels crafted a brand identity that reflects the album's exploration of love, fears, dreams, and societal expectations. The visual motif centres on the contrast between the clear and blurred horizon, symbolising the album's thematic ambiguity. To amplify the disruptive nature of the music artist, we used bold, explosive colours traditionally associated with femininity. This design approach captures the album’s essence, blending clarity with obscurity to mirror the complex emotions and societal boundaries the artist explores.",
+    "description": "Digitangels crafted a brand identity for Velvet Horizon – a one-man music band exploring love, fears, dreams, and societal expectations. The visual motif centres on the contrast between the clear and blurred horizon, symbolising the album's thematic ambiguity. To amplify the disruptive nature of the music artist, we used bold, explosive colours traditionally associated with femininity. This design approach captures the album’s essence, blending clarity with obscurity to mirror the complex emotions and societal boundaries the artist explores.",
     "roles": [
       "CREATIVE STRATEGY",
       "BRAND DESIGN",
@@ -459,9 +459,9 @@ export const projects: Project[] = [
     "asideLabel": "Team",
     "team": "AWU: Nhi Corcoran, Jenny Grace Makholm, Carson Elrod\nDESIGN DIRECTOR: Angelina Severino\nWEB DESIGNER: Lucie van Baaren aka Summerthyme\nWEBFLOW DEVELOPER: Irina Zaman\nBRANDING: One Design Company",
     "roles": [
-      "WEB DESIGN",
+      "digital branding",
       "ART DIRECTION",
-      "WEBFLOW",
+      "digital design",
       "STAKEHOLDER MANAGEMENT",
       "DESIGN MANAGEMENT",
       "IMPLEMENTATION MANAGEMENT"
