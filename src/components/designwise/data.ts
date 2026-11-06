@@ -20,7 +20,7 @@ export const AREAS: Area[] = [
     symbol: "Ds",
     title: "Design Systems",
     icon: icon("systems"),
-    body: "Design System for product designs serves as a foundational framework, ensuring consistency, efficiency, and scalability across all the design tokens such as color, typography, spacing, components, patterns, etc.\n\nWe teach how to build Design Systems based on Figma Variables, which streamlines the design and development processes, inspires collaboration among team members, and ultimately enhances user experience by establishing coherent and cohesive interfaces.",
+    body: "Design System for product designs serves as a foundational framework, ensuring consistency, efficiency, and scalability across all the design tokens such as color, typography, spacing, components, patterns, etc.\n\nWe teach teams to build Design Systems on Figma Variables – and to pair them with AI. The result is a system your designers can prompt, accelerating delivery while keeping every interface coherent and on-brand.",
   },
   {
     symbol: "Pd",
@@ -38,7 +38,7 @@ export const AREAS: Area[] = [
     symbol: "Dg",
     title: "Digital Design",
     icon: icon("digital"),
-    body: "Digital design is a special field where functionality meets artistry. Be is web design, illustrations, animations, marketing and social media materials for tech products – our diverse team of talented creators will pour their minds and souls to teach you how to bring your ideas to life with passion and precision.\n\nIt's a continuous exploration of new techniques, trends, and possibilities. We're always learning, always growing, always striving to push the boundaries of what's possible to achieve with digital design.",
+    body: "Digital design is a special field where functionality meets artistry. Be it web or app design, illustrations, animations, marketing and social media materials for tech products – our diverse team of talented creators will pour their minds and souls to teach you how to bring your ideas to life with passion and precision.\n\nIt's a continuous exploration of new techniques, trends, and possibilities. We're always learning, always growing, always striving to push the boundaries of what's possible to achieve with digital design.",
   },
   {
     symbol: "Dm",
@@ -65,7 +65,7 @@ export const SUPPORT: Area[] = [
     symbol: "Tr",
     title: "Educational Trainings",
     icon: icon("trainings"),
-    body: "Welcome to our educational hub where we offer cutting-edge design trainings covering Design Maturity, Design Systems, Diversity, Equity, and Inclusion (DEI) in design, Branding in Product, Design Thinking principles and Design Processes.\n\nOur programs empower your team to elevate their design capabilities and drive impactful innovation. Whether they are seasoned designers or new to the field, our trainings provide the tools and insights needed to thrive in today's dynamic design landscape.",
+    body: "Our educational hub offers custom-made design trainings tailored to your team's specific needs, covering Design Maturity, Design Systems, Accessibility, Branding in Product, Design Thinking principles and Design Processes.\n\nOur programs empower your team to elevate their design capabilities and drive impactful innovation. Whether they are seasoned designers or new to the field, our trainings provide the tools and insights needed to thrive in today's dynamic design landscape.",
   },
   {
     symbol: "Ws",
@@ -80,11 +80,10 @@ export const SUPPORT: Area[] = [
     body: "Our design mentorship program is tailored specifically for tech companies seeking to elevate their design capabilities. Whether you're a burgeoning startup or an established tech giant, our experienced mentors are here to provide personalised guidance and support to your design teams or individuals. We bring years of industry experience and expertise to the table, offering insights into best practices, emerging trends, and strategies for success.\n\nWe'll work closely with your team to identify areas for growth, overcome challenges, and unlock the full potential of your design talent.",
   },
   {
-    symbol: "Co",
-    title: "Design Courses",
-    icon: icon("courses"),
-    comingSoon: true,
-    body: "We have meticulously crafted our design courses to meet the unique needs of tech companies navigating their digital presence. Whether you're looking to establish a strong design foundation or seeking to refine your team's skills, our courses are tailored to equip you and your employees with the tools and expertise needed to excel in today's competitive market.\n\nLed by industry experts with hands-on experience in the tech sector, our courses combine theoretical knowledge with practical insights, ensuring that your team not only understands design principles but can also apply them effectively to real-world projects.",
+    symbol: "Ex",
+    title: "Executive Training",
+    icon: "/designwise/images/areas/executive.svg",
+    body: "Design is a business driver. Our executive training equips C-level leaders with a clear understanding of the business value of design – how it elevates products, strengthens brands, and fuels sustainable growth.\n\nThrough focused sessions led by seasoned Design Leaders, executives learn to set design strategy and policy from the top down, measure its impact, and build organisations where design is a shared priority. The result is a company that is healthy on the design front, from the boardroom to the product team.",
   },
 ];
 
@@ -117,10 +116,10 @@ export const DISCIPLINES = [
 
 export const MENU = [
   { href: "#mission", label: "Our Mission", icon: icon("management") },
-  { href: "#about", label: "About", icon: icon("mentorship") },
-  { href: "#reason-1", label: "Design Education", icon: icon("courses") },
+  { href: "#about", label: "About", icon: icon("branding") },
+  { href: "#reason-1", label: "Design Education", icon: icon("trainings") },
   { href: "#reason-2", label: "Expert Support", icon: icon("workshops") },
-  { href: "#contact", label: "Contact", icon: icon("trainings") },
+  { href: "#contact", label: "Contact", icon: icon("uxui") },
 ] as const;
 
 export const EMAIL = "designwise@digitangels.com";

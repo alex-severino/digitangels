@@ -77,15 +77,15 @@ export function About() {
 
         <div className="space-y-8 pt-4 text-[1.1rem] font-light leading-[1.5] md:pt-[16vw] md:text-[1.35rem]">
           <p className="text-[clamp(1.6rem,2.6vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.03em]">
-            Digitangels was founded by an award-winning Design Leader.
-            Award-winning Design Leader with over{" "}
+            Digitangels was founded by an award-winning Design Leader with over{" "}
             <span className="dt-italic">15 years</span> across Brand and Digital
             Product.
           </p>
           <p>
             Recognised with the Global Talent UK endorsement for Exceptional
             Talent in Digital Technology and multiple international creative
-            awards, Angelina has led Design at the highest level across
+            awards, nominated and elected a Fellow of the Royal Society of Arts
+            (FRSA). Angelina has led Design at the highest level across
             Telecoms, IoT, SaaS, eCommerce, and Advertising – most recently as
             Global Design Lead at Lebara, Europe&apos;s fastest-growing MVNO.
           </p>

@@ -544,41 +544,45 @@
   opacity: clamp(0, calc((var(--p) - 0.55) * 5), 1);
 }
 
-/* ───────────────────────── Logo drum ───────────────────────── */
+/* ───────────────────────── Logo wall ───────────────────────── */
 
-.dw-drum-stage {
-  perspective: 1400px;
-}
-
-.dw-drum {
-  --cw: clamp(130px, 17vw, 240px);
-  --ch: calc(var(--cw) * 0.62);
-  width: var(--cw);
-  height: var(--ch);
-  margin: calc(var(--ch) / -2) 0 0 calc(var(--cw) / -2);
-  transform-style: preserve-3d;
-  transform: rotateX(-6deg) rotateY(calc(var(--p) * -220deg));
-}
-
-.dw-drum-spin {
+.dw-wall::before {
+  content: "";
   position: absolute;
   inset: 0;
-  transform-style: preserve-3d;
-  animation: dw-drum 60s linear infinite;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(255 255 255 / 0.6),
+    transparent 70%
+  );
+  opacity: var(--lit, 0);
+  transition: opacity 0.4s var(--ease-out);
 }
 
-.dw-face {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgb(18 23 19 / 0.16);
-  border-radius: 16px;
-  background: rgb(255 255 255 / 0.4);
-  transform: rotateY(calc(var(--i) * 30deg)) translateZ(calc(var(--cw) * 1.9));
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+/* Cells reveal one after another as the section scrolls in (--p from Scene). */
+.dw-wall-cell {
+  --t: clamp(0, (var(--p, 1) - 0.3 - var(--i) * 0.011) * 16, 1);
+}
+
+.dw-wall-logo {
+  opacity: var(--t);
+  transform: translateY(calc((1 - var(--t)) * 36px)) scale(calc(0.86 + var(--t) * 0.14));
+  transition: filter 0.3s var(--ease-out);
+}
+
+.dw-wall-fill {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.dw-wall-cell:hover .dw-wall-fill {
+  transform: scaleY(1);
+}
+
+.dw-wall-cell:hover .dw-wall-logo {
+  filter: invert(1);
 }
 
 /* ───────────────────────── Contact ───────────────────────── */
@@ -789,12 +793,6 @@
   }
 }
 
-@keyframes dw-drum {
-  to {
-    transform: rotateY(-360deg);
-  }
-}
-
 @keyframes dw-dock {
   from {
     transform: translateY(160%);
@@ -823,7 +821,6 @@
   .dw-atom-core,
   .dw-marquee,
   .dw-badge-ring,
-  .dw-drum-spin,
   .dw-specimen-orbit,
   .dw-pin,
   .dw-chev {
@@ -841,5 +838,9 @@
 
   .dw-join-skew {
     transform: none;
+  }
+
+  .dw-wall-cell {
+    --t: 1;
   }
 }

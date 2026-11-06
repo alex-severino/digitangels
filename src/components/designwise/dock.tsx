@@ -107,10 +107,10 @@ function Menu({
     >
       <div className="flex items-center justify-between">
         <a href="https://digitangels.com" aria-label="Back to Digitangels" className="flex items-center gap-3 text-[18px]">
-          <span aria-hidden>←</span>
+          <span>back to</span>
           <span
             aria-hidden
-            className="block h-[1.15em] aspect-[640/133] bg-current [mask-image:url(/designwise/images/digitangels-wordmark.png)] [mask-repeat:no-repeat] [mask-size:100%_100%] [-webkit-mask-image:url(/designwise/images/digitangels-wordmark.png)] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:100%_100%]"
+            className="block h-[1.15em] aspect-[640/133] -translate-y-[8%] bg-current [mask-image:url(/designwise/images/digitangels-wordmark.png)] [mask-repeat:no-repeat] [mask-size:100%_100%] [-webkit-mask-image:url(/designwise/images/digitangels-wordmark.png)] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:100%_100%]"
           />
         </a>
         <RoundButton label="Close menu" onClick={onClose} className="bg-[#121713] text-[#cff63a]">

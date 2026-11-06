@@ -105,9 +105,6 @@ export function About() {
             src="/designwise/videos/about.mp4"
             className="mx-auto block aspect-square h-auto w-full max-w-[560px] object-contain"
           />
-          <span className="absolute top-2 left-0 font-mono text-[10px] tracking-[0.2em] text-[#9eaca2] uppercase">
-            Fig. 01 — The wing
-          </span>
         </div>
         <ReadAlong
           text={INTRO}
@@ -118,9 +115,6 @@ export function About() {
       <div className="grid items-center gap-12 px-5 pb-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-16 md:px-16 md:pb-36">
         <div className="relative md:order-2">
           <Atom />
-          <span className="absolute top-0 right-0 font-mono text-[10px] tracking-[0.2em] text-[#9eaca2] uppercase">
-            Fig. 02 — The team, in orbit
-          </span>
         </div>
         <ReadAlong
           text={TEAM}

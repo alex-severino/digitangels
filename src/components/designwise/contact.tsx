@@ -8,7 +8,7 @@ import { LazyVideo } from "@/components/lazy-video";
 import { EMAIL } from "./data";
 
 const FIELDS = [
-  { name: "name", label: "Your name", type: "text", autoComplete: "name" },
+  { name: "name", label: "Your full name", type: "text", autoComplete: "name" },
   { name: "email", label: "Your email", type: "email", autoComplete: "email" },
   { name: "message", label: "What should we talk about?", type: "textarea", autoComplete: "off" },
 ] as const;
@@ -65,7 +65,7 @@ function EnrolmentForm() {
         aria-hidden
         className="absolute -left-[9999px] opacity-0"
       />
-      {FIELDS.map((field, i) => {
+      {FIELDS.map((field) => {
         const id = `dw-${field.name}`;
         const shared = {
           id,
@@ -80,7 +80,7 @@ function EnrolmentForm() {
         return (
           <div key={field.name} className="dw-field">
             <label htmlFor={id} className="dw-field-label mb-2 block font-mono text-[10px] tracking-[0.2em] uppercase md:text-[11px]">
-              {String(i + 1).padStart(2, "0")} — {field.label}
+              {field.label}
             </label>
             {field.type === "textarea" ? (
               <textarea rows={3} {...shared} />
@@ -97,7 +97,7 @@ function EnrolmentForm() {
             ? "Thank you. We'll be in touch."
             : status === "error"
               ? `Something went wrong. Email us at ${EMAIL}.`
-              : "Three questions. No homework."}
+              : null}
         </p>
         <Magnetic strength={0.4}>
           <button
@@ -143,7 +143,7 @@ export function Contact() {
       <footer className="mt-24 flex flex-col gap-4 border-t border-[#9eaca2]/20 pt-6 font-mono text-[10px] tracking-[0.18em] text-[#9eaca2] uppercase md:mt-32 md:flex-row md:items-center md:justify-between md:text-[11px]">
         <a href="https://digitangels.com" className="flex items-center gap-2">
           Designwise — the educational wing of
-          <img src="/designwise/images/digitangels-wordmark.png" alt="digitangels" className="h-3.5 w-auto opacity-70" />
+          <img src="/designwise/images/digitangels-wordmark.png" alt="digitangels" className="h-7 w-auto -translate-y-[13%] opacity-70" />
         </a>
         <span className="flex gap-6">
           <Link href="/privacy" className="dt-underline">Privacy</Link>

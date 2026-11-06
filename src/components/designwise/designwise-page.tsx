@@ -45,7 +45,6 @@ export function DesignwisePage() {
         kicker="The periodic table of design excellence"
         heading="You are ready for the next level of Design Excellence, and interested in improving the following areas:"
         items={AREAS}
-        offset={0}
         theme="dark"
         note="We are happy to offer our support in the multiple areas, or only in some part of one area – flexibility is key! Also, if you have a special request that is not listed above – do let us know, we'll be happy to chat and find out if we can be of help."
       />
@@ -56,9 +55,8 @@ export function DesignwisePage() {
         kicker="Catalysts for design leadership"
         heading="You feel that your design team needs expert support with certain aspects of Design Maturity / Design Leadership"
         items={SUPPORT}
-        offset={AREAS.length}
         theme="light"
-        note="Feel free to let us know what design area is most challenging in your company, even if it's not listed in trainings and workshops above. We'll be happy to tailor our support to the specific needs of your design team."
+        note="Feel free to let us know what design area is most challenging in your company, even if it's not listed in the offerings above. We'll be happy to tailor our support to the specific needs of your design team."
       />
       <Trusted />
       <Contact />

@@ -35,7 +35,6 @@ export function Reason({
   heading,
   kicker,
   items,
-  offset,
   theme,
   note,
 }: {
@@ -44,7 +43,6 @@ export function Reason({
   heading: string;
   kicker: string;
   items: Area[];
-  offset: number;
   theme: keyof typeof THEMES;
   note: string;
 }) {
@@ -124,7 +122,7 @@ export function Reason({
               >
                 <span className="relative z-10 flex items-start justify-between">
                   <span className="font-mono text-[10px] tabular-nums md:text-[12px]">
-                    {String(offset + i + 1).padStart(2, "0")}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <Glyph src={el.icon} className="h-5 w-5 opacity-70 md:h-8 md:w-8" />
                 </span>
@@ -140,17 +138,17 @@ export function Reason({
           })}
         </div>
 
-        <div ref={panelRef} className="scroll-mt-6 md:sticky md:top-8 md:self-start">
+        <div ref={panelRef} className="relative scroll-mt-6 md:max-[1439px]:sticky md:max-[1439px]:top-8 md:max-[1439px]:self-start">
           <div
             id={panelId}
             key={item.symbol}
             aria-live="polite"
-            className={`dw-sheet relative overflow-hidden rounded-[18px] border p-5 md:rounded-[24px] md:p-9 ${t.tile}`}
+            className={`dw-sheet relative overflow-hidden rounded-[18px] border p-5 min-[1440px]:absolute min-[1440px]:inset-0 min-[1440px]:flex min-[1440px]:flex-col md:rounded-[24px] md:p-9 ${t.tile}`}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase opacity-70 md:text-[11px]">
-                  Element {String(offset + active + 1).padStart(2, "0")} / 12
+                  Element {String(active + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 text-[clamp(1.6rem,3.2vw,3.2rem)] leading-[1] font-semibold uppercase italic">
                   {item.title}
@@ -167,9 +165,9 @@ export function Reason({
             </div>
             <Glyph
               src={item.icon}
-              className={`dw-sheet-glyph mx-auto my-8 block h-28 w-28 md:my-10 md:h-40 md:w-40 ${t.glyph}`}
+              className={`dw-sheet-glyph mx-auto my-8 block h-28 w-28 md:max-[1439px]:my-10 md:max-[1439px]:h-40 md:max-[1439px]:w-40 min-[1440px]:my-6 min-[1440px]:h-auto min-[1440px]:max-h-40 min-[1440px]:min-h-12 min-[1440px]:w-full min-[1440px]:flex-1 ${t.glyph}`}
             />
-            <div className={`space-y-4 text-[15px] leading-relaxed md:text-[18px] ${t.body}`}>
+            <div className={`space-y-4 text-[15px] leading-relaxed md:max-[1439px]:text-[18px] min-[1440px]:min-h-0 min-[1440px]:shrink min-[1440px]:overflow-y-auto min-[1440px]:max-[1535px]:text-[16px] min-[1536px]:text-[18px] ${t.body}`}>
               {item.body.split("\n\n").map((para, i) => (
                 <p key={i} className="dw-sheet-line" style={{ "--i": i } as CSSProperties}>
                   {para}
@@ -181,10 +179,7 @@ export function Reason({
       </div>
 
       <div className="grid gap-6 py-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-10 md:py-24">
-        <span className="hidden font-mono text-[11px] tracking-[0.2em] uppercase md:block">
-          ( Flexibility is key )
-        </span>
-        <div className="flex flex-col items-start gap-6">
+        <div className="flex flex-col items-start gap-6 md:col-start-2">
           <p className={`text-[18px] leading-snug md:text-[22px] ${t.note}`}>{note}</p>
           <Pill href="#contact" variant={t.pill} className="h-11 w-full px-10 text-[18px] md:w-auto md:text-[20px]">
             LET&apos;S CHAT

@@ -5,7 +5,7 @@ const FORKS = [
   {
     href: "#reason-1",
     n: "1",
-    kicker: "Reason 01 · 6 elements",
+    kicker: "Reason 01",
     text: "You are ready for the next level of Design Excellence",
     tone: "bg-[#121713] text-[#c1cdc4]",
     accent: "text-[#cff63a]",
@@ -13,7 +13,7 @@ const FORKS = [
   {
     href: "#reason-2",
     n: "2",
-    kicker: "Reason 02 · 5 catalysts",
+    kicker: "Reason 02",
     text: "Your design team needs expert support with Design Maturity / Leadership",
     tone: "bg-[#e8e8e8] text-[#616a63]",
     accent: "text-[#121713]",
