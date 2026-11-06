@@ -100,7 +100,13 @@
 }
 
 .dt-next-title .dt-swap {
-  overflow: visible;
+  overflow: hidden;
+  padding: 0.38em 0.14em 0.1em;
+  vertical-align: top;
+}
+
+.group:hover .dt-next-title .dt-swap > span:first-child {
+  opacity: 0;
 }
 
 .dt-swap > span {
@@ -143,6 +149,14 @@
   padding: 0.16em 0.06em 0.16em 0;
   margin: -0.16em 0;
   vertical-align: top;
+}
+
+/* Colon titles (Giclée Club + italic line): keep É unclipped but stack tight. */
+.dt-hero-stack .dt-split-word {
+  padding-top: 0.28em;
+  padding-bottom: 0.04em;
+  margin-top: -0.12em;
+  margin-bottom: -0.08em;
 }
 
 .dt-split-ch {

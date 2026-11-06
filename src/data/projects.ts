@@ -612,12 +612,12 @@ export const projects: Project[] = [
     "slug": "crowdy-house",
     "folder": "crowdyhouse",
     "title": "Crowdyhouse",
-    "description": "For CrowdyHouse, Digitangels led brand and product MVP design, shaping the identity of this platform as a launchpad and marketplace for designers and makers. The mission was to democratise the design industry by enabling creatives, whether new or established, to sell directly to design enthusiasts worldwide. We created a brand that reflected this mission of empowerment, and a product design that streamlined the process, allowing designers to maximise their profits while bringing diverse, high-quality design to a global audience.",
+    "description": "For CrowdyHouse, Digitangels led brand and product design, shaping the identity of this e-commerce platform as a launchpad and marketplace for designers and makers. The mission was to democratise the design industry by enabling creatives, whether new or established, to sell directly to design enthusiasts worldwide. We created a brand that reflected this mission of empowerment, and a product design that streamlined the process, allowing designers to maximise their profits while bringing diverse, high-quality design to a global audience.",
     "roles": [
       "CREATIVE STRATEGY",
       "BRAND DESIGN",
       "VISUAL DESIGN",
-      "MVP CONCEPT",
+      "web and app design",
       "ART DIRECTION"
     ],
     "categories": [

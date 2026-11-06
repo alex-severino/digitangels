@@ -82,7 +82,7 @@ export function Mission() {
         />
 
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.2em] text-[#616a63] uppercase md:text-[11px]">
-          <span>( 01 ) — Our mission</span>
+          <span>Our mission</span>
           <span className="hidden md:inline">Scroll to read ↓</span>
         </div>
 

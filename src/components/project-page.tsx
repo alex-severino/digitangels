@@ -17,10 +17,14 @@ function ProjectHero({ project }: { project: Project }) {
 
   return (
     <section className="dt-hero relative bg-black px-4 pb-14 pt-[120px] text-white md:px-8 md:pb-20 md:pt-[150px]">
-      <h1 className="text-[clamp(3.4rem,12vw,13rem)] font-semibold uppercase leading-[0.82] tracking-[-0.065em]">
+      <h1
+        className={`overflow-visible text-[clamp(3.4rem,12vw,13rem)] font-semibold uppercase tracking-[-0.065em] ${
+          rest.length ? "dt-hero-stack leading-none" : "leading-[0.82]"
+        }`}
+      >
         <Split text={lead.trim()} />
         {rest.length ? (
-          <span className="dt-italic dt-chrome-text block normal-case tracking-[-0.04em]">
+          <span className="dt-italic dt-chrome-text mt-[0.02em] block overflow-visible px-[0.12em] pb-[0.22em] pt-[0.04em] leading-[0.92] normal-case tracking-[-0.04em]">
             {rest.join(":").trim()}
           </span>
         ) : null}
@@ -68,7 +72,7 @@ function NextProject({ slug }: { slug: string }) {
       </p>
       <p className="dt-next-title overflow-visible text-[clamp(3rem,11vw,12rem)] font-semibold uppercase leading-none tracking-[-0.065em]">
         <span className="dt-swap">
-          <span className="block py-[0.14em]">{next.title}</span>
+          <span className="block">{next.title}</span>
           <span
             className="dt-italic dt-chrome-text inline-block px-[0.18em] py-[0.2em] leading-[1.2] normal-case"
             aria-hidden

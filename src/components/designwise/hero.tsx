@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useRef, type CSSProperties } from "react";
-import { LondonTime, Magnetic } from "@/components/chrome/fx";
+import { Magnetic } from "@/components/chrome/fx";
 import { Scene } from "@/components/chrome/scene";
 
 const WORD = "DESIGNWISE";
@@ -280,9 +280,6 @@ function Title() {
         {HANDLES.map((h) => (
           <span key={h} className={`dw-handle dw-handle-${h}`} />
         ))}
-        <span className="dw-select-tag absolute -top-6 left-0 font-mono text-[10px] tracking-[0.12em] text-[#cff63a] uppercase">
-          Frame · Designwise
-        </span>
         <span
           ref={sizeRef}
           className="dw-select-tag absolute -bottom-7 left-1/2 -translate-x-1/2 rounded-sm bg-[#cff63a] px-1.5 py-0.5 font-mono text-[10px] text-[#121713] tabular-nums"
@@ -392,7 +389,7 @@ export function Hero() {
         <div className="dw-hero-fade absolute inset-x-4 bottom-24 z-20 flex items-end justify-between gap-4 md:inset-x-10 md:bottom-28">
           <div className="dw-enter" style={{ "--d": 4 } as CSSProperties}>
             <p className="mb-3 hidden font-mono text-[10px] tracking-[0.2em] text-[#9eaca2] uppercase md:block">
-              London — Worldwide · <LondonTime />
+              London — Worldwide
             </p>
             <p className="text-[19px] leading-[1.12] font-semibold md:text-[clamp(1.4rem,2.3vw,2.4rem)]">
               FOR THE <em className="dw-hl not-italic">SMART.</em>

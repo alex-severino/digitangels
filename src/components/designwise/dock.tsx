@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Glyph } from "./bits";
-import { EMAIL, LEVELS, MENU } from "./data";
+import { EMAIL, MENU } from "./data";
 
 function RoundButton({
   label,
@@ -27,10 +27,8 @@ function RoundButton({
   );
 }
 
-/** Reads how far down the page you are as a design-maturity level. */
+/** Reads how far down the page you are. */
 function MaturityMeter() {
-  const levelRef = useRef<HTMLSpanElement>(null);
-  const nameRef = useRef<HTMLSpanElement>(null);
   const pctRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
 
@@ -40,9 +38,6 @@ function MaturityMeter() {
       raf = 0;
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      const level = Math.min(LEVELS.length - 1, Math.floor(p * LEVELS.length));
-      if (levelRef.current) levelRef.current.textContent = String(level + 1).padStart(2, "0");
-      if (nameRef.current) nameRef.current.textContent = LEVELS[level];
       if (pctRef.current) pctRef.current.textContent = `${String(Math.round(p * 100)).padStart(3, "0")}%`;
       if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
     };
@@ -64,11 +59,7 @@ function MaturityMeter() {
       className="min-w-0 flex-1 px-2 font-mono text-[10px] tracking-[0.14em] text-[#c1cdc4] uppercase md:w-[250px] md:flex-none md:px-3"
       title="Design maturity"
     >
-      <div className="flex items-baseline justify-between gap-3">
-        <span className="truncate">
-          Lvl <span ref={levelRef} className="text-[#cff63a]">01</span> ·{" "}
-          <span ref={nameRef}>{LEVELS[0]}</span>
-        </span>
+      <div className="flex items-baseline justify-end">
         <span ref={pctRef} className="tabular-nums text-[#cff63a]">000%</span>
       </div>
       <span className="mt-1.5 flex h-[3px] gap-[3px]" aria-hidden>

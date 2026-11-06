@@ -115,16 +115,6 @@ export const DISCIPLINES = [
   "Design Management",
 ] as const;
 
-/** The page's scroll depth is read as a design-maturity level in the dock. */
-export const LEVELS = [
-  "Absent",
-  "Limited",
-  "Emergent",
-  "Structured",
-  "Integrated",
-  "Design-led",
-] as const;
-
 export const MENU = [
   { href: "#mission", label: "Our Mission", icon: icon("management") },
   { href: "#about", label: "About", icon: icon("mentorship") },
