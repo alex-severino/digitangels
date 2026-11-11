@@ -61,6 +61,10 @@ export const projects: Project[] = [
     "folder": "giclee_club_ecommerce",
     "title": "Giclée Club: E-comm",
     "description": "Digitangels shaped Giclée Club into a leading e-commerce destination for visual artists. We aligned every aspect of the platform with the brand strategy, so artists can print and sell their work as Fine Art prints with ease. The team led the design from start to finish, creating a user experience that reflected the high standards of Giclée printing. The goal was to make the platform intuitive and visually appealing, meeting the needs of artists who care about quality and presentation. The main challenge was balancing aesthetics with functionality, creating a space where art and technology come together effortlessly. The result is an e-commerce platform that artists can trust to print and sell their work, all while maintaining the highest level of quality.",
+    "link": {
+      "label": "GICLEECLUB.COM",
+      "href": "https://gicleeclub.com"
+    },
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
@@ -170,6 +174,10 @@ export const projects: Project[] = [
     "folder": "giclee_club_branding",
     "title": "Giclée Club: Branding",
     "description": "Giclée Club is a platform for visual artists looking to print and sell Fine Art prints of their work. Inspired by the term \"Giclée,\" synonymous with the highest museum-quality printing, we created a brand identity that resonates with visual artists seeking excellence. Digitangels drew inspiration from the classical test print page to create a cohesive visual identity, where every design element was thoughtfully derived from the Giclée Club logo. The acute accent on the é became a key symbol, representing the brand’s French roots and commitment to refinement. We also developed a broad, gradient-rich color palette that captures the endless possibilities of Giclée printing, ensuring that both artists and art lovers experience a visually satisfying journey on the platform. This work emphasised the importance of cohesive product branding, where the e-commerce platform was meticulously designed to align with and enhance the overall brand identity.",
+    "link": {
+      "label": "GICLEECLUB.COM",
+      "href": "https://gicleeclub.com"
+    },
     "roles": [
       "NAMING",
       "CREATIVE STRATEGY",
