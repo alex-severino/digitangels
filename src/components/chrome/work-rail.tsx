@@ -117,7 +117,7 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
                 <span className="dt-arrow">→</span>
               </Link>
               <Link
-                href="/designwise"
+                href="https://designwise.digitangels.com"
                 data-cursor="Learn"
                 className="dt-pill-link group flex items-center justify-between border-y border-white/20 py-6"
               >

@@ -33,7 +33,7 @@ function Intro() {
 
 export function DesignwisePage() {
   return (
-    <main className="dw overflow-x-clip">
+    <main className="dw dw-page overflow-x-clip">
       <Intro />
       <Hero />
       <Mission />

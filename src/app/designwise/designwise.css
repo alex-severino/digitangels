@@ -1,5 +1,5 @@
 /* ───────────────────────── Designwise ─────────────────────────
-   Styles for /designwise. Every class is prefixed `dw-` and the tokens live
+   Styles for Designwise and its homepage banner. Classes are prefixed `dw-` and tokens live
    on `.dw`, so none of this leaks into the rest of the site.
    Scroll-linked effects read `--p` from <Scene> (see chrome/scene.tsx). */
 
@@ -32,6 +32,19 @@
 .dw ::selection {
   background: var(--lime);
   color: var(--ink);
+}
+
+.dw-education {
+  --q: 0;
+  --dw-in: 0s;
+}
+
+.dw-education .dw-title {
+  font-size: calc(100cqi / 5.9);
+}
+
+.dw-education .dw-letter-in {
+  animation: none;
 }
 
 .dw-glyph {

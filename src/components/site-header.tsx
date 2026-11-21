@@ -8,7 +8,7 @@ import { LondonTime, Scramble } from "@/components/chrome/fx";
 
 const NAV_LINKS = [
   { href: "/#projects", label: "Work", index: "01" },
-  { href: "/designwise", label: "Design education", index: "02" },
+  { href: "https://designwise.digitangels.com", label: "Design education", index: "02" },
   { href: "/digitangels", label: "Our branding", index: "03" },
   { href: "/#about", label: "About", index: "04" },
   { href: "/#contact", label: "Contact", index: "05" },
@@ -16,7 +16,7 @@ const NAV_LINKS = [
 
 const MENU_LINKS = [
   { href: "/#projects", label: "Projects", index: "01" },
-  { href: "/designwise", label: "Design Education", index: "02" },
+  { href: "https://designwise.digitangels.com", label: "Design Education", index: "02" },
   { href: "/digitangels", label: "Our Branding", index: "03" },
   { href: "/#about", label: "About", index: "04" },
   { href: "/#contact", label: "Contact", index: "05" },
@@ -56,8 +56,6 @@ export function SiteHeader() {
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
-
-  if (pathname.startsWith("/designwise")) return null;
 
   const onNav = (href: string) => (event: React.MouseEvent) => {
     setOpen(false);

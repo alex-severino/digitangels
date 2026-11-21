@@ -1,14 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { LondonTime, Magnetic, Scramble } from "@/components/chrome/fx";
 import { Scene } from "@/components/chrome/scene";
 
 export function SiteFooter() {
-  const pathname = usePathname();
-  if (pathname.startsWith("/designwise")) return null;
-
   return (
     <Scene
       as="footer"

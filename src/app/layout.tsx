@@ -43,7 +43,7 @@ const geistMono = localFont({
 // Runs before paint: enables JS-only styles and skips the intro for visitors
 // who have already seen it this session. The timeout is a safety net so the
 // page can never stay hidden if the preloader fails to hydrate.
-const BOOT_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js');try{if(sessionStorage.getItem('dt-seen'))d.dataset.seen='1'}catch(e){}if(d.dataset.seen||location.pathname!=='/'){d.dataset.seen='1';d.dataset.ready='1'}setTimeout(function(){d.dataset.ready='1'},6000)})();`;
+const BOOT_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js');try{if(sessionStorage.getItem('dt-seen'))d.dataset.seen='1'}catch(e){}if(d.dataset.seen||location.pathname!=='/'||location.hostname==='designwise.digitangels.com'){d.dataset.seen='1';d.dataset.ready='1'}setTimeout(function(){d.dataset.ready='1'},6000)})();`;
 
 const ICON_VERSION = "3";
 

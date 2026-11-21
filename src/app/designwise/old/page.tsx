@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function DesignwiseOldRoute() {
   return (
-    <div className={mori.className}>
+    <div className={`dw-page ${mori.className}`}>
       <DesignwiseOldPage />
     </div>
   );

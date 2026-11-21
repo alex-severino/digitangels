@@ -24,6 +24,18 @@ Geist Mono is bundled from the existing Google Fonts Latin variable font, with i
 
 For local disk cleanup, stop the development server before deleting `.next/dev`. It is a regenerable cache. `git lfs prune --verify-remote` removes unused LFS cache only after checking remote copies; it does not remove the original public media or rewrite Git history.
 
+## Designwise subdomain
+
+The homepage educational panel reuses the Designwise hero video, wordmark and pointer-reactive canvas grid. The full page is served at `https://designwise.digitangels.com` through a host-specific rewrite to the existing page. Requests for `/designwise` on the production domains redirect to the subdomain; media under `/designwise/images`, `/designwise/videos` and `/designwise/fonts` keeps its existing URLs. Local `/designwise` remains available for preview.
+
+The subdomain was added to Vercel project `digitangels` on 21 November 2026. DNS remains at GoDaddy. After deploying the routing change, add this record in the existing GoDaddy DNS zone:
+
+| Type | Name | Value | TTL |
+| --- | --- | --- | --- |
+| CNAME | `designwise` | `355a49f626be989e.vercel-dns-017.com` | Default |
+
+This is Vercel's recommended target for the assigned domain. Leave the apex, `www`, mail records and nameservers intact. Verify DNS and certificate provisioning in Vercel after the record propagates, then check the subdomain root, the legacy redirect and the contact form. The GoDaddy record has not been added from this workspace.
+
 ## Deployment speed
 
 Turbopack's production filesystem cache is enabled in `next.config.ts` so subsequent Vercel builds can reuse `.next/cache`. Keep Vercel's normal build cache enabled. `.vercelignore` excludes local tooling and audit records from CLI uploads.

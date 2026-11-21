@@ -816,6 +816,14 @@ html[data-seen] .dt-preloader {
 
 /* ───────────────────────── Legacy (Designwise & older components) ───────────────────────── */
 
+/* Designwise owns its navigation and intro. The rendered page marker remains
+   stable when the subdomain root is rewritten to its internal route. */
+body:has(.dw-page) .dt-header,
+body:has(.dw-page) .dt-footer,
+body:has(.dw-page) .dt-preloader {
+  display: none;
+}
+
 .dt-reveal {
   opacity: 0;
   transform: translateY(28px);

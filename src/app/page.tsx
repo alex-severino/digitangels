@@ -6,6 +6,7 @@ import { HaloPortal } from "@/components/chrome/halo-portal";
 import { Hero } from "@/components/chrome/hero";
 import { Manifesto } from "@/components/chrome/manifesto";
 import { WorkRail } from "@/components/chrome/work-rail";
+import { EducationBanner } from "@/components/designwise/education-banner";
 import { workCards } from "@/data/work-index";
 
 const HIDDEN_PROJECTS = new Set(["digitangels", "designwise"]);
@@ -20,6 +21,7 @@ export default function Home() {
       <WorkRail
         cards={workCards.filter((card) => !HIDDEN_PROJECTS.has(card.slug))}
       />
+      <EducationBanner />
       <Clients />
       <About />
       <Contact />

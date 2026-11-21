@@ -26,7 +26,7 @@ const HANDLES = ["tl", "tc", "tr", "ml", "mr", "bl", "bc", "br"] as const;
  * A design-canvas grid that bends away from the pointer like a lens, with lime
  * nodes lighting up around it. Touch devices get a slow drifting "ghost" pointer.
  */
-function GridCanvas() {
+export function GridCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -208,9 +208,10 @@ function Rulers() {
   );
 }
 
-function Title() {
+export function Title({ compact = false }: { compact?: boolean }) {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const sizeRef = useRef<HTMLSpanElement>(null);
+  const Heading = compact ? "h2" : "h1";
 
   useEffect(() => {
     const el = titleRef.current;
@@ -246,9 +247,9 @@ function Title() {
 
   return (
     // No z-index or containment on this wrapper: it would isolate the blend.
-    <div className="relative mx-auto -mt-[14svh] w-full px-4 md:mt-0 md:px-10">
+    <div className={`relative mx-auto w-full px-4 md:px-10 ${compact ? "" : "-mt-[14svh] md:mt-0"}`}>
       <div className="dw-title-blend @container">
-        <h1
+        <Heading
           ref={titleRef}
           aria-label="Designwise"
           className="dw-title relative w-full text-center"
@@ -256,7 +257,7 @@ function Title() {
           {WORD.split("").map((ch, i) => (
             <Fragment key={i}>
               {/* Phones stack the word as DESIGN / WISE so it can run bigger. */}
-              {i === 6 ? <br className="md:hidden" /> : null}
+              {!compact && i === 6 ? <br className="md:hidden" /> : null}
               <span
                 aria-hidden
                 className="dw-letter"
@@ -273,10 +274,10 @@ function Title() {
               </span>
             </Fragment>
           ))}
-        </h1>
+        </Heading>
       </div>
 
-      <div aria-hidden className="dw-select pointer-events-none absolute inset-y-[-0.4rem] inset-x-2 md:inset-x-7">
+      {!compact && <div aria-hidden className="dw-select pointer-events-none absolute inset-y-[-0.4rem] inset-x-2 md:inset-x-7">
         {HANDLES.map((h) => (
           <span key={h} className={`dw-handle dw-handle-${h}`} />
         ))}
@@ -286,7 +287,7 @@ function Title() {
         >
           — × —
         </span>
-      </div>
+      </div>}
     </div>
   );
 }
