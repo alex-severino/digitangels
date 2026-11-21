@@ -152,7 +152,8 @@ export function GridCanvas() {
 }
 
 /** Figma-style rulers along the top and left edge that track the pointer. */
-function Rulers() {
+export function Rulers() {
+  const rulerRef = useRef<HTMLDivElement>(null);
   const xRef = useRef<HTMLSpanElement>(null);
   const yRef = useRef<HTMLSpanElement>(null);
   const readRef = useRef<HTMLSpanElement>(null);
@@ -160,7 +161,14 @@ function Rulers() {
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;
     const onMove = (event: PointerEvent) => {
-      const { clientX: x, clientY: y } = event;
+      const box = rulerRef.current?.getBoundingClientRect();
+      if (!box) return;
+      const x = event.clientX - box.left;
+      const y = event.clientY - box.top;
+      if (x < 0 || y < 0 || x > box.width || y > box.height) {
+        if (readRef.current) readRef.current.style.opacity = "0";
+        return;
+      }
       if (xRef.current) xRef.current.style.transform = `translateX(${x}px)`;
       if (yRef.current) yRef.current.style.transform = `translateY(${y}px)`;
       if (readRef.current) {
@@ -176,7 +184,7 @@ function Rulers() {
   const marks = Array.from({ length: 30 }, (_, i) => i * 100);
 
   return (
-    <div aria-hidden className="dw-hero-fade dw-enter pointer-events-none absolute inset-0 hidden font-mono text-[9px] tracking-[0.1em] text-[#9eaca2] md:block">
+    <div ref={rulerRef} aria-hidden className="dw-hero-fade dw-enter pointer-events-none absolute inset-0 hidden font-mono text-[9px] tracking-[0.1em] text-[#9eaca2] md:block">
       <div className="dw-ruler dw-ruler-x absolute inset-x-0 top-0 h-6 overflow-hidden">
         {marks.map((m) => (
           <span key={m} className="absolute top-0.5" style={{ left: m + 3 }}>
