@@ -17,15 +17,21 @@ function MastercardMark() {
         cx="47"
         cy="41"
         r="36"
-        className="fill-white transition-colors duration-500 group-hover:fill-[#EB001B]"
+        className="fill-white transition-colors duration-500 group-hover:fill-black"
       />
       <circle
         cx="85"
         cy="41"
         r="36"
-        className="fill-white transition-colors duration-500 group-hover:fill-[#F79E1B]"
+        className="fill-white transition-colors duration-500 group-hover:fill-black"
       />
-      <circle cx="47" cy="41" r="36" fill="#000" clipPath="url(#dt-mc-overlap)" />
+      <circle
+        cx="47"
+        cy="41"
+        r="36"
+        className="fill-black transition-colors duration-500 group-hover:fill-white"
+        clipPath="url(#dt-mc-overlap)"
+      />
     </svg>
   );
 }
