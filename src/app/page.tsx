@@ -22,8 +22,8 @@ export default function Home() {
         cards={workCards.filter((card) => !HIDDEN_PROJECTS.has(card.slug))}
       />
       <EducationBanner />
-      <Clients />
       <About />
+      <Clients />
       <Contact />
 
       <section className="dt-fabric relative aspect-[2048/1366] w-full overflow-hidden">

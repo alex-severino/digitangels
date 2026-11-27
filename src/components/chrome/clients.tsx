@@ -59,8 +59,8 @@ export function Clients() {
     <section className="relative overflow-hidden bg-black px-4 py-24 text-white md:px-8 md:py-36">
       <h2 className="font-semibold uppercase leading-[0.8] tracking-[-0.07em]">
         <span className="block text-[clamp(3.6rem,11vw,12rem)]">Companies</span>
-        <span className="dt-italic dt-chrome-text mt-[0.04em] block whitespace-nowrap py-[0.14em] pr-[0.12em] text-[clamp(2.4rem,7.2vw,8rem)] normal-case leading-[0.9] tracking-[-0.04em]">
-          who trust us
+        <span className="dt-italic dt-chrome-text mt-[0.04em] block text-balance py-[0.14em] pr-[0.12em] text-[clamp(2.4rem,7.2vw,8rem)] normal-case leading-[0.9] tracking-[-0.04em]">
+          Angelina worked with
         </span>
       </h2>
 
