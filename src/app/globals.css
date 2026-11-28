@@ -159,6 +159,32 @@
   margin-bottom: -0.08em;
 }
 
+/* Stacked title (Pro / jects): upright capitals over a chrome italic line. */
+.dt-stack {
+  overflow: visible;
+  font-weight: 600;
+  line-height: 0.82;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+}
+
+.dt-stack-lead {
+  display: block;
+}
+
+/* The chrome fill only paints inside the box, so it is padded around the dot
+   of the j, descenders and italic overhang. Negative margins cancel the
+   padding, leaving the line itself to set the gap under the capitals. */
+.dt-stack-accent {
+  display: block;
+  width: fit-content;
+  margin: -0.12em -0.14em -0.34em -0.14em;
+  padding: 0.12em 0.14em 0.34em 0.24em;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
 .dt-split-ch {
   display: inline-block;
 }
@@ -528,7 +554,7 @@ html[data-seen] .dt-preloader {
   white-space: nowrap;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;

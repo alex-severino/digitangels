@@ -78,7 +78,7 @@
   margin: 0;
   font-size: clamp(4.9rem, 13.3vw, 15.5rem);
   font-weight: 600;
-  letter-spacing: -0.089em;
+  letter-spacing: -0.035em;
   line-height: 0.74;
 }
 
@@ -90,7 +90,7 @@
   background: var(--polished-silver);
   background-clip: text;
   color: transparent;
-  letter-spacing: -0.081em;
+  letter-spacing: -0.03em;
 }
 
 .intro {
@@ -171,7 +171,7 @@
   margin: clamp(1.4rem, 3.5vw, 3.7rem) 0 clamp(1.55rem, 4vw, 4rem);
   font-size: clamp(4.2rem, 11.2vw, 13.2rem);
   font-weight: 600;
-  letter-spacing: -0.084em;
+  letter-spacing: -0.035em;
   line-height: 0.86;
 }
 
@@ -184,7 +184,7 @@
   background: var(--polished-silver);
   background-clip: text;
   color: transparent;
-  letter-spacing: -0.072em;
+  letter-spacing: -0.03em;
 }
 
 .profileLayout {

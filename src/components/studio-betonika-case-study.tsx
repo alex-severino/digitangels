@@ -65,7 +65,6 @@ export function StudioBetonikaCaseStudy() {
         </div>
         <figure className={styles.motionFrame}>
           <Media item={studioMotion} className={styles.motionFilm} />
-          <figcaption>Original logo animation from Angelina Severino’s portfolio.</figcaption>
         </figure>
         <ul className={styles.colorways} aria-label="Studio Betonika colourways">
           {COLORWAYS.map((colorway) => (

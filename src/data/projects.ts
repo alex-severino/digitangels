@@ -55,6 +55,8 @@ export type Project = {
   /** When set, intro aside shows Team credits instead of roles list */
   team?: string;
   asideLabel?: string;
+  /** Keep the page out of search results (e.g. work under NDA). */
+  noindex?: boolean;
 };
 
 export const projects: Project[] = [
@@ -69,6 +71,7 @@ export const projects: Project[] = [
       "NU Data was designed as an AI product for exploring sustainability data. Angelina led design for the MVP, bringing a searchable data catalogue, dashboards and Climate Chat into one experience. The design shows how people could find relevant datasets, compare figures visually and ask questions about the data in plain language.",
     roles: ["DESIGN DIRECTION", "PRODUCT DESIGN", "DATA VISUALISATION"],
     categories: ["AI PRODUCT DESIGN", "DATA VISUALISATION"],
+    noindex: true,
     rows: [
       [
         {

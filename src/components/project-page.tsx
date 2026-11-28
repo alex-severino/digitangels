@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import type { Project } from "@/data/projects";
 import { ProjectBlocks, ProjectGallery } from "@/components/project-media";
 import { Split } from "@/components/chrome/split";
+import { BrandedProjectHero } from "@/components/project-hero";
+import { projectHeroes } from "@/data/project-heroes";
 import { projectHref, selectedWorkCards } from "@/data/work-index";
 
 function nextProject(slug: string) {
@@ -68,7 +70,7 @@ function NextProject({ slug }: { slug: string }) {
       <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.22em] text-white/50 md:text-[11px]">
         Next project →
       </p>
-      <p className="dt-next-title overflow-visible text-[clamp(3rem,11vw,12rem)] font-semibold uppercase leading-none tracking-[-0.065em]">
+      <p className="dt-next-title overflow-visible text-[clamp(3rem,11vw,12rem)] font-semibold uppercase leading-none tracking-[-0.035em]">
         <span className="dt-swap">
           <span className="block">{next.title}</span>
           <span
@@ -89,9 +91,11 @@ function StandardProjectContent({ project }: { project: Project }) {
   const restRows = project.rows.slice(1);
   const edgeBars = project.slug === "art-workers-united";
 
+  const theme = projectHeroes[project.slug];
+
   return (
     <>
-      <ProjectHero project={project} />
+      {theme ? <BrandedProjectHero project={project} theme={theme} /> : <ProjectHero project={project} />}
       {edgeBars ? <div className="h-[50px] w-full bg-white" aria-hidden /> : null}
       {introRow ? (
         <>

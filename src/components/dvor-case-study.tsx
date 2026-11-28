@@ -6,7 +6,7 @@ import { DvorSeasonStudy } from "@/components/dvor-season-study";
 import { DvorUxBoard } from "@/components/dvor-ux-board";
 import { DvorUxFlow } from "@/components/dvor-ux-flow";
 import { Media } from "@/components/project-media";
-import { dvorCover, dvorScreens, dvorTrailer, dvorWordmark, GAMEPLAY_URL, STEAM_URL } from "@/data/studio-projects";
+import { dvorCover, dvorScreens, dvorTrailer, dvorWordmark, STEAM_URL } from "@/data/studio-projects";
 import kit from "./dvor-studies.module.css";
 import styles from "./studio-projects.module.css";
 
@@ -36,7 +36,7 @@ export function DvorCaseStudy() {
       <header className={`${styles.hero} ${styles.dvorHero}`}>
         <div className={styles.kicker}><h1>Dvor</h1><span>Game design · Unity · original score</span></div>
         <div className={styles.heroLead}>
-          <p className={styles.title}>Build a <em>courtyard.</em></p>
+          <p className={styles.title}>Build a <em>Panelka.</em></p>
           <div>
             <p>
               Dvor takes its name from the courtyards between Soviet apartment
@@ -64,7 +64,7 @@ export function DvorCaseStudy() {
           </figure>
           <figure>
             <DvorGameplayFilm />
-            <figcaption>Gameplay <a href={GAMEPLAY_URL}>Watch on YouTube ↗</a></figcaption>
+            <figcaption>Gameplay</figcaption>
           </figure>
         </div>
       </section>

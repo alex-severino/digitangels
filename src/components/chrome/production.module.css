@@ -103,7 +103,7 @@
   color: #fff;
   font-size: clamp(2.65rem, 12vw, 13.65rem);
   font-weight: 600;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.035em;
   line-height: 0.79;
   mix-blend-mode: difference;
   pointer-events: none;

@@ -53,11 +53,9 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
         <div className="flex flex-1 items-center">
           <div ref={trackRef} className="dt-rail-track flex items-center gap-[6vw] px-4 md:px-8">
             <div className="w-[78vw] shrink-0 md:w-[46vw]">
-              <h2 className="overflow-visible text-[clamp(4rem,14vw,15rem)] font-semibold uppercase leading-none tracking-[-0.07em]">
-                <span className="block pb-[0.08em]">Pro</span>
-                <span className="dt-italic dt-chrome-text mt-[0.02em] inline-block normal-case leading-[1.2] tracking-[-0.04em] px-[0.22em] pt-[0.12em] pb-[0.38em] -ml-[0.12em]">
-                  jects
-                </span>
+              <h2 className="dt-stack text-[clamp(4rem,14vw,15rem)]">
+                <span className="dt-stack-lead">Pro</span>
+                <span className="dt-stack-accent dt-italic dt-chrome-text">jects</span>
               </h2>
               <p className="mt-8 max-w-[22rem] font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-white/55">
                 Brand, product and platform work — from naming to the last pixel.
@@ -90,7 +88,7 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
                   <div className="dt-card-sheen pointer-events-none absolute inset-0" />
                 </div>
                 <div className="mt-5 flex items-start justify-between gap-6">
-                  <h3 className="text-[clamp(1.6rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.045em]">
+                  <h3 className="text-[clamp(1.6rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.035em]">
                     <span className="dt-swap">
                       <span>{card.title}</span>
                       <span className="dt-italic" aria-hidden>

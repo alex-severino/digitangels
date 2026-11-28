@@ -17,7 +17,49 @@
   background-size: auto, clamp(2.5rem, 7vw, 8rem) clamp(2.5rem, 7vw, 8rem), clamp(2.5rem, 7vw, 8rem) clamp(2.5rem, 7vw, 8rem), auto;
 }
 
-.dvorHero { background: radial-gradient(ellipse at 88% 50%, #572522, transparent 55%), #211619; }
+.dvorHero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: radial-gradient(ellipse at 88% 50%, #572522, transparent 55%), #211619;
+}
+
+/* The panelka façade from the game kit (round-window.svg): panel seams with
+   one round window per panel, faint behind the copy. */
+.dvorHero::before {
+  --panel: clamp(4.2rem, 7.4vw, 7.6rem);
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(circle calc(var(--panel) * 0.31) at calc(var(--panel) * 0.5) calc(var(--panel) * 0.5), #f4ca6166 96%, transparent) 0 0 / calc(var(--panel) * 4) calc(var(--panel) * 3),
+    radial-gradient(circle closest-side, #f5ead308 0 63%, #f5ead31c 64% 72%, transparent 73%) 0 0 / var(--panel) var(--panel),
+    linear-gradient(#f5ead312 1px, transparent 1px) 0 0 / var(--panel) var(--panel),
+    linear-gradient(90deg, #f5ead312 1px, transparent 1px) 0 0 / var(--panel) var(--panel);
+  mask-image: linear-gradient(100deg, transparent 38%, #000 88%);
+  /* Evening in the courtyard: lights switch on in different windows. */
+  animation: dvor-lights 12s steps(1) infinite;
+  pointer-events: none;
+  content: "";
+}
+
+@keyframes dvor-lights {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+  25% { background-position: calc(var(--panel) * 2) var(--panel), 0 0, 0 0, 0 0; }
+  50% { background-position: calc(var(--panel) * 3) calc(var(--panel) * 2), 0 0, 0 0, 0 0; }
+  75% { background-position: var(--panel) calc(var(--panel) * 2), 0 0, 0 0, 0 0; }
+}
+
+/* The red frieze that crowns the blocks, one period of the kit's frieze-top.svg. */
+.dvorHero::after {
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0;
+  height: clamp(1.4rem, 2.6vw, 2.4rem);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='98.6056' height='82' viewBox='0 0 98.6056 82'%3E%3Cpath d='M0 74.5H43.7876L95.2572 7.5H100M-2 7.5H37.3664' fill='none' stroke='%239C1520' stroke-width='15'/%3E%3C/svg%3E") left bottom / auto 100% repeat-x;
+  pointer-events: none;
+  content: "";
+}
 
 .kicker {
   display: flex;
@@ -28,7 +70,7 @@
   border-top: 1px solid #f5ead360;
 }
 
-.kicker h1 { font-size: clamp(1.2rem, 2.25vw, 2rem); font-weight: 600; letter-spacing: -0.055em; }
+.kicker h1 { font-size: clamp(1.2rem, 2.25vw, 2rem); font-weight: 600; letter-spacing: -0.035em; }
 .kicker span, .caseStudy figcaption, .pieceStrip span {
   font-family: var(--font-geist-mono), monospace;
   font-size: clamp(0.63rem, 1.02vw, 0.84rem);
@@ -51,11 +93,11 @@
 .title {
   font-size: clamp(4.6rem, 11.35vw, 13.7rem);
   font-weight: 600;
-  letter-spacing: -0.083em;
+  letter-spacing: -0.035em;
   line-height: 0.78;
 }
 
-.title em { display: block; color: #f7d39d; font-weight: 600; letter-spacing: -0.077em; }
+.title em { display: block; color: #f7d39d; font-weight: 600; letter-spacing: -0.03em; }
 .dvorHero .title em { color: #f6a682; }
 
 .logoPanel {
@@ -73,13 +115,25 @@
 }
 
 .heroLogo { display: block; width: 100%; max-width: 93rem; height: auto; filter: drop-shadow(0 9px 8px #20160735); }
+
+/* The one lit window switches on, and now and then flickers. */
+.heroLogo rect:last-of-type { animation: betonika-light 10s 0.6s infinite both; }
+
+@keyframes betonika-light {
+  0%, 4% { fill: #181818; }
+  5% { fill: #fbebca; }
+  6% { fill: #181818; }
+  8%, 88% { fill: #fbebca; }
+  89% { fill: #181818; }
+  90%, 100% { fill: #fbebca; }
+}
 .section { padding: clamp(3.5rem, 8.2vw, 9rem) var(--edge); }
 .sectionLead { margin-bottom: clamp(2.2rem, 5.5vw, 5.75rem); }
 .sectionLead h2 {
   max-width: 12.5ch;
   font-size: clamp(2.85rem, 6.7vw, 7.8rem);
   font-weight: 600;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
   line-height: 0.9;
 }
 
@@ -148,7 +202,7 @@
   max-width: 13ch;
   font-size: clamp(2.2rem, 4.6vw, 5rem);
   font-weight: 600;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.035em;
   line-height: 0.92;
 }
 
@@ -242,7 +296,7 @@
 
 .systems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin: 0 0 clamp(1.6rem, 4.8vw, 4rem); background: #aaa191; }
 .systems div { padding: clamp(0.9rem, 2.75vw, 2.75rem); background: #d7d0c2; }
-.systems dt { margin-bottom: 0.65rem; font-size: clamp(1.28rem, 2.7vw, 2.25rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1.03; }
+.systems dt { margin-bottom: 0.65rem; font-size: clamp(1.28rem, 2.7vw, 2.25rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.03; }
 .systems dd { font-size: clamp(0.96rem, 1.35vw, 1.14rem); line-height: 1.48; }
 .releaseArt { grid-template-columns: minmax(0, 0.65fr) minmax(0, 1fr); }
 .logoSpecimens { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; }
@@ -262,5 +316,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .seasonLayer, .facadeLayer { animation: none; }
+  .dvorHero::before, .heroLogo rect:last-of-type { animation: none; }
   .pieceStrip img { transition: none; }
 }

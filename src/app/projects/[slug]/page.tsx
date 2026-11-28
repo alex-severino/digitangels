@@ -39,6 +39,7 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.description.slice(0, 160),
+    ...(project.noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
