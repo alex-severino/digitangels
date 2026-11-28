@@ -1,10 +1,22 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { DvorCaseStudy } from "@/components/dvor-case-study";
+import { GicleeCaseStudy } from "@/components/giclee-case-study";
 import { ProjectPageView } from "@/components/project-page";
+import { StudioBetonikaCaseStudy } from "@/components/studio-betonika-case-study";
 import { getProject, projects } from "@/data/projects";
 
 const SLUG_ALIASES: Record<string, string> = {
   "alex-de-alma": "velvet-horizon",
+  "giclee-club-branding": "giclee-club",
+  "giclee-club-ecommerce": "giclee-club",
+};
+
+const CASE_STUDIES: Partial<Record<string, ReactNode>> = {
+  dvor: <DvorCaseStudy />,
+  "giclee-club": <GicleeCaseStudy />,
+  "studio-betonika": <StudioBetonikaCaseStudy />,
 };
 
 export function generateStaticParams() {
@@ -41,5 +53,9 @@ export default async function WorkProjectPage({
   if (canonical) permanentRedirect(`/projects/${canonical}`);
   const project = getProject(slug);
   if (!project) notFound();
-  return <ProjectPageView project={project} />;
+  return (
+    <ProjectPageView project={project}>
+      {CASE_STUDIES[project.slug]}
+    </ProjectPageView>
+  );
 }

@@ -1,0 +1,260 @@
+.maths {
+  --sheet: #0e0f10;
+  --ink: #ece7dc;
+  --grid: #ffffff;
+  --metrics: #f4b740;
+  --align: #47d3ea;
+  --dims: #f1ede4;
+  --spacing: #ff6aa2;
+  --anatomy: #b6f05a;
+  color: var(--ink);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #ffffff2e;
+  background: transparent;
+  color: #ece7dc8c;
+  cursor: pointer;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 200ms, border-color 200ms, background 200ms;
+}
+
+.chip span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--swatch);
+}
+
+.chip[aria-pressed="true"] { border-color: #ffffff59; background: #ffffff0d; color: var(--ink); }
+.chip[aria-pressed="true"] span { background: var(--swatch); }
+.chip:hover { color: var(--ink); }
+.chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.chip[data-layer="grid"] { --swatch: #8d8a84; }
+.chip[data-layer="metrics"] { --swatch: var(--metrics); }
+.chip[data-layer="align"] { --swatch: var(--align); }
+.chip[data-layer="dims"] { --swatch: var(--dims); }
+.chip[data-layer="counter"] { --swatch: var(--spacing); }
+.chip[data-layer="anatomy"] { --swatch: var(--anatomy); }
+
+.sheetScroll {
+  overflow-x: auto;
+  border: 1px solid #ffffff1f;
+  background:
+    radial-gradient(ellipse at 30% 40%, #1b1c1e, transparent 70%),
+    var(--sheet);
+  scrollbar-color: #ffffff40 transparent;
+}
+
+.sheet { min-width: 0; padding: clamp(0.5rem, 1.6vw, 1.5rem); }
+.sheet svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.sheet text {
+  font-family: var(--font-geist-mono), monospace;
+  letter-spacing: 0.04em;
+  paint-order: stroke;
+  stroke: var(--sheet);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+.sheet line,
+.sheet path,
+.sheet circle,
+.sheet rect { vector-effect: non-scaling-stroke; }
+
+.layer {
+  pointer-events: none;
+  fill: none;
+  stroke-width: 1;
+  transition: opacity 450ms ease;
+}
+
+.layer text { stroke-width: 5px; }
+.layer[data-on="false"] { opacity: 0; }
+.sheet[data-visible="false"] .layer { opacity: 0; }
+.sheet[data-visible="true"] .layer[data-on="true"] { animation: layerIn 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i) * 170ms + 120ms); }
+
+@keyframes layerIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.layer[data-layer="grid"] { color: var(--grid); stroke: #ffffff4d; }
+.layer[data-layer="grid"] rect { opacity: 0.09; }
+.layer[data-layer="grid"] text { fill: #ffffff80; }
+
+.layer[data-layer="metrics"] { stroke: var(--metrics); }
+.layer[data-layer="metrics"] > g > line { stroke-dasharray: 2 4; }
+.layer[data-layer="metrics"] text { fill: var(--metrics); }
+
+.layer[data-layer="align"] { stroke: var(--align); }
+.layer[data-layer="align"] line { stroke-dasharray: 7 5; }
+.layer[data-layer="align"] circle { fill: var(--sheet); }
+.layer[data-layer="align"] text { fill: var(--align); stroke-width: 0; }
+
+.layer[data-layer="dims"] { stroke: var(--dims); }
+.layer[data-layer="dims"] text { fill: var(--dims); }
+
+.layer[data-layer="counter"] { stroke: var(--spacing); }
+.layer[data-layer="counter"] line { stroke-dasharray: 10 6; }
+.layer[data-layer="counter"] text { fill: var(--spacing); }
+
+.layer[data-layer="anatomy"] { stroke: var(--anatomy); }
+.layer[data-layer="anatomy"] text { fill: var(--anatomy); }
+
+.ext { stroke-dasharray: 1 3; opacity: 0.7; }
+.fine { stroke-width: 0.6; opacity: 0.55; }
+.outline { stroke-dasharray: 4 3; }
+.cut { fill: color-mix(in srgb, var(--anatomy) 55%, transparent); stroke: var(--anatomy); }
+.knock { stroke-width: 3px !important; }
+.callouts text { letter-spacing: 0.06em; }
+
+.logo .body { fill: #5a5551; }
+.logo .window { fill: #0b0b0c; }
+.logo .lit { fill: #fbebca; filter: drop-shadow(0 0 7px #fbebcaa8); }
+
+.glyph {
+  fill: #5a5551;
+  cursor: crosshair;
+  outline: none;
+  transition: fill 200ms ease, opacity 200ms ease;
+}
+
+.glyph:hover,
+.glyph[data-active="true"] { fill: #ece7dc; }
+.glyph:focus-visible { fill: #fbebca; }
+
+.focus rect { fill: none; stroke: #fbebca; stroke-dasharray: 3 3; }
+.focus text { fill: #fbebca; }
+
+.readouts {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr) minmax(0, 0.8fr);
+  gap: 1px;
+  margin-top: 1px;
+  border: 1px solid #ffffff1f;
+  background: #ffffff1f;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.readouts > * { margin: 0; padding: clamp(0.9rem, 2vw, 1.6rem); background: var(--sheet); }
+
+.readout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem 1.4rem;
+  align-content: start;
+  min-height: 12.5rem;
+}
+
+.readout svg { width: 5.5rem; height: auto; grid-row: span 2; }
+.readout svg path { fill: #ece7dc; }
+.readout dl { display: grid; gap: 0.2rem; }
+.readout dl div, .titleBlock div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #ffffff14; padding-bottom: 0.2rem; }
+.readout dt, .titleBlock dt { color: #ece7dc80; text-transform: uppercase; }
+.readout > p { grid-column: 1 / -1; color: var(--anatomy); }
+.hint { grid-column: 1 / -1; align-self: center; color: #ece7dc8c; }
+
+.legend { display: grid; gap: 0.45rem; list-style: none; }
+.legend li {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0 0.8rem;
+}
+.legend em { color: #ece7dcb3; font-style: normal; }
+.marker {
+  display: inline-grid;
+  place-items: center;
+  height: 1.6rem;
+  border: 1px solid var(--align);
+  border-radius: 1rem;
+  color: var(--align);
+  font-size: 0.72rem;
+}
+
+.titleBlock { display: grid; align-content: start; gap: 0.7rem; }
+.titleBlock p { color: #ece7dc99; }
+.titleBlock p:first-child { color: var(--ink); }
+
+@media (max-width: 960px) {
+  .readouts { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .sheet { min-width: 980px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet[data-visible="true"] .layer[data-on="true"] { animation: none; }
+  .layer, .glyph { transition: none; }
+}
+
+/* Glyph specimens, shown on paper */
+.specimens {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr));
+  gap: 1px;
+  margin: clamp(1.8rem, 5vw, 4.5rem) 0 0;
+  border: 1px solid #938b7f55;
+  background: #938b7f55;
+  list-style: none;
+}
+
+.specimens li {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  padding: clamp(0.8rem, 2vw, 1.6rem);
+  background:
+    linear-gradient(#21201a0d 1px, transparent 1px),
+    linear-gradient(90deg, #21201a0d 1px, transparent 1px),
+    #e2ddd1;
+  background-size: 0.75rem 0.75rem;
+}
+
+.specimens svg { display: block; justify-self: center; width: auto; max-width: 100%; height: clamp(7.5rem, 12vw, 11rem); overflow: visible; }
+.specimens svg * { vector-effect: non-scaling-stroke; }
+.specimenGlyph { fill: #5a5551; }
+.specimenBox { fill: none; stroke: #c8402e; stroke-width: 1; stroke-dasharray: 3 3; }
+.specimenCut { fill: #c8402e8c; }
+.specimenMetric { stroke: #2f6fd0; stroke-width: 1; stroke-dasharray: 2 4; }
+.specimenCounter { stroke: #c2367a; stroke-width: 1; stroke-dasharray: 6 4; opacity: 0.8; }
+
+.specimenMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 0.55rem;
+  border-top: 1px solid #21201a33;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.specimenMeta span:first-child { font-size: 1.05rem; font-weight: 600; }
+.specimens p { font-size: clamp(0.86rem, 1.15vw, 1rem); line-height: 1.4; }
+
+.specimens li.specimenKey { align-content: space-between; background: #d6d0c3; font-family: var(--font-geist-mono), monospace; font-size: 0.72rem; letter-spacing: 0.05em; }
+.specimenKey > p:first-child { text-transform: uppercase; font-weight: 600; }
+.specimenKey dl { display: grid; gap: 0.7rem; }
+.specimenKey dl div { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: center; gap: 0.6rem; }
+.specimens .specimenKey svg { width: 2.6rem; height: auto; justify-self: start; }
+.specimens .specimenKey p:last-child { font-size: 0.7rem; color: #21201aa6; }

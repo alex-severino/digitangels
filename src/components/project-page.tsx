@@ -1,15 +1,13 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Project } from "@/data/projects";
 import { ProjectBlocks, ProjectGallery } from "@/components/project-media";
 import { Split } from "@/components/chrome/split";
-import { projectHref, workCards } from "@/data/work-index";
-
-const HIDDEN_FROM_ROTATION = new Set(["designwise"]);
+import { projectHref, selectedWorkCards } from "@/data/work-index";
 
 function nextProject(slug: string) {
-  const pool = workCards.filter((card) => !HIDDEN_FROM_ROTATION.has(card.slug));
-  const index = pool.findIndex((card) => card.slug === slug);
-  return pool[(index + 1) % pool.length] ?? pool[0];
+  const index = selectedWorkCards.findIndex((card) => card.slug === slug);
+  return selectedWorkCards[(index + 1) % selectedWorkCards.length];
 }
 
 function ProjectHero({ project }: { project: Project }) {
@@ -85,14 +83,14 @@ function NextProject({ slug }: { slug: string }) {
   );
 }
 
-export function ProjectPageView({ project }: { project: Project }) {
+function StandardProjectContent({ project }: { project: Project }) {
   const hasBlocks = Boolean(project.blocks && project.blocks.length > 0);
   const introRow = project.rows[0];
   const restRows = project.rows.slice(1);
   const edgeBars = project.slug === "art-workers-united";
 
   return (
-    <main id="top" className="min-h-screen bg-[#e9e9e6] text-black">
+    <>
       <ProjectHero project={project} />
       {edgeBars ? <div className="h-[50px] w-full bg-white" aria-hidden /> : null}
       {introRow ? (
@@ -112,6 +110,20 @@ export function ProjectPageView({ project }: { project: Project }) {
         </>
       ) : null}
       {edgeBars ? <div className="h-[50px] w-full bg-white" aria-hidden /> : null}
+    </>
+  );
+}
+
+export function ProjectPageView({
+  project,
+  children,
+}: {
+  project: Project;
+  children?: ReactNode;
+}) {
+  return (
+    <main id="top" className="min-h-screen bg-[#e9e9e6] text-black">
+      {children ?? <StandardProjectContent project={project} />}
       <NextProject slug={project.slug} />
     </main>
   );

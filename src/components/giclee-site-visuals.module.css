@@ -1,0 +1,137 @@
+.stage {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  overflow: hidden;
+}
+
+.responsive {
+  background:
+    radial-gradient(ellipse at 50% 86%, #d1dbdf 0%, #b1c0c9 34%, transparent 68%),
+    linear-gradient(135deg, #4e626d 0%, #8fa5b2 52%, #b8c9cf 100%);
+}
+
+.tabletScene {
+  background:
+    radial-gradient(ellipse at 55% 100%, #9b76ad 0%, #5c3580 45%, transparent 70%),
+    linear-gradient(145deg, #20102b, #4c2766 57%, #351646);
+}
+
+.studio {
+  background:
+    radial-gradient(ellipse at 55% 75%, #69868a 0%, #365359 52%, transparent 73%),
+    linear-gradient(155deg, #1a3035, #31494d 55%, #162429);
+}
+
+.homepage {
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(ellipse at 50% 82%, #715382 0%, #452b57 40%, transparent 68%),
+    linear-gradient(145deg, #321d42, #1c1128 72%);
+}
+
+.device {
+  position: absolute;
+  padding: max(2px, 0.66cqw);
+  border: 1px solid #788087;
+  border-radius: 1.1cqw;
+  background: linear-gradient(145deg, #31383d 0%, #121417 30%, #090a0c 80%);
+  box-shadow: 0 1.65cqw 3.3cqw #07101658, inset 0 0 0 1px #ffffff18;
+}
+
+.viewport {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0.44cqw;
+  background: #f8f6f4;
+}
+
+.capture, .scrollImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.capture { position: absolute; inset: 0 auto auto 0; }
+
+.monitor {
+  top: 8%;
+  left: 50%;
+  width: 66%;
+  padding-bottom: 1.25cqw;
+  transform: translateX(-50%);
+}
+
+.monitor::before, .monitor::after {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #869099, #c3cbd2 51%, #6a747c);
+  content: "";
+}
+
+.monitor::before { top: 100%; width: 12%; height: 8%; }
+.monitor::after { top: 108%; width: 27%; height: 1.6%; border-radius: 1cqw; box-shadow: 0 0.4cqw 0.9cqw #29383e6b; }
+
+.tablet { border-radius: 1.5cqw; }
+.phone { padding: max(2px, 0.45cqw); border-radius: 1.45cqw; }
+.phone .viewport { border-radius: 1.05cqw; }
+
+.responsive .tablet { bottom: 9%; left: 4.8%; width: 21.5%; transform: rotate(-4deg); }
+.responsive .phone { right: 10%; bottom: 9%; width: 13.2%; transform: rotate(4deg); }
+
+.tabletScene .tablet { bottom: 10%; left: 25%; width: 35.5%; transform: rotate(-2deg); }
+.tabletScene .phone { right: 20%; bottom: 10%; width: 15.4%; transform: rotate(4deg); }
+
+.studio .tablet { bottom: 11%; left: 12%; width: 30%; transform: rotate(-3deg); }
+.studio .landscape { right: 10%; bottom: 12%; width: 43%; transform: rotate(2.3deg); }
+
+.window { top: 7%; left: 7%; width: 86%; }
+
+.scroll { position: absolute; inset: 0; overflow: hidden; }
+.scrollImage { transform: translateY(0); }
+
+.scroll:is([data-phase="playing"], [data-phase="paused"]) .scrollImage {
+  animation: scroll-capture 7s ease-in-out both;
+}
+
+.scroll[data-phase="paused"] .scrollImage { animation-play-state: paused; }
+.scroll[data-phase="complete"] .scrollImage { transform: translateY(var(--travel)); }
+
+@keyframes scroll-capture {
+  0%, 12% { transform: translateY(0); }
+  46%, 54% { transform: translateY(calc(var(--travel) * 0.55)); }
+  90%, 100% { transform: translateY(var(--travel)); }
+}
+
+.scrollControl {
+  position: absolute;
+  right: max(4px, 0.85cqw);
+  bottom: max(4px, 0.85cqw);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.36em 0.63em;
+  border: 1px solid #ffffff55;
+  border-radius: 2rem;
+  background: #1a1029;
+  color: #fffafc;
+  cursor: pointer;
+  font-size: clamp(0.6rem, 1.05cqw, 0.85rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.scrollControl:hover, .scrollControl:focus-visible { background: #49236e; }
+.scrollControl:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+@media (max-width: 600px) {
+  .tabletScene .tablet { left: 16%; width: 39%; }
+  .tabletScene .phone { right: 19%; width: 18%; }
+}

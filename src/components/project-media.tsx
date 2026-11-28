@@ -17,7 +17,10 @@ export function Media({
 }) {
   const imgRef = useRef<HTMLImageElement>(null);
   const onAspectRef = useRef(onAspect);
-  onAspectRef.current = onAspect;
+
+  useEffect(() => {
+    onAspectRef.current = onAspect;
+  }, [onAspect]);
 
   useEffect(() => {
     if (item.type !== "image") return;
@@ -37,6 +40,8 @@ export function Media({
     return (
       <LazyVideo
         src={item.src}
+        poster={item.poster}
+        label={item.alt}
         className={className}
         onAspect={onAspect}
         eager={priority}
@@ -44,18 +49,28 @@ export function Media({
     );
   }
 
-  return (
+  const eagerImage = priority && !item.motionSrc;
+  const image = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={imgRef}
       src={item.src}
-      alt=""
+      alt={item.alt ?? ""}
+      width={item.width}
+      height={item.height}
       className={className ?? "block h-auto w-full"}
-      loading={priority ? "eager" : "lazy"}
+      loading={eagerImage ? "eager" : "lazy"}
       decoding="async"
-      fetchPriority={priority ? "high" : "auto"}
+      fetchPriority={eagerImage ? "high" : "auto"}
     />
   );
+
+  return item.motionSrc ? (
+    <picture>
+      <source media="(prefers-reduced-motion: no-preference)" srcSet={item.motionSrc} />
+      {image}
+    </picture>
+  ) : image;
 }
 
 function DualRow({
@@ -113,13 +128,16 @@ function DualRow({
 export function ProjectGallery({
   rows,
   isLastSection = true,
+  eagerFirstRow = true,
 }: {
   rows: MediaRow[];
   isLastSection?: boolean;
+  eagerFirstRow?: boolean;
 }) {
   return (
     <div className="flex w-full flex-col">
       {rows.map((row, i) => {
+        const priority = eagerFirstRow && i === 0;
         const isLast = isLastSection && i === rows.length - 1;
         const spacing = isLast
           ? undefined
@@ -128,7 +146,7 @@ export function ProjectGallery({
         if (row.length > 1) {
           return (
             <div key={i} style={spacing}>
-              <DualRow items={row} priority={i === 0} />
+              <DualRow items={row} priority={priority} />
             </div>
           );
         }
@@ -136,7 +154,7 @@ export function ProjectGallery({
         return (
           <div key={i} className="flex w-full" style={spacing}>
             <div className="w-full">
-              <Media item={row[0]} priority={i === 0} />
+              <Media item={row[0]} priority={priority} />
             </div>
           </div>
         );

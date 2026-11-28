@@ -76,7 +76,7 @@ export function Preloader() {
 
       <div className="absolute inset-x-4 bottom-5 flex items-end justify-between overflow-visible md:inset-x-8">
         <p className="max-w-[16rem] font-mono text-[11px] uppercase leading-relaxed tracking-[0.2em] text-white/50">
-          Design Transformation Advisory
+          Design &amp; AI Transformation Advisory
           <br />
           London — Worldwide
         </p>

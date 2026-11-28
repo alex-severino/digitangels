@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { LazyVideo } from "@/components/lazy-video";
+import { DvorPour } from "@/components/dvor-pour";
+import { Media } from "@/components/project-media";
 import { useScrollProgress } from "@/components/chrome/scene";
 import { projectHref, type WorkCard } from "@/data/work-index";
 
@@ -70,21 +71,22 @@ export function WorkRail({ cards }: { cards: WorkCard[] }) {
                 data-cursor="View"
                 className="dt-card group relative w-[84vw] shrink-0 md:w-[58vw] lg:w-[48vw]"
               >
-                <span className="dt-card-num dt-outline pointer-events-none absolute -top-[0.42em] left-[-0.04em] z-10 text-[clamp(5rem,13vw,13rem)] font-semibold leading-none tracking-[-0.08em]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 <div
-                  className={`dt-card-media relative aspect-[16/10] overflow-hidden bg-[#111] ${
-                    card.contain ? "is-contain" : ""
-                  }`}
+                  className={`dt-card-media relative aspect-[16/10] overflow-hidden bg-[#111]${
+                    card.contain ? " is-contain" : ""
+                  }${card.naturalColor ? " is-color" : ""}`}
                 >
-                  <LazyVideo
-                    src={card.thumbnail}
-                    eager={index < 2}
-                    className={`h-full w-full ${
-                      card.contain ? "object-contain" : "object-cover"
-                    }`}
-                  />
+                  {card.motion === "dvor-pour" ? (
+                    <DvorPour className="h-full w-full" />
+                  ) : (
+                    <Media
+                      item={card.thumbnail}
+                      priority={index < 2}
+                      className={`h-full w-full ${
+                        card.contain ? "object-contain" : "object-cover"
+                      }`}
+                    />
+                  )}
                   <div className="dt-card-sheen pointer-events-none absolute inset-0" />
                 </div>
                 <div className="mt-5 flex items-start justify-between gap-6">

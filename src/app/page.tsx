@@ -1,15 +1,12 @@
-import { About } from "@/components/chrome/about";
-import { Clients } from "@/components/chrome/clients";
 import { Contact } from "@/components/chrome/contact";
 import { Disciplines } from "@/components/chrome/disciplines";
 import { HaloPortal } from "@/components/chrome/halo-portal";
 import { Hero } from "@/components/chrome/hero";
 import { Manifesto } from "@/components/chrome/manifesto";
+import { Production } from "@/components/chrome/production";
 import { WorkRail } from "@/components/chrome/work-rail";
 import { EducationBanner } from "@/components/designwise/education-banner";
-import { workCards } from "@/data/work-index";
-
-const HIDDEN_PROJECTS = new Set(["digitangels", "designwise"]);
+import { selectedWorkCards } from "@/data/work-index";
 
 export default function Home() {
   return (
@@ -18,12 +15,9 @@ export default function Home() {
       <HaloPortal />
       <Manifesto />
       <Disciplines />
-      <WorkRail
-        cards={workCards.filter((card) => !HIDDEN_PROJECTS.has(card.slug))}
-      />
+      <Production />
+      <WorkRail cards={selectedWorkCards} />
       <EducationBanner />
-      <About />
-      <Clients />
       <Contact />
 
       <section className="dt-fabric relative aspect-[2048/1366] w-full overflow-hidden">

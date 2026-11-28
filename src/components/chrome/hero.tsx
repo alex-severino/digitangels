@@ -21,14 +21,14 @@ export function Hero() {
         </div>
 
         <h1 className="dt-hero-title pointer-events-none absolute inset-x-0 bottom-[14svh] px-4 font-semibold uppercase leading-[0.8] tracking-[-0.065em] mix-blend-difference md:bottom-[10svh] md:px-8">
-          <span className="block text-[17.5vw] md:text-[13.2vw]">
-            <Split text="Design" />
+          <span className="block whitespace-nowrap text-[14.5vw] md:text-[12.5vw]">
+            <Split text="Design & AI" />
           </span>
           <span className="dt-italic block text-[12vw] normal-case leading-[0.86] tracking-[-0.04em] md:pl-[14vw] md:text-[11.4vw]">
-            <Split text="transformation" offset={6} />
+            <Split text="transformation" offset={9} />
           </span>
           <span className="flex items-end justify-between text-[17.5vw] md:text-[13.2vw]">
-            <Split text="Advisory" offset={20} />
+            <Split text="advisory" offset={23} />
           </span>
         </h1>
 

@@ -1,9 +1,14 @@
+import type { MediaItem } from "@/data/projects";
+
 export type WorkCard = {
   slug: string;
   title: string;
-  thumbnail: string;
+  thumbnail: MediaItem;
   tags: string[];
   contain?: boolean;
+  naturalColor?: boolean;
+  /** Animated thumbnail rendered in place of `thumbnail` on the work rail. */
+  motion?: "dvor-pour";
 };
 
 export function projectHref(slug: string) {
@@ -24,56 +29,94 @@ export const ADVERTISING_INTRO =
 
 export const workCards: WorkCard[] = [
   {
+    slug: "giclee-club",
+    title: "Giclée Club",
+    thumbnail: {
+      type: "image",
+      src: "/projects/giclee-club/current-site/hero-cover.png",
+      motionSrc: "/work/thumbnails/giclee-club-chromatic-fold.webp",
+      alt: "Giclée Club’s homepage with the violet, pink and gold Chromatic fold animation",
+      width: 1440,
+      height: 900,
+    },
+    tags: ["brand identity", "product design", "agentic AI"],
+    contain: true,
+    naturalColor: true,
+  },
+  {
     slug: "art-workers-united",
     title: "Arts Workers United",
-    thumbnail: "/work/thumbnails/art-workers-united.mp4",
+    thumbnail: { type: "video", src: "/work/thumbnails/art-workers-united.mp4" },
     tags: ["digital branding", "digital design", "no code development"],
     contain: true,
   },
   {
-    slug: "velvet-horizon",
-    title: "Velvet Horizon",
-    thumbnail: "/work/thumbnails/alex-de-alma.mp4",
-    tags: ["naming, branding", "VISUAL DESIGN", "DIGITAL DESIGN"],
+    slug: "nu-data",
+    title: "NU Data",
+    thumbnail: {
+      type: "image",
+      src: "/projects/nu-data/overview.png",
+      width: 2312,
+      height: 1300,
+    },
+    tags: ["AI product design", "MVP", "data visualisation"],
+    contain: true,
   },
   {
-    slug: "giclee-club-branding",
-    title: "Giclée Club: Branding",
-    thumbnail: "/work/thumbnails/giclee-club-branding.mp4",
-    tags: ["naming, branding", "PRODUCT BRANDING", "BRANDING IN UX"],
+    slug: "studio-betonika",
+    title: "Studio Betonika",
+    thumbnail: {
+      type: "video",
+      src: "/projects/studio-betonika/logo-animation_4s.mp4",
+      poster: "/projects/studio-betonika/logo-animation.png",
+    },
+    tags: ["brand identity", "custom lettering", "website"],
   },
   {
-    slug: "giclee-club-ecommerce",
-    title: "Giclée Club: E-comm",
-    thumbnail: "/work/thumbnails/giclee-club-ecommerce.mp4",
-    tags: ["e-commerce platform", "digital branding", "service design and CX"],
+    slug: "dvor",
+    title: "Dvor",
+    thumbnail: { type: "image", src: "/work/thumbnails/dvor.png", width: 1920, height: 1080 },
+    motion: "dvor-pour",
+    tags: ["game design", "Unity development", "original music"],
   },
   {
     slug: "crowdy-house",
     title: "CrowdyHouse",
-    thumbnail: "/work/thumbnails/crowdy-house.mp4",
+    thumbnail: { type: "video", src: "/work/thumbnails/crowdy-house.mp4" },
     tags: ["branding", "e-commerce platform", "app design"],
   },
   {
     slug: "hypernode",
     title: "Hypernode",
-    thumbnail: "/work/thumbnails/hypernode.mp4",
+    thumbnail: { type: "video", src: "/work/thumbnails/hypernode.mp4" },
     tags: ["B2B e-commerce platform", "user research", "internal tools"],
     contain: true,
   },
   {
+    slug: "velvet-horizon",
+    title: "Velvet Horizon",
+    thumbnail: { type: "video", src: "/work/thumbnails/alex-de-alma.mp4" },
+    tags: ["naming, branding", "VISUAL DESIGN", "DIGITAL DESIGN"],
+  },
+  {
     slug: "digitangels",
     title: "Digitangels",
-    thumbnail: "/work/thumbnails/digitangels.mp4",
+    thumbnail: { type: "video", src: "/work/thumbnails/digitangels.mp4" },
     tags: ["BRANDING", "DIGITAL DESIGN", "VISUAL DESIGN"],
   },
   {
     slug: "designwise",
     title: "Designwise",
-    thumbnail: "/work/thumbnails/designwise.mp4",
+    thumbnail: { type: "video", src: "/work/thumbnails/designwise.mp4" },
     tags: ["WEB DESIGN", "VISUAL DESIGN", "RESPONSIVE DESIGN"],
   },
 ];
+
+const HIDDEN_PROJECTS = new Set(["digitangels", "designwise"]);
+
+export const selectedWorkCards = workCards.filter(
+  (card) => !HIDDEN_PROJECTS.has(card.slug),
+);
 
 export const artTags = [
   "DIGITAL ART",

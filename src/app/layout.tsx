@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     template: "%s | Digitangels",
   },
   description:
-    "Design Transformation Advisory",
+    "Design & AI Transformation Advisory",
   keywords: [
     "brand design",
     "UX design",
@@ -71,13 +71,13 @@ export const metadata: Metadata = {
     siteName: "Digitangels",
     title: "Digitangels",
     description:
-      "Design Transformation Advisory",
+      "Design & AI Transformation Advisory",
   },
   twitter: {
     card: "summary_large_image",
     title: "Digitangels",
     description:
-      "Design Transformation Advisory",
+      "Design & AI Transformation Advisory",
   },
   robots: {
     index: true,

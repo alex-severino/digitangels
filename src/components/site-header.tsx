@@ -7,19 +7,19 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { LondonTime, Scramble } from "@/components/chrome/fx";
 
 const NAV_LINKS = [
-  { href: "/#projects", label: "Work", index: "01" },
-  { href: "https://designwise.digitangels.com", label: "Design education", index: "02" },
-  { href: "/digitangels", label: "Our branding", index: "03" },
-  { href: "/#about", label: "About", index: "04" },
-  { href: "/#contact", label: "Contact", index: "05" },
+  { href: "/#projects", label: "Work" },
+  { href: "https://designwise.digitangels.com", label: "Design education" },
+  { href: "/digitangels", label: "Our branding" },
+  { href: "/about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 const MENU_LINKS = [
-  { href: "/#projects", label: "Projects", index: "01" },
-  { href: "https://designwise.digitangels.com", label: "Design Education", index: "02" },
-  { href: "/digitangels", label: "Our Branding", index: "03" },
-  { href: "/#about", label: "About", index: "04" },
-  { href: "/#contact", label: "Contact", index: "05" },
+  { href: "/#projects", label: "Projects" },
+  { href: "https://designwise.digitangels.com", label: "Design Education" },
+  { href: "/digitangels", label: "Our Branding" },
+  { href: "/about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 function scrollToHash(href: string) {
@@ -90,17 +90,18 @@ export function SiteHeader() {
             />
           </Link>
 
-          <p className="hidden font-mono text-[11px] uppercase tracking-[0.22em] lg:block">
+          <p className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.22em] lg:block">
             London <LondonTime />
           </p>
 
           <div className="flex items-center gap-8">
-            <nav className="hidden items-center gap-7 font-mono text-[11px] uppercase tracking-[0.22em] md:flex">
+            <nav className="hidden items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] md:flex xl:gap-7 xl:tracking-[0.22em]">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={onNav(link.href)}
+                  aria-current={pathname === link.href ? "page" : undefined}
                   className="dt-underline"
                 >
                   <Scramble text={link.label} />
@@ -141,39 +142,52 @@ export function SiteHeader() {
           <div className="dt-ring dt-ring-flip w-[90vmin]" />
         </div>
 
-        <div className="relative flex h-full flex-col justify-end px-4 pb-10 pt-28 md:px-8">
+        <div className="relative flex h-full flex-col justify-end px-4 pb-[max(2.5rem,calc(env(safe-area-inset-bottom)+1.25rem))] pt-28 md:px-8">
           <nav className="flex flex-col">
             {MENU_LINKS.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={onNav(link.href)}
-                className="dt-menu-link group flex items-baseline gap-4 border-t border-white/15 py-2 md:gap-8"
+                aria-current={pathname === link.href ? "page" : undefined}
+                className="dt-menu-link group flex items-baseline justify-between gap-4 border-t border-white/15 py-2.5 md:gap-8"
                 style={{ "--i": i } as CSSProperties}
               >
-                <span className="w-8 font-mono text-[11px] tracking-[0.2em] text-white/45">
-                  {link.index}
-                </span>
                 <span className="dt-swap text-[clamp(2.6rem,8.4vw,8rem)] font-semibold leading-[0.95] tracking-[-0.055em]">
                   <span>{link.label}</span>
                   <span className="dt-italic dt-chrome-text" aria-hidden>
                     {link.label}
                   </span>
                 </span>
+                <span aria-hidden className="text-[18px] text-white/35 transition-transform duration-500 group-hover:translate-x-1 group-hover:text-white">
+                  →
+                </span>
               </Link>
             ))}
           </nav>
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/15 pt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
-            <a href="mailto:hello@digitangels.com" className="hover:text-white">
-              hello@digitangels.com
+          <div className="dt-menu-foot mt-8 border-t border-white/15 pt-5" style={{ "--i": MENU_LINKS.length } as CSSProperties}>
+            <a
+              href="mailto:hello@digitangels.com"
+              className="group flex items-baseline justify-between gap-4"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">
+                Say hello
+              </span>
+              <span className="text-[17px] font-medium tracking-[-0.02em] text-white transition-opacity group-hover:opacity-70">
+                hello@digitangels.com <span aria-hidden>↗</span>
+              </span>
             </a>
-            <Link href="/terms" onClick={() => setOpen(false)} className="hover:text-white">
-              Terms
-            </Link>
-            <Link href="/privacy" onClick={() => setOpen(false)} className="hover:text-white">
-              Privacy
-            </Link>
-            <span className="ml-auto">© Digitangels 2026</span>
+            <div className="mt-5 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">
+              <div className="flex gap-6">
+                <Link href="/terms" onClick={() => setOpen(false)} className="hover:text-white">
+                  Terms
+                </Link>
+                <Link href="/privacy" onClick={() => setOpen(false)} className="hover:text-white">
+                  Privacy
+                </Link>
+              </div>
+              <span>© Digitangels 2026</span>
+            </div>
           </div>
         </div>
       </div>

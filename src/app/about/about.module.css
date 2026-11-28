@@ -1,0 +1,264 @@
+.about {
+  --edge: clamp(1rem, 4.4vw, 5rem);
+  --polished-silver: linear-gradient(169deg, #fff 4%, #eeeeee 28%, #797979 44%, #555555 50%, #d9d9d9 62%, #fff 76%, #b0b0b0 96%);
+  background: #080808;
+  color: #f6f6f6;
+}
+
+.masthead {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(7rem, 12vw, 12rem) var(--edge) clamp(3.25rem, 8vw, 8rem);
+  background: radial-gradient(ellipse at 87% 63%, #393939, #181818 45%, #080808 75%);
+}
+
+.signal {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(100deg, transparent 20%, black 67%);
+}
+
+.signal::before {
+  position: absolute;
+  inset: -25% -8% -48% 20%;
+  background: repeating-radial-gradient(
+    ellipse at 73% 45%,
+    #090909 0 7px,
+    #333333 13px,
+    #929292 18px,
+    #ffffff 21px,
+    #adadad 23px,
+    #555555 27px,
+    #131313 34px,
+    #343434 39px,
+    #0b0b0b 46px
+  );
+  opacity: 0.93;
+  transform: rotate(-24deg) skewX(-12deg);
+  animation: aboutSignal 14s ease-in-out infinite alternate;
+  content: "";
+}
+
+.signal::after {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 38% 58% at 80% 58%, #090909f7 14%, #090909d1 48%, transparent 89%);
+  content: "";
+}
+
+@keyframes aboutSignal {
+  to { transform: translate(3%, -2%) rotate(-29deg) skewX(-15deg); }
+}
+
+.eyebrow {
+  position: relative;
+  width: 100%;
+  padding-top: 0.75rem;
+  border-top: 1px solid #ffffff50;
+  color: #dedede;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.mastheadLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: clamp(1.5rem, 5vw, 5rem);
+  margin-top: clamp(2rem, 4.8vw, 5rem);
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(4.9rem, 13.3vw, 15.5rem);
+  font-weight: 600;
+  letter-spacing: -0.089em;
+  line-height: 0.74;
+}
+
+.headline em {
+  display: block;
+  width: fit-content;
+  margin: 0.14em 0 0 0.09em;
+  padding-right: 0.07em;
+  background: var(--polished-silver);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.081em;
+}
+
+.intro {
+  min-width: 0;
+  padding-bottom: 0.15rem;
+}
+
+.intro > p {
+  max-width: 25ch;
+  margin: 0 0 clamp(1.7rem, 3.5vw, 3.2rem);
+  color: #f3f3f3;
+  font-size: clamp(1.15rem, 2vw, 1.85rem);
+  line-height: 1.28;
+  letter-spacing: -0.025em;
+}
+
+.profiles {
+  display: grid;
+  border-block: 1px solid #ffffff50;
+}
+
+.profiles a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  color: #f3f3f3;
+  font-size: clamp(0.97rem, 1.25vw, 1.17rem);
+}
+
+.profiles a + a { border-top: 1px solid #ffffff50; }
+.profiles a span { color: #dedede; transition: transform 200ms ease; }
+.profiles a:hover span { transform: translateY(0.19rem); }
+
+.about a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.alex {
+  position: relative;
+  isolation: isolate;
+  scroll-margin-top: 88px;
+  padding: clamp(4rem, 8vw, 8rem) var(--edge) clamp(3rem, 8vw, 8rem);
+  background: linear-gradient(143deg, #252525 6%, #101010 51%, #171717 100%);
+  color: #f9f9f9;
+}
+
+.alex::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 67% 49%, #0a0a0af7 13%, #0a0a0ac9 44%, transparent 76%),
+    linear-gradient(
+      151deg,
+      #111111 10%,
+      #383838 20%,
+      #7c7c7c 27%,
+      #f4f4f4 32%,
+      #a4a4a4 34%,
+      #333333 39%,
+      #101010 51%,
+      #656565 61%,
+      #d6d6d6 65%,
+      #686868 67%,
+      #161616 74%,
+      #2e2e2e 84%,
+      #b3b3b3 94%,
+      #424242 100%
+    );
+  mask-image: linear-gradient(100deg, transparent 6%, #0008 47%, black 92%);
+  content: "";
+}
+
+.alexName {
+  margin: clamp(1.4rem, 3.5vw, 3.7rem) 0 clamp(1.55rem, 4vw, 4rem);
+  font-size: clamp(4.2rem, 11.2vw, 13.2rem);
+  font-weight: 600;
+  letter-spacing: -0.084em;
+  line-height: 0.86;
+}
+
+.alexName em {
+  display: inline-block;
+  /* The top padding extends the clipped gradient over the dot of the i;
+     the negative margin keeps the line where it was. */
+  margin-top: -0.2em;
+  padding: 0.2em 0.12em 0 0;
+  background: var(--polished-silver);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.072em;
+}
+
+.profileLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.87fr) minmax(0, 1.13fr);
+  align-items: start;
+  gap: clamp(2rem, 7vw, 8rem);
+}
+
+.portrait {
+  width: min(100%, 40rem);
+  margin: 0;
+}
+
+.story {
+  display: grid;
+  gap: clamp(1.15rem, 2vw, 1.8rem);
+  max-width: 36rem;
+  padding-top: clamp(0rem, 1vw, 1rem);
+}
+
+.story p {
+  margin: 0;
+  color: #f1f1f1;
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+  line-height: 1.5;
+}
+
+.story .storyLead {
+  max-width: 16ch;
+  color: #fff;
+  font-size: clamp(1.95rem, 3.9vw, 4rem);
+  font-weight: 550;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.4rem;
+}
+
+.github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+.github { text-decoration: underline; text-underline-offset: 0.25em; }
+.github:hover { color: #dddddd; }
+
+@media (max-width: 767px) {
+  .mastheadLayout, .profileLayout { grid-template-columns: minmax(0, 1fr); }
+  .mastheadLayout { gap: 2.35rem; }
+  .signal { mask-image: linear-gradient(110deg, transparent 21%, black 100%); }
+  .signal::before { inset: -15% -38% -22% 0; }
+  .signal::after { background: linear-gradient(90deg, #090909e0, #0909098c); }
+  .alex { scroll-margin-top: 72px; }
+  .alex::before { opacity: 0.62; }
+  .alexName em { display: block; width: fit-content; margin: -0.09em 0 0 0.04em; }
+  .portrait { width: min(100%, 31rem); }
+}
+
+@media (max-width: 515px) {
+  .headline { font-size: clamp(4rem, 16vw, 5.6rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal::before { animation: none; }
+  .profiles a span { transition: none; }
+}

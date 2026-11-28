@@ -1,7 +1,9 @@
-export type MediaItem = {
-  type: "image" | "video";
-  src: string;
-};
+import { gicleeClub } from "@/data/giclee-club";
+import { dvor, studioBetonika } from "@/data/studio-projects";
+
+export type MediaItem =
+  | { type: "image"; src: string; motionSrc?: string; alt?: string; width?: number; height?: number }
+  | { type: "video"; src: string; alt?: string; poster?: string };
 
 export type MediaRow = MediaItem[];
 
@@ -56,261 +58,37 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  gicleeClub,
+  studioBetonika,
+  dvor,
   {
-    "slug": "giclee-club-ecommerce",
-    "folder": "giclee_club_ecommerce",
-    "title": "Giclée Club: E-comm",
-    "description": "Digitangels shaped Giclée Club into a leading e-commerce destination for visual artists. We aligned every aspect of the platform with the brand strategy, so artists can print and sell their work as Fine Art prints with ease. The team led the design from start to finish, creating a user experience that reflected the high standards of Giclée printing. The goal was to make the platform intuitive and visually appealing, meeting the needs of artists who care about quality and presentation. The main challenge was balancing aesthetics with functionality, creating a space where art and technology come together effortlessly. The result is an e-commerce platform that artists can trust to print and sell their work, all while maintaining the highest level of quality.",
-    "link": {
-      "label": "GICLEECLUB.COM",
-      "href": "https://gicleeclub.com"
-    },
-    "roles": [
-      "NAMING",
-      "CREATIVE STRATEGY",
-      "BRAND DESIGN",
-      "VISUAL DESIGN",
-      "PRODUCT, UX/UI DESIGN",
-      "ART DIRECTION",
-      "PROJECT MANAGEMENT"
+    slug: "nu-data",
+    folder: "nu-data",
+    title: "NU Data",
+    description:
+      "NU Data was designed as an AI product for exploring sustainability data. Angelina led design for the MVP, bringing a searchable data catalogue, dashboards and Climate Chat into one experience. The design shows how people could find relevant datasets, compare figures visually and ask questions about the data in plain language.",
+    roles: ["DESIGN DIRECTION", "PRODUCT DESIGN", "DATA VISUALISATION"],
+    categories: ["AI PRODUCT DESIGN", "DATA VISUALISATION"],
+    rows: [
+      [
+        {
+          type: "image",
+          src: "/projects/nu-data/overview.png",
+          alt: "NU Data dashboard with emissions charts, available datasets and legislation updates",
+          width: 2312,
+          height: 1300,
+        },
+      ],
+      [
+        {
+          type: "image",
+          src: "/projects/nu-data/platform.png",
+          alt: "NU Data’s Climate Chat, data visualisation and searchable sustainability database",
+          width: 2312,
+          height: 1300,
+        },
+      ],
     ],
-    "categories": [
-      "BRANDING",
-      "CREATIVE STRATEGY",
-      "DIGITAL DESIGN",
-      "VISUAL DESIGN",
-      "PRODUCT DESIGN",
-      "PROJECT MANAGEMENT"
-    ],
-    "rows": [
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/01.png"
-        }
-      ],
-      [
-        {
-          "type": "video",
-          "src": "/work/thumbnails/giclee-club-ecommerce.mp4"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/03.1.png"
-        },
-        {
-          "type": "video",
-          "src": "/projects/giclee_club_ecommerce/03.2.mp4"
-        }
-      ],
-      [
-        {
-          "type": "video",
-          "src": "/projects/giclee_club_ecommerce/04.mp4"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/05.1.jpg"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/05.2.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/06.png"
-        }
-      ],
-      [
-        {
-          "type": "video",
-          "src": "/projects/giclee_club_ecommerce/07.mp4"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/08.1.png"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/08.2.png"
-        }
-      ],
-      [
-        {
-          "type": "video",
-          "src": "/projects/giclee_club_ecommerce/09.mp4"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/10.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/11.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_ecommerce/12.png"
-        }
-      ]
-    ]
-  },
-  {
-    "slug": "giclee-club-branding",
-    "folder": "giclee_club_branding",
-    "title": "Giclée Club: Branding",
-    "description": "Giclée Club is a platform for visual artists looking to print and sell Fine Art prints of their work. Inspired by the term \"Giclée,\" synonymous with the highest museum-quality printing, we created a brand identity that resonates with visual artists seeking excellence. Digitangels drew inspiration from the classical test print page to create a cohesive visual identity, where every design element was thoughtfully derived from the Giclée Club logo. The acute accent on the é became a key symbol, representing the brand’s French roots and commitment to refinement. We also developed a broad, gradient-rich color palette that captures the endless possibilities of Giclée printing, ensuring that both artists and art lovers experience a visually satisfying journey on the platform. This work emphasised the importance of cohesive product branding, where the e-commerce platform was meticulously designed to align with and enhance the overall brand identity.",
-    "link": {
-      "label": "GICLEECLUB.COM",
-      "href": "https://gicleeclub.com"
-    },
-    "roles": [
-      "NAMING",
-      "CREATIVE STRATEGY",
-      "BRAND DESIGN",
-      "VISUAL DESIGN",
-      "PRODUCT, UX/UI DESIGN",
-      "ART DIRECTION",
-      "PROJECT MANAGEMENT"
-    ],
-    "categories": [
-      "BRANDING",
-      "CREATIVE STRATEGY",
-      "DIGITAL DESIGN",
-      "VISUAL DESIGN",
-      "PRODUCT DESIGN",
-      "PROJECT MANAGEMENT"
-    ],
-    "rows": [
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/01.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/02.1.png"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/02.2.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/03.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/04.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/05.1.png"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/05.2.jpg"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/06.1.jpg"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/06.2.jpg"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/07.1.jpg"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/07.2.jpg"
-        }
-      ],
-      [
-        {
-          "type": "video",
-          "src": "/projects/giclee_club_branding/08.1.mp4"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/08.2.jpg"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/09.jpg"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/10.1.png"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/10.2.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/11.1.jpg"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/11.2.jpg"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/12.1.png"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/12.2.png"
-        }
-      ],
-      [
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/13.1.png"
-        },
-        {
-          "type": "image",
-          "src": "/projects/giclee_club_branding/13.2.jpg"
-        }
-      ]
-    ]
   },
   {
     "slug": "velvet-horizon",

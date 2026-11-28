@@ -4,19 +4,26 @@ import { useEffect, useRef, useState } from "react";
 
 export function LazyVideo({
   src,
+  poster,
+  label,
   className,
   onAspect,
   eager = false,
 }: {
   src: string;
+  poster?: string;
+  label?: string;
   className?: string;
   onAspect?: (ratio: number) => void;
   eager?: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const onAspectRef = useRef(onAspect);
-  onAspectRef.current = onAspect;
   const [shouldLoad, setShouldLoad] = useState(eager);
+
+  useEffect(() => {
+    onAspectRef.current = onAspect;
+  }, [onAspect]);
 
   useEffect(() => {
     if (eager) return;
@@ -71,6 +78,8 @@ export function LazyVideo({
     <video
       ref={ref}
       className={className ?? "block h-auto w-full"}
+      poster={poster}
+      aria-label={label}
       muted
       loop
       playsInline

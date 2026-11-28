@@ -56,7 +56,7 @@ export function SiteFooter() {
 
       <p className="mt-16 flex justify-between py-5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
         <span>© 2026 Digitangels</span>
-        <span>Design Transformation Advisory</span>
+        <span>Design &amp; AI Transformation Advisory</span>
       </p>
     </Scene>
   );

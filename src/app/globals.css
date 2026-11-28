@@ -265,11 +265,9 @@ html[data-ready] .dt-hero .dt-split-ch {
 }
 
 .dt-vignette {
-  background: radial-gradient(
-    ellipse at 50% 45%,
-    transparent 45%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.86), transparent 118px),
+    radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
 }
 
 html.has-cursor,
@@ -393,7 +391,8 @@ html[data-seen] .dt-preloader {
   opacity: 0.55;
 }
 
-.dt-menu-link {
+.dt-menu-link,
+.dt-menu-foot {
   opacity: 0;
   transform: translateY(40px);
   transition:
@@ -401,7 +400,8 @@ html[data-seen] .dt-preloader {
     transform 0.8s var(--ease-out);
 }
 
-.dt-menu.is-open .dt-menu-link {
+.dt-menu.is-open .dt-menu-link,
+.dt-menu.is-open .dt-menu-foot {
   opacity: 1;
   transform: none;
   transition-delay: calc(var(--i) * 60ms + 250ms);
@@ -578,7 +578,7 @@ html[data-seen] .dt-preloader {
   transition: transform 0.4s var(--ease-out);
 }
 
-.dt-card-media video {
+.dt-card-media :is(img, video, .dt-pour) {
   filter: grayscale(1) contrast(1.15);
   transform: scale(1.04);
   transition:
@@ -586,17 +586,43 @@ html[data-seen] .dt-preloader {
     transform 1.2s var(--ease-out);
 }
 
-.dt-card:hover .dt-card-media video {
+.dt-card:hover .dt-card-media :is(img, video, .dt-pour) {
   filter: grayscale(0) contrast(1);
   transform: scale(1.1);
+}
+
+/* Dvor thumbnail: bands pour down in turn, as on studiobetonika.com. */
+.js .dt-pour-band {
+  clip-path: inset(0 0 100%);
+}
+
+.dt-pour.is-pouring .dt-pour-band {
+  animation: dt-pour 1.9s cubic-bezier(0.65, 0, 0.2, 1) calc(150ms + var(--i) * 120ms) both;
+}
+
+@keyframes dt-pour {
+  from { clip-path: inset(0 0 100%); }
+  to { clip-path: inset(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .dt-pour-band,
+  .dt-pour.is-pouring .dt-pour-band {
+    clip-path: none;
+    animation: none;
+  }
+}
+
+.dt-card-media.is-color :is(img, video) {
+  filter: none;
 }
 
 .dt-card-media.is-contain {
   background: #000;
 }
 
-.dt-card-media.is-contain video,
-.dt-card:hover .dt-card-media.is-contain video {
+.dt-card-media.is-contain :is(img, video),
+.dt-card:hover .dt-card-media.is-contain :is(img, video) {
   object-fit: contain;
   transform: none;
 }
@@ -615,17 +641,6 @@ html[data-seen] .dt-preloader {
 
 .dt-card:hover .dt-card-sheen {
   background-position: -20% 0;
-}
-
-.dt-card-num {
-  transition:
-    -webkit-text-stroke-color 0.5s,
-    transform 0.8s var(--ease-out);
-}
-
-.dt-card:hover .dt-card-num {
-  -webkit-text-stroke-color: #fff;
-  transform: translateY(-0.08em);
 }
 
 /* ───────────────────────── Clients ───────────────────────── */

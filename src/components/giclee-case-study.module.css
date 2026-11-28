@@ -1,0 +1,230 @@
+.caseStudy {
+  --gutter: clamp(1rem, 4.2vw, 5rem);
+  --paper: #f5f1eb;
+  --ink: #1b1022;
+  --purple: #4f13ab;
+  --lilac: #d7bafa;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: clamp(6.4rem, 10vw, 10rem);
+  background: #160e22;
+  color: #fffaff;
+}
+
+.heroCopy { padding-inline: var(--gutter); }
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 95%, #451e78, transparent 63%);
+  content: "";
+}
+
+.heroMeta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block-start: 0.9rem;
+  border-top: 1px solid #f7e7ff55;
+}
+
+.heroMeta h1 {
+  font-size: clamp(1rem, 1.75vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.heroMeta span, .heroFilm figcaption, .printTest figcaption, .measurement p {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(0.64rem, 0.9vw, 0.78rem);
+  letter-spacing: 0.095em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.heroMeta span { color: #e0cfe9; text-align: right; }
+
+.heroLead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.62fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 6rem);
+  margin-block: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 3.75vw, 4rem);
+}
+
+.heroTitle {
+  display: grid;
+  font-size: clamp(4rem, 11.5vw, 13rem);
+  font-weight: 600;
+  letter-spacing: -0.083em;
+  line-height: 0.81;
+}
+
+.heroTitle span:last-child { color: var(--lilac); padding-inline-end: 0.1em; }
+.heroSummary { max-width: 24rem; padding-block-end: 0.2rem; color: #f4e9fa; }
+.heroSummary p, .lead p, .findingCopy p, .serviceNote p {
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  line-height: 1.45;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-block: 0.25rem;
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  font-size: clamp(0.9rem, 1.18vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.textLink span { transition: transform 250ms ease; }
+.textLink:hover span { transform: translate(0.16em, -0.12em); }
+.textLink:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+
+.heroFilm { margin: 0; }
+.heroFilm figcaption { padding: 0.8rem var(--gutter); color: #eee0f7; }
+.heroVideo { display: block; width: 100%; height: auto; aspect-ratio: 3840 / 1750; background: #fff; object-fit: contain; }
+
+.printTest { width: min(100%, 70rem); margin: 0 auto clamp(1.5rem, 3.5vw, 3rem); }
+.printTest figcaption { padding-top: 0.75rem; }
+
+.filmStart {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.filmStart:focus-visible, .heroVideo:focus-visible { outline: 2px solid var(--purple); outline-offset: -4px; }
+
+.filmAction {
+  position: absolute;
+  bottom: clamp(0.5rem, 1.3vw, 1.1rem);
+  left: clamp(0.5rem, 1.3vw, 1.1rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.62rem 0.85rem;
+  background: #250e3d;
+  color: #fffaff;
+  font-size: clamp(0.75rem, 1.1vw, 0.97rem);
+  font-weight: 600;
+  transition: background 250ms ease;
+}
+
+.filmStart:hover .filmAction { background: var(--purple); }
+
+.engine, .identity, .service, .studio { padding: clamp(3.5rem, 8.5vw, 9rem) var(--gutter); }
+.engine { scroll-margin-top: 3rem; }
+.identity { background: #e9e4ee; }
+.service { background: #fdfaf5; }
+.studio { background: #170f22; color: #f9f3fc; }
+
+.lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 6rem);
+  align-items: end;
+  margin-bottom: clamp(2rem, 5.25vw, 5rem);
+}
+
+.lead h2 {
+  max-width: 12ch;
+  font-size: clamp(2.9rem, 6.7vw, 7.25rem);
+  font-weight: 600;
+  letter-spacing: -0.069em;
+  line-height: 0.91;
+}
+
+.lead p { max-width: 35rem; }
+.identity .lead h2 { color: #361070; }
+.studio .lead h2 { color: var(--lilac); }
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 3rem);
+  margin: 0 0 clamp(2rem, 5.5vw, 5rem);
+}
+
+.workflow li {
+  min-width: 0;
+  padding-block: 1.2rem 1.4rem;
+  border-top: 3px solid #4f13ab;
+}
+
+.workflow li:nth-child(2) { border-color: #a75bd2; }
+.workflow li:nth-child(3) { border-color: #176c5a; }
+.workflow h3, .finding h3, .serviceNote h3 {
+  margin-bottom: 0.65rem;
+  font-size: clamp(1.35rem, 2.5vw, 2.3rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+}
+
+.workflow p { max-width: 29rem; font-size: clamp(1rem, 1.22vw, 1.13rem); line-height: 1.5; }
+
+.finding {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.8rem, 4.5vw, 5rem);
+  padding: clamp(1.4rem, 4.7vw, 4.5rem);
+  background: #250e3d;
+  color: #fcf8ff;
+}
+
+.measurement { color: var(--lilac); }
+.measurement span { display: block; line-height: 1; font-size: clamp(1rem, 2.3vw, 2.25rem); }
+.measurement strong { font-size: clamp(3.6rem, 10.9vw, 12rem); font-weight: 600; letter-spacing: -0.09em; line-height: 0.82; }
+.measurement p { margin-top: 0.9rem; color: #eedcf7; }
+.findingCopy p { max-width: 34rem; }
+
+.gallery { margin-inline: auto; max-width: 105rem; }
+.serviceMedia { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(0.6rem, 1.05vw, 1.25rem); }
+
+.serviceNote {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.4fr);
+  gap: clamp(1rem, 5vw, 6rem);
+  margin: clamp(2.75rem, 7vw, 6rem) 0;
+  padding-top: clamp(1rem, 2.5vw, 2.5rem);
+  border-top: 1px solid #1b102245;
+}
+
+.serviceNote h3 { max-width: 18ch; }
+.serviceNote p { max-width: 39rem; }
+.closing { margin-top: clamp(1.2rem, 4vw, 3.5rem); }
+
+@media (max-width: 900px) {
+  .heroLead { grid-template-columns: minmax(0, 1.48fr) minmax(0, 1fr); }
+  .heroTitle { font-size: clamp(3.65rem, 10.7vw, 6rem); }
+}
+
+@media (max-width: 700px) {
+  .heroLead, .lead, .workflow, .finding, .serviceNote { grid-template-columns: minmax(0, 1fr); }
+  .heroTitle { font-size: clamp(3.3rem, 15.4vw, 6.25rem); }
+  .heroSummary { max-width: 29rem; }
+  .workflow { gap: 0.4rem; }
+  .workflow li { padding-block: 0.8rem 1rem; }
+  .serviceNote h3 { max-width: none; }
+  .studio .gallery { margin-inline: calc(var(--gutter) * -0.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .textLink span, .filmAction { transition: none; }
+}
