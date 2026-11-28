@@ -57,7 +57,7 @@ export function About() {
             target="_blank"
             rel="noreferrer"
             data-cursor="Visit"
-            className="dt-underline inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.2em]"
+            className="inline-flex min-h-[2.75rem] items-center gap-[0.65rem] font-mono text-[1.52rem] uppercase underline underline-offset-[0.25em] hover:text-[#dddddd]"
           >
             angelinaseverino.com <span aria-hidden>↗</span>
           </a>

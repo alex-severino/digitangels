@@ -13,7 +13,7 @@ export function StudioBetonikaCaseStudy() {
       <header className={`${styles.hero} ${styles.studioHero}`}>
         <div className={styles.kicker}><h1>Studio Betonika</h1><span>Type · motion · web</span></div>
         <div className={styles.heroLead}>
-          <p className={styles.title}>Cast in <em>type.</em></p>
+          <p className={styles.title}>Cast in <em>type</em></p>
           <p>
             Angelina Severino took the geometry of a concrete apartment block
             and turned it into a name, a symbol and custom lettering for an
@@ -27,7 +27,7 @@ export function StudioBetonikaCaseStudy() {
 
       <section className={`${styles.section} ${styles.mathsSection}`}>
         <div className={styles.sectionLead}>
-          <h2>How the façade lines up.</h2>
+          <h2>How the façade lines up</h2>
           <p>
             The lockup is held together by a few shared lines. The house runs
             from the x-height of “studio” to the baseline of “betonika”, and
@@ -42,7 +42,7 @@ export function StudioBetonikaCaseStudy() {
 
       <section className={`${styles.section} ${styles.paper}`}>
         <div className={styles.sectionLead}>
-          <h2>Build the letter like a wall.</h2>
+          <h2>Build the letter like a wall</h2>
           <p>
             The wordmark has the proportions of a façade. Strokes are broad and
             straight, openings are square, and the curves are replaced with
@@ -55,7 +55,7 @@ export function StudioBetonikaCaseStudy() {
 
       <section className={`${styles.section} ${styles.studioMotion}`}>
         <div className={styles.sectionLead}>
-          <h2>Somebody’s home.</h2>
+          <h2>Somebody’s home</h2>
           <p>
             The mark uses a four-by-four grid with a single warm window. The
             animation takes its rhythm from lights coming on in a building at
@@ -87,7 +87,7 @@ export function StudioBetonikaCaseStudy() {
 
       <section className={`${styles.section} ${styles.paper}`}>
         <div className={styles.sectionLead}>
-          <h2>The studio, online.</h2>
+          <h2>The studio, online</h2>
           <div>
             <p>
               The live site starts with the lit façade. Its square grid,

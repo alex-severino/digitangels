@@ -36,7 +36,7 @@ export function DvorCaseStudy() {
       <header className={`${styles.hero} ${styles.dvorHero}`}>
         <div className={styles.kicker}><h1>Dvor</h1><span>Game design · Unity · original score</span></div>
         <div className={styles.heroLead}>
-          <p className={styles.title}>Build a <em>Panelka.</em></p>
+          <p className={styles.title}>Build a <em>Panelka</em></p>
           <div>
             <p>
               Dvor takes its name from the courtyards between Soviet apartment
@@ -51,7 +51,7 @@ export function DvorCaseStudy() {
 
       <section className={`${styles.section} ${styles.trailers}`}>
         <div className={styles.sectionLead}>
-          <h2>Meet the courtyard.</h2>
+          <h2>Meet the courtyard</h2>
           <p>
             The reveal trailer sets the atmosphere. The gameplay film shows
             the decisions that make the wall come together, one drop at a time.
@@ -91,7 +91,7 @@ export function DvorCaseStudy() {
 
       <section className={`${styles.section} ${styles.rules}`}>
         <div className={styles.sectionLead}>
-          <h2>Leave a gap. Change the game.</h2>
+          <h2>Leave a gap. Change the game</h2>
           <p>
             A clean wall builds upwards in Panelka. A gap changes the rules
             until the player clears back down to it. Reaching the target height
@@ -107,7 +107,7 @@ export function DvorCaseStudy() {
 
       <section className={`${styles.section} ${styles.uxSection}`}>
         <div className={styles.sectionLead}>
-          <h2>Every screen, mapped.</h2>
+          <h2>Every screen, mapped</h2>
           <p>
             Follow Dvor from the first launch through a run, its results and the
             settings menu. Hover over a screen or focus it with the keyboard to
@@ -117,7 +117,7 @@ export function DvorCaseStudy() {
         <DvorUxFlow />
 
         <div className={`${styles.sectionLead} ${styles.subLead}`}>
-          <h3>Nine ways a run can end.</h3>
+          <h3>Nine ways a run can end</h3>
           <p>
             The game-over screen changes with the result. A personal best earns
             a badge. A top-100 rank opens a pop-up with the player’s position.
@@ -134,7 +134,7 @@ export function DvorCaseStudy() {
 
       <section className={`${styles.section} ${styles.atmosphere}`}>
         <div className={styles.sectionLead}>
-          <h2>Four seasons. Four sounds.</h2>
+          <h2>Four seasons. Four sounds</h2>
           <p>
             The courtyard changes as the player progresses. Colour, lighting,
             weather and music all mark the shift. Explore the original Unity
@@ -146,7 +146,7 @@ export function DvorCaseStudy() {
 
       <section className={`${styles.section} ${styles.paper}`}>
         <div className={styles.sectionLead}>
-          <h2>A kit of courtyard parts.</h2>
+          <h2>A kit of courtyard parts</h2>
           <p>
             The menus use the same parts as the courtyard. A red frieze frames
             every panel. Rows of brackets, crosses and rings separate the menu
@@ -204,7 +204,7 @@ export function DvorCaseStudy() {
 
       <section className={`${styles.section} ${styles.paper}`}>
         <div className={styles.sectionLead}>
-          <h2>The systems behind the wall.</h2>
+          <h2>The systems behind the wall</h2>
           <p>
             The game was built and shipped in Unity with C#. The board tracks
             the cells you fill. The façade renders those placements as part of
@@ -213,15 +213,15 @@ export function DvorCaseStudy() {
           </p>
         </div>
         <dl className={styles.systems}>
-          <div><dt>A level change can leave the score playing.</dt><dd>Unity passes the atmosphere state to FMOD. Faster tiers within one season keep the same track running. When the season changes, the game starts the new track without waiting for the old loop to finish.</dd></div>
-          <div><dt>One puzzle for the day.</dt><dd>The Daily Challenge uses a date-based seed so everyone gets the same piece sequence. The leaderboard gives that shared puzzle a competitive result.</dd></div>
-          <div><dt>The player sets the pace of the controls.</dt><dd>Rebindable inputs and adjustable repeat timing let players choose how quickly a held direction begins to move and how fast it repeats.</dd></div>
+          <div><dt>A level change can leave the score playing</dt><dd>Unity passes the atmosphere state to FMOD. Faster tiers within one season keep the same track running. When the season changes, the game starts the new track without waiting for the old loop to finish.</dd></div>
+          <div><dt>One puzzle for the day</dt><dd>The Daily Challenge uses a date-based seed so everyone gets the same piece sequence. The leaderboard gives that shared puzzle a competitive result.</dd></div>
+          <div><dt>The player sets the pace of the controls</dt><dd>Rebindable inputs and adjustable repeat timing let players choose how quickly a held direction begins to move and how fast it repeats.</dd></div>
         </dl>
       </section>
 
       <section className={`${styles.section} ${styles.release}`}>
         <div className={styles.sectionLead}>
-          <h2>From courtyard to release.</h2>
+          <h2>From courtyard to release</h2>
           <div>
             <p>
               The same concrete panels and painted stripes carry from the

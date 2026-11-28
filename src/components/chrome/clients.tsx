@@ -37,26 +37,27 @@ function MastercardMark() {
   );
 }
 
-const COMPANIES: ({ name: string; file: string } | { name: "Mastercard" })[] = [
-  { file: "steam.svg", name: "Steam" },
+/** `large` logos read small at the shared height, so they get 30% more. */
+const COMPANIES: ({ name: string; file: string; large?: true } | { name: "Mastercard" })[] = [
+  { file: "steam.svg", name: "Steam", large: true },
   { file: "coca-cola.png", name: "Coca-Cola" },
-  { file: "meta.svg", name: "Meta" },
+  { file: "meta.svg", name: "Meta", large: true },
   { file: "lebara.png", name: "Lebara" },
   { file: "bbdo.svg", name: "BBDO" },
   { file: "yamaha.png", name: "Yamaha" },
-  { file: "tiktok.svg", name: "TikTok" },
-  { file: "volkswagen.png", name: "Volkswagen" },
-  { file: "dominos.svg", name: "Domino’s Pizza" },
+  { file: "tiktok.svg", name: "TikTok", large: true },
+  { file: "volkswagen.png", name: "Volkswagen", large: true },
+  { file: "dominos.svg", name: "Domino’s Pizza", large: true },
   { file: "adidas.png", name: "Adidas" },
-  { file: "google.svg", name: "Google" },
+  { file: "google.svg", name: "Google", large: true },
   { file: "nestle.png", name: "Nestlé" },
-  { file: "playstation.svg", name: "PlayStation" },
+  { file: "playstation.svg", name: "PlayStation", large: true },
   { file: "tbwa.png", name: "TBWA" },
   { file: "verve.png", name: "Verve" },
   { file: "starcom.png", name: "Starcom" },
-  { file: "xbox.svg", name: "Xbox" },
+  { file: "xbox.svg", name: "Xbox", large: true },
   { file: "duracell.png", name: "Duracell" },
-  { file: "amazon.svg", name: "Amazon" },
+  { file: "amazon.svg", name: "Amazon", large: true },
   { file: "kia.png", name: "Kia" },
   { name: "Mastercard" },
   { file: "kwalee.svg", name: "Kwalee" },
@@ -91,7 +92,9 @@ export function Clients() {
                 src={`/images/clients/${company.file}`}
                 alt={company.name}
                 loading="lazy"
-                className="relative z-10 h-8 w-auto max-w-[60%] object-contain brightness-0 invert transition-[filter,transform] duration-500 group-hover:scale-110 group-hover:invert-0 md:h-12"
+                className={`relative z-10 w-auto object-contain brightness-0 invert transition-[filter,transform] duration-500 group-hover:scale-110 group-hover:invert-0 ${
+                  company.large ? "h-[2.6rem] max-w-[78%] md:h-[3.9rem]" : "h-8 max-w-[60%] md:h-12"
+                }`}
               />
             ) : (
               <MastercardMark />

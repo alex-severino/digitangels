@@ -15,23 +15,23 @@ export type ProjectHeroTheme = {
 export const projectHeroes: Partial<Record<string, ProjectHeroTheme>> = {
   "nu-data": {
     look: "nuData",
-    headline: { lead: "Ask the", accent: "data." },
+    headline: { lead: "Ask the", accent: "data" },
     note: "NU Data is under NDA. What you see here is all we can show.",
   },
   "velvet-horizon": {
     look: "velvetHorizon",
-    headline: { lead: "Clear and", accent: "blurred." },
+    headline: { lead: "Clear and", accent: "blurred" },
   },
   "art-workers-united": {
     look: "awu",
-    headline: { lead: "Unite the", accent: "arts." },
+    headline: { lead: "Unite the", accent: "arts" },
   },
   "crowdy-house": {
     look: "crowdyhouse",
-    headline: { lead: "Made by", accent: "makers." },
+    headline: { lead: "Made by", accent: "makers" },
   },
   hypernode: {
     look: "hypernode",
-    headline: { lead: "Robust.", accent: "Intuitive." },
+    headline: { lead: "Robust", accent: "Intuitive" },
   },
 };

@@ -45,8 +45,8 @@ export function GicleeCaseStudy() {
           </div>
           <div className={styles.heroLead}>
             <p className={styles.heroTitle}>
-              <span>Fine art.</span>{" "}
-              <span className="dt-italic">Agentic AI.</span>
+              <span>Fine art</span>{" "}
+              <span className="dt-italic">Agentic AI</span>
             </p>
             <div className={styles.heroSummary}>
               <p>
@@ -69,7 +69,7 @@ export function GicleeCaseStudy() {
 
       <section id="preflight" className={styles.engine}>
         <div className={styles.lead}>
-          <h2>Before the ink.</h2>
+          <h2>Before the ink</h2>
           <p>
             An artist has a file and a print in mind. They need to know how
             large it can go, what needs fixing and what a printmaker still needs
@@ -110,7 +110,7 @@ export function GicleeCaseStudy() {
 
       <section className={styles.identity}>
         <div className={styles.lead}>
-          <h2>The print test became the identity.</h2>
+          <h2>The print test became the identity</h2>
           <p>
             A test sheet makes the qualities of a print visible. We took its
             gradients, registration marks and colour strips into the graphic
@@ -130,7 +130,7 @@ export function GicleeCaseStudy() {
 
       <section className={styles.service}>
         <div className={styles.lead}>
-          <h2>Make the next decision clear.</h2>
+          <h2>Make the next decision clear</h2>
           <p>
             Choosing a paper, sizing an image and preparing a file are all
             decisions about the same print. The digital service brings them
@@ -143,7 +143,7 @@ export function GicleeCaseStudy() {
           <ProjectGallery rows={serviceVisuals} eagerFirstRow={false} />
         </div>
         <div className={styles.serviceNote}>
-          <h3>Give artists something they can act on.</h3>
+          <h3>Give artists something they can act on</h3>
           <p>
             A low resolution reading is useful when it comes with options. The
             checker shows how size and placement change the result. The agent
@@ -163,7 +163,7 @@ export function GicleeCaseStudy() {
 
       <section className={styles.studio}>
         <div className={styles.lead}>
-          <h2>From screen to studio.</h2>
+          <h2>From screen to studio</h2>
           <p>
             The artist can arrive at the studio with a chosen size and a report
             that explains what the file supports. The printmaker can start with
